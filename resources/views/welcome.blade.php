@@ -25,7 +25,7 @@
     </head>
     <body class="antialiased">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary class="text-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="container-fluid">
                     <!--las imagenes van en la carpeta public-->
                     <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 100px"> 
