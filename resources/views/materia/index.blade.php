@@ -36,7 +36,6 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Matidmateria</th>
 										<th>Matnombremateria</th>
 										<th>Matdescripcion</th>
 
@@ -48,7 +47,6 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $materia->matIdMateria }}</td>
 											<td>{{ $materia->matNombreMateria }}</td>
 											<td>{{ $materia->matDescripcion }}</td>
 
