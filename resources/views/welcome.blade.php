@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width"/>
 
         <title>INNOVAR EN TI</title>
 
@@ -16,74 +17,136 @@
 
         <!--Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+        
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+
+        <!-- Icons-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        
     </head>
     <body class="antialiased">
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div class="container-fluid">
+                <div class="container">
                     <!--las imagenes van en la carpeta public-->
                     <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 100px"> 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><h5>INNOVAR EN TI</h5></a>
+                                <a class="nav-link active" aria-current="page" href=" / "><h5>INNOVAR EN TI</h5></a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link active" href="{{ route('login') }}">Ingresar</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
+        <br>
         <main>
-            <p>INFORMACION GENERAL DE LA EMPRESA Y EL SISTEMA...</p>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header text-center fw-bold fs-4" >{{ __('Llena los siguientes datos para ingresar al sistema:') }}</div>
+
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+
+                                    <div class="row mb-3">
+                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo Electrónico') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
+
+                                        <div class="col-md-6">
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-0">
+                                        <div class="col-md-8 offset-md-5">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Ingresar') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+        <br>
         <footer class="bg-light text-center text-lg-start">
             <!-- Grid container -->
             <div class="container p-4">
                 <!--Grid row-->
                 <div class="row">
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Footer text</h5>
-
-                    <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                    </p>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Footer text</h5>
-
-                    <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                    </p>
-                </div>
-                <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center fw-bold fs-4">Acerca de INNOVAR EN TI</h5>
+                        <p>
+                        INNOVAR EN TI es un emprendimiento de una empresa que se desea creó con el objetivo de
+                        brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los estudiantes en los 
+                        colegios sean mucho más dinámicas y de calidad.
+                        </p>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center fw-bold fs-4">Sobre los Recursos Educativos Digitales</h5>
+                        <p>
+                        INNOVAR EN TI ofrece los recursos educativos para los grados primero, segundo y tercero de los colegios públicos 
+                        y privados, en primera instancia, del país, después a nivel internacional.
+                        </p>
+                    </div>
+                    <!--Grid column-->
                 </div>
                 <!--Grid row-->
             </div>
-            <!-- Grid container -->
+            <div class="d-flex justify-content-center">
+                <section class="mb-1">
+                    <!-- Facebook -->
+                    <i class="bi bi-facebook"></i>
 
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                    <!-- Twitter -->
+                    <i class="bi bi-twitter"></i>
+
+                    <!-- Google -->
+                    <i class="bi bi-google"></i>
+
+                    <!-- Instagram -->
+                    <i class="bi bi-instagram"></i>
+                </section>
             </div>
             <!-- Copyright -->
+            <div class="text-center p-3 bg-primary text-light">
+                © 2022 Copyright
+            </div>
         </footer>
     </body>
 </html>
