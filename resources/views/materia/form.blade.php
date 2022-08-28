@@ -2,11 +2,6 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('matIdMateria') }}
-            {{ Form::text('matIdMateria', $materia->matIdMateria, ['class' => 'form-control' . ($errors->has('matIdMateria') ? ' is-invalid' : ''), 'placeholder' => 'Matidmateria']) }}
-            {!! $errors->first('matIdMateria', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
             {{ Form::label('matNombreMateria') }}
             {{ Form::text('matNombreMateria', $materia->matNombreMateria, ['class' => 'form-control' . ($errors->has('matNombreMateria') ? ' is-invalid' : ''), 'placeholder' => 'Matnombremateria']) }}
             {!! $errors->first('matNombreMateria', '<div class="invalid-feedback">:message</div>') !!}
