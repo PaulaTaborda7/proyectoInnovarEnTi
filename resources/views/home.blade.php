@@ -16,6 +16,11 @@
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrar Docente</a>
                     @endif
+                    <div class="container">
+                        <div class="justify-content-center">
+                            <a href="/materias" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar materia</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
