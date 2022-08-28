@@ -99,10 +99,9 @@ class MateriaController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id, Materia $materia)
+    public function destroy($id)
     {
-        $materia = Materia::where('id', $id);
-        $materia->delete();
+        $materia = Materia::find($id)->delete();
 
         return redirect()->route('materias.index')
             ->with('success', 'Materia deleted successfully');

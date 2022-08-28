@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Materia
- *
- * @property $matIdMateria
+ 
  * @property $matNombreMateria
  * @property $matDescripcion
  * @property $created_at
@@ -20,7 +19,6 @@ class Materia extends Model
 {
     
     static $rules = [
-		'matIdMateria' => 'required',
 		'matNombreMateria' => 'required',
 		'matDescripcion' => 'required',
     ];
@@ -32,7 +30,7 @@ class Materia extends Model
      *
      * @var array
      */
-    protected $fillable = ['matIdMateria','matNombreMateria','matDescripcion'];
+    protected $fillable = ['matNombreMateria','matDescripcion'];
 
 
 
