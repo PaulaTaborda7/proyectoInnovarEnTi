@@ -16,11 +16,15 @@ class MateriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $materias = Materia::paginate();
+        $busqueda = $request->busqueda;
+        $materias = Materia::where('id','LIKE','%'.$busqueda.'%')
+                    ->orWhere('matNombreMateria','LIKE','%'.$busqueda.'%')
+                    ->latest('id')
+                    ->paginate(10);
 
-        return view('materia.index', compact('materias'))
+        return view('materia.index', compact('materias','busqueda'))
             ->with('i', (request()->input('page', 1) - 1) * $materias->perPage());
     }
 

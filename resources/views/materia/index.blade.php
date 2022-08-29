@@ -28,7 +28,16 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-
+                    <br>
+                    <div class="d-md-flex justify-content-md-end">
+                        <form action="{{ route('materias.index') }}" method="GET">
+                            <div class="btn-group">
+                                <input type="text" name="busqueda" class="form-control">
+                                <input type="submit" value="enviar" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                    
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -63,10 +72,15 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4">{{$materias->appends(['busqueda'=>$busqueda])}}</td>
+                                </tr>
+                            </tfoot>
                         </div>
                     </div>
                 </div>
-                {!! $materias->links() !!}
+                {{-- {!! $materias->links() !!} --}}
             </div>
         </div>
     </div>
