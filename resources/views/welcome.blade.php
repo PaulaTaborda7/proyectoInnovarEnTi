@@ -30,14 +30,14 @@
     </head>
     <body class="antialiased">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
-                    <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 100px"> 
+                    <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href=" / "><h5>INNOVAR EN TI</h5></a>
+                                <a class="nav-link active" aria-current="page" href=" / "><h3>INNOVAR EN TI</h3></a>
                             </li>
                             <!--<li class="nav-item">
                                 <a class="nav-link active" href="{{ route('login') }}">Ingresar</a>
@@ -144,7 +144,7 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 bg-primary text-light">
+            <div class="text-center p-3 text-light" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
                 © 2022 Copyright
             </div>
         </footer>

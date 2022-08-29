@@ -30,14 +30,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
             <div class="container-fluid">
-                <!--las imagenes van en la carpeta public-->
-                <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 100px"> 
+                <!--las imágenes van en la carpeta public-->
+                <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><h5>INNOVAR EN TI</h5></a>
+                            <a class="nav-link active" aria-current="page" href="#"><h3 style="-webkit-text-stroke: 0.7px rgb(46, 68, 94)">INNOVAR EN TI</h3></a>
                         </li>
                         <!--<li class="nav-item">
                             <a class="nav-link active" href="{{ route('login') }}">Ingresar</a>
