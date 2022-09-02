@@ -18,7 +18,7 @@ Materia
 
                         <div class="float-right">
                             <a href="{{ route('materias.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                {{ __('Create New') }}
+                                {{ __('Agregar nueva materia') }}
                             </a>
                         </div>
                     </div>
@@ -43,10 +43,10 @@ Materia
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>No</th>
+                                    <th>Código</th>
 
-                                    <th>Matnombremateria</th>
-                                    <th>Matdescripcion</th>
+                                    <th>Nombre de la materia</th>
+                                    <th>Descripción de la materia</th>
 
                                     <th></th>
                                 </tr>
@@ -61,11 +61,11 @@ Materia
 
                                     <td>
                                         <form action="{{ route('materias.destroy',$materia->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -74,9 +74,9 @@ Materia
                         </table>
                         <tfoot>
                             <tr>
-                                <td colspan="4">{{$materias->appends(['busqueda'=>$busqueda])}}</td>
+                                <td colspan="4">{{$materias->appends(['busqueda'=>$busqueda])}}</td> 
                             </tr>
-                        </tfoot>
+                        </tfoot> 
                         <div class="container">
                             <div class="justify-content-center">
                                 <a href="/home" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Regresar</button></a>

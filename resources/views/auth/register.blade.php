@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar el docente:') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar el nuevo administrador:') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -16,6 +16,19 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="documentoIdentidad" class="col-md-4 col-form-label text-md-end">{{ __('Documento de identidad') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="documentoIdentidad" type="text" class="form-control @error('documentoIdentidad') is-invalid @enderror" name="documentoIdentidad" value="{{ old('documentoIdentidad') }}" required autocomplete="documentoIdentidad" autofocus>
+                                @error('documentoIdentidad')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

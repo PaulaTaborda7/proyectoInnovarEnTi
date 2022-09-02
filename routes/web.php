@@ -30,11 +30,21 @@ Route::group(['middleware' => ['soloadmin']], function () {
     Route::resource('/materias', MateriaController::class);
 });
 
-Route::resource('/docente', DocenteController::class);
 
-Route::resource('/estudiante', EstudianteController::class);
+Route::group(['middleware' => ['solodocente']], function () {
+    Route::resource('/docente', DocenteController::class);
+});
 
-Route::resource('/padre', PadreController::class);
+Route::group(['middleware' => ['soloestudiante']], function () {
+    Route::resource('/estudiante', EstudianteController::class);
+});
+
+Route::group(['middleware' => ['solopadre']], function () {
+    Route::resource('/padre', PadreController::class);
+});
+
+
+
 
 
 

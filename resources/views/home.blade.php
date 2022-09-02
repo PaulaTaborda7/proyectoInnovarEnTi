@@ -16,7 +16,7 @@
                     @if (Route::has('register'))
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><button class="btn btn-outline-info">Registrar docente</button></a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><button class="btn btn-outline-info">Registrar administrador</button></a>
                         </div>
                     </div>
                     @endif

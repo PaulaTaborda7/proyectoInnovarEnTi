@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Database\Eloquent\Model;
 
 class RegisterController extends Controller
 {
@@ -53,6 +54,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'documentoIdentidad' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -66,8 +68,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
+            'documentoIdentidad' => $data['documentoIdentidad'],
             'email' => $data['email'],
             'tipo' => $data['tipo'],
             'password' => Hash::make($data['password']),
@@ -79,6 +83,6 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         return $this->registered($request, $user)
            // ?: redirect($this->redirectPath());
-          ?: redirect()->route('home')->with('success', 'You are successfully Registered!');
+          ?: redirect()->route('home')->with('success', 'Usuario creado correctamente');
     }
 }
