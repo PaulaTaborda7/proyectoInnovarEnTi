@@ -29,13 +29,16 @@ Materia
                 </div>
                 @endif
                 <br>
-                <div class="d-md-flex justify-content-md-end">
-                    <form action="{{ route('materias.index') }}" method="GET">
-                        <div class="btn-group">
-                            <input type="text" name="busqueda" class="form-control">
-                            <input type="submit" value="enviar" class="btn btn-primary">
-                        </div>
-                    </form>
+
+                <div class="container">
+                    <div class="d-md-flex justify-content-md-end">
+                        <form action="{{ route('materias.index') }}" method="GET">
+                            <div class="btn-group">
+                                <input type="text" name="busqueda" class="form-control">
+                                <input type="submit" value="Buscar" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -43,8 +46,9 @@ Materia
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>Código</th>
+                                    <th>Consecutivo</th>
 
+                                    <th>Código de la materia</th>
                                     <th>Nombre de la materia</th>
                                     <th>Descripción de la materia</th>
 
@@ -55,14 +59,15 @@ Materia
                                 @foreach ($materias as $materia)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-
+                                    
+                                    <td>{{ $materia->matIdMateria }}</td>
                                     <td>{{ $materia->matNombreMateria }}</td>
                                     <td>{{ $materia->matDescripcion }}</td>
 
                                     <td>
                                         <form action="{{ route('materias.destroy',$materia->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}"><i class="fa fa-fw fa-eye"></i>Ver más</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>

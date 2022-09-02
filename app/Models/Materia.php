@@ -19,6 +19,7 @@ class Materia extends Model
 {
     
     static $rules = [
+    'matIdMateria' => 'required',
 		'matNombreMateria' => 'required',
 		'matDescripcion' => 'required',
     ];
@@ -30,7 +31,7 @@ class Materia extends Model
      *
      * @var array
      */
-    protected $fillable = ['matNombreMateria','matDescripcion'];
+    protected $fillable = ['matIdMateria','matNombreMateria','matDescripcion'];
 
 
 
