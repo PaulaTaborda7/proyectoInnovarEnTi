@@ -19,8 +19,9 @@ class MateriaController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $materias = Materia::where('id','LIKE','%'.$busqueda.'%')
+        $materias = Materia::where('matIdMateria','LIKE','%'.$busqueda.'%')
                     ->orWhere('matNombreMateria','LIKE','%'.$busqueda.'%')
+                    ->orWhere('matDescripcion','LIKE','%'.$busqueda.'%')
                     ->latest('id')
                     ->paginate(10);
 

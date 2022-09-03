@@ -28,11 +28,12 @@ Auth::routes();
 Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/materias', MateriaController::class);
+    Route::resource('/docentes', DocenteController::class);
 });
 
 
 Route::group(['middleware' => ['solodocente']], function () {
-    Route::resource('/docente', DocenteController::class);
+    //Route::resource('/docentes', DocenteController::class);
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {
@@ -42,9 +43,6 @@ Route::group(['middleware' => ['soloestudiante']], function () {
 Route::group(['middleware' => ['solopadre']], function () {
     Route::resource('/padre', PadreController::class);
 });
-
-
-
 
 
 

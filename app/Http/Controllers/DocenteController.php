@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Docente;
 use Illuminate\Http\Request;
 
+/**
+ * Class DocenteController
+ * @package App\Http\Controllers
+ */
 class DocenteController extends Controller
 {
     /**
@@ -11,14 +16,27 @@ class DocenteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('solodocente',['only'=> ['index']]);
+    // }
+    public function index(Request $request)
     {
-        $this->middleware('auth');
-        $this->middleware('solodocente',['only'=> ['index']]);
-    }
-    public function index()
-    {
-        return view('docente');
+        $busqueda = $request->busqueda;
+        $docentes = Docente::where('name','LIKE','%'.$busqueda.'%')
+                    ->orWhere('documentoIdentidad','LIKE','%'.$busqueda.'%')
+                    ->orWhere('email','LIKE','%'.$busqueda.'%')
+                    ->orWhere('tipo','LIKE','%'.$busqueda.'%')
+                    ->orWhere('password','LIKE','%'.$busqueda.'%')
+                    ->orWhere('docTipoContrato','LIKE','%'.$busqueda.'%')
+                    ->orWhere('docAreaCurricular','LIKE','%'.$busqueda.'%')
+                    ->orWhere('insCodigoNit','LIKE','%'.$busqueda.'%')
+                    ->latest('id')
+                    ->paginate(10);
+
+        return view('docente.index', compact('docentes','busqueda'))
+            ->with('i', (request()->input('page', 1) - 1) * $docentes->perPage());
     }
 
     /**
@@ -28,62 +46,79 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        //
+        $docente = new Docente();
+        return view('docente.create', compact('docente'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Docente::$rules);
+
+        $docente = Docente::create($request->all());
+
+        return redirect()->route('docentes.index')
+            ->with('success', 'Docente created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $docente = Docente::find($id);
+
+        return view('docente.show', compact('docente'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $docente = Docente::find($id);
+
+        return view('docente.edit', compact('docente'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  Docente $docente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Docente $docente)
     {
-        //
+        request()->validate(Docente::$rules);
+
+        $docente->update($request->all());
+
+        return redirect()->route('docentes.index')
+            ->with('success', 'Docente updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        //
+        $docente = Docente::find($id)->delete();
+
+        return redirect()->route('docentes.index')
+            ->with('success', 'Docente deleted successfully');
     }
 }
