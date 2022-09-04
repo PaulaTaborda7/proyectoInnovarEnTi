@@ -1,6 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
+        <form action="/auth/register" method="post"></form>
         <div class="form-group">
             {{ Form::label('Nombre_completo') }}
             {{ Form::text('name', $docente->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}

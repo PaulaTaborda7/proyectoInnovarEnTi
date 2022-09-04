@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Docente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class DocenteController
@@ -39,6 +40,10 @@ class DocenteController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $docentes->perPage());
     }
 
+    public function index2(Request $request) {
+        return view('docente');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -60,7 +65,17 @@ class DocenteController extends Controller
     {
         request()->validate(Docente::$rules);
 
-        $docente = Docente::create($request->all());
+        // $docente = Docente::create($request->all());
+        Docente::create([
+            'name' => $request['name'],
+            'documentoIdentidad' => $request['documentoIdentidad'],
+            'email' => $request['email'],
+            'tipo' => $request['tipo'],
+            'password' => Hash::make($request['password']),
+            'docTipoContrato' => $request['docTipoContrato'],
+            'docAreaCurricular' => $request['docAreaCurricular'],
+            'insCodigoNit' => $request['insCodigoNit'],
+        ]);
 
         return redirect()->route('docentes.index')
             ->with('success', 'Docente created successfully.');
