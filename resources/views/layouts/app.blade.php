@@ -39,10 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href=" # "><h3 class="display-4">INNOVAR EN TI</h3></a>
                         </li>
-<<<<<<< HEAD
                         @if (Session::has('LoggedDocente'))
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-white">
                                  {{ Session::get('nombreCompletoDocente')  }}
                                  {{-- {{ Auth::user()->name }} --}}
                             </a>
@@ -60,27 +59,6 @@
                             </div>
                         </li>
                         @endif
-=======
-                        @guest
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-white">
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" >
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Cierre de sesión') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
->>>>>>> 17825e4efab3566703a204730cab8fc54e0fc8e2
                     </ul>
                 </div>
             </div>
