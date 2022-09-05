@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 
 @section('content')
 <div class="container">
@@ -42,7 +42,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Ingresar') }}
+                                    {{ __('Ingresarr') }}
                                 </button>
                             </div>
                         </div>

@@ -17,19 +17,19 @@ class SoloEstudiante
      */
     public function handle(Request $request, Closure $next)
     {
-        switch(auth::user()->tipo){
-            case ('1'):
-                return redirect('home');//si es administrador continua al HOME
-            break;
-			case('2'):
-                return redirect('docente');// si es un docente redirige a la ruta docente
-			break;	
-            case ('3'):
-                return $next($request);//si es estudiante redirige a la ruta estudiante
-            break;
-            case ('4'):
-                return redirect('padre');//si es padre redirige a la ruta padre
-            break;
-        }
+        // switch(auth::user()->tipo){
+        //     case ('1'):
+        //         return redirect('home');//si es administrador continua al HOME
+        //     break;
+		// 	case('2'):
+        //         return redirect('docente');// si es un docente redirige a la ruta docente
+		// 	break;	
+        //     case ('3'):
+        //         return $next($request);//si es estudiante redirige a la ruta estudiante
+        //     break;
+        //     case ('4'):
+        //         return redirect('padre');//si es padre redirige a la ruta padre
+        //     break;
+        // }
     }
 }

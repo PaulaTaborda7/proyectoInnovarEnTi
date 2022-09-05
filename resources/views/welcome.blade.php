@@ -39,9 +39,6 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href=" / "><h3>INNOVAR EN TI</h3></a>
                             </li>
-                            <!--<li class="nav-item">
-                                <a class="nav-link active" href="{{ route('login') }}">Ingresar</a>
-                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -58,7 +55,7 @@
 
                             <div class="container">
                                 <div class="justify-content-center">
-                                    <a href="/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">ADMINISTRADOR</button></a>
+                                    <a href="/admin/loginAdmin" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">ADMINISTRADOR</button></a>
                                 </div>
                             </div>
                             <br>

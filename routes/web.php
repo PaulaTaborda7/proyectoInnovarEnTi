@@ -6,9 +6,9 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\PadreController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\AutenticacionDocenteController;
+use App\Http\Controllers\AutenticacionAdminController;
 
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +23,19 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
+
+Route::post('/admin/check', [AutenticacionAdminController::class, 'checkAdmin'])->name('admin.check');
+Route::get('/admin/save', [AutenticacionAdminController::class, 'saveAdmin'])->name('admin.save');
+Route::get('/admin/loginAdmin', [AutenticacionAdminController::class, 'login']);
+
 Route::post('/auth/check', [AutenticacionDocenteController::class, 'check'])->name('auth.check'); //Hace el login de docente 
 Route::get('/auth/login', [AutenticacionDocenteController::class, 'login']);
 Route::get('/auth/register', [AutenticacionDocenteController::class, 'register']);
-//Route::get('/', [AutenticacionController::class, 'index'])->name('auth.index');
+Route::get('/auth/login', [AutenticacionDocenteController::class, 'index'])->name('auth.index');
 Route::get('/vistadocentes', [DocenteController::class, 'index2']);
+Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de usuario Route::resource('/materias', MateriaController::class);
+Route::resource('/docentes', DocenteController::class);
 
 Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
