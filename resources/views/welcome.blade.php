@@ -37,7 +37,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href=" / "><h3>INNOVAR EN TI</h3></a>
+                                <a class="nav-link active" aria-current="page" href=" / "><h3 class="display-4">INNOVAR EN TI</h3></a>
                             </li>
                         </ul>
                     </div>
@@ -46,28 +46,16 @@
         </header>
         <br>
         <main>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header text-center fw-bold fs-4" >{{ __('Llena los siguientes datos para ingresar al sistema:') }}</div>
-
-
-                            <div class="container">
-                                <div class="justify-content-center">
-                                    <a href="/admin/loginAdmin" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">ADMINISTRADOR</button></a>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="container">
-                                <div class="justify-content-center">
-                                    <a href="/auth/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">DOCENTE</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container" style="background-color: #F1FEFE">
+                <div class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('Selecciona el perfil') }}</div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <a href="/admin/loginAdmin" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
+                    <a href="/auth/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
+                    <a href="#" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
+                    <a href="#" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a> 
                 </div>
-            </div>
+            </div>        
         </main>
         <br>
         <footer class="bg-light text-center text-lg-start">

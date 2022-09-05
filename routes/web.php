@@ -7,6 +7,7 @@ use App\Http\Controllers\PadreController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\AutenticacionDocenteController;
 use App\Http\Controllers\AutenticacionAdminController;
+use App\Http\Controllers\InstitucionController; 
 
 use Illuminate\Http\Request;
 /*
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/admin/save', [AutenticacionAdminController::class, 'saveAdmin'])->name('admin.save');
     Route::resource('/materias', MateriaController::class);
     Route::resource('/docentes', DocenteController::class);
+    Route::resource('/institucions', InstitucionController::class);
     //Route::get('/auth/login', "App\Http\Controllers\AutenticacionDocente@login");
     //Route::get('/docente/registerDocente', [AutenticacionDocente::class, 'register'])->name('admin.docente.create');
 });
@@ -58,5 +60,6 @@ Route::group(['middleware' => ['solopadre']], function () {
     Route::resource('/padre', PadreController::class);
 });
 
+//Route::resource('/institucions', InstitucionController::class);
 
 

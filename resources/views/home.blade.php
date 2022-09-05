@@ -32,6 +32,12 @@
                             <a href="/docentes" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar docentes</button></a>
                         </div>
                     </div>
+                    <br>
+                    <div class="container">
+                        <div class="justify-content-center">
+                            <a href="/institucions" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar instituciones</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

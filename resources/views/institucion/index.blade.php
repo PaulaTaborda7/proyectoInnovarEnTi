@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-Materia
+Institucion
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@ Materia
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Materia') }}
+                            {{ __('Institucion') }}
                         </span>
 
                         <div class="float-right">
-                            <a href="{{ route('materias.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                {{ __('Agregar nueva materia') }}
+                            <a href="{{ route('institucions.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
+                                {{ __('Registrar Institución') }}
                             </a>
                         </div>
                     </div>
@@ -29,10 +29,9 @@ Materia
                 </div>
                 @endif
                 <br>
-
                 <div class="container">
                     <div class="d-md-flex justify-content-md-end">
-                        <form action="{{ route('materias.index') }}" method="GET">
+                        <form action="{{ route('institucions.index') }}" method="GET">
                             <div class="btn-group">
                                 <input type="text" name="busqueda" class="form-control">
                                 <input type="submit" value="Buscar" class="btn btn-primary">
@@ -46,31 +45,45 @@ Materia
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>Consecutivo</th>
+                                    <th>No</th>
 
-                                    <th>Código de la materia</th>
-                                    <th>Nombre de la materia</th>
-                                    <th>Descripción de la materia</th>
+                                    <th>Codigonit</th>
+                                    <th>Insdireccion</th>
+                                    <th>Insdepartamento</th>
+                                    <th>Inspais</th>
+                                    <th>Instelefono</th>
+                                    <th>Inscalendario</th>
+                                    <th>Inscantidaddocentes</th>
+                                    <th>Inscantidadestudiantes</th>
+                                    <th>Completo</th>
+                                    <th>Dea</th>
 
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($materias as $materia)
+                                @foreach ($institucions as $institucion)
                                 <tr>
                                     <td>{{ ++$i }}</td>
 
-                                    <td>{{ $materia->matIdMateria }}</td>
-                                    <td>{{ $materia->matNombreMateria }}</td>
-                                    <td>{{ $materia->matDescripcion }}</td>
+                                    <td>{{ $institucion->codigoNit }}</td>
+                                    <td>{{ $institucion->insDireccion }}</td>
+                                    <td>{{ $institucion->insDepartamento }}</td>
+                                    <td>{{ $institucion->insPais }}</td>
+                                    <td>{{ $institucion->insTelefono }}</td>
+                                    <td>{{ $institucion->insCalendario }}</td>
+                                    <td>{{ $institucion->insCantidadDocentes }}</td>
+                                    <td>{{ $institucion->insCantidadEstudiantes }}</td>
+                                    <td>{{ $institucion->completo }}</td>
+                                    <td>{{ $institucion->dea }}</td>
 
                                     <td>
-                                        <form action="{{ route('materias.destroy',$materia->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}"><i class="fa fa-fw fa-eye"></i>Ver más</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
+                                        <form action="{{ route('institucions.destroy',$institucion->id) }}" method="POST">
+                                            <a class="btn btn-sm btn-primary " href="{{ route('institucions.show',$institucion->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('institucions.edit',$institucion->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -79,7 +92,7 @@ Materia
                         </table>
                         <tfoot>
                             <tr>
-                                <td colspan="4">{{$materias->appends(['busqueda'=>$busqueda])}}</td>
+                                <td colspan="4">{{$institucions->appends(['busqueda'=>$busqueda])}}</td>
                             </tr>
                         </tfoot>
                         <div class="container">
@@ -90,9 +103,8 @@ Materia
                     </div>
                 </div>
             </div>
-            {{-- {!! $materias->links() !!} --}}
+            {!! $institucions->links() !!}
         </div>
     </div>
 </div>
-
 @endsection
