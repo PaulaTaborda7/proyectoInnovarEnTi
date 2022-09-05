@@ -26,8 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::post('/admin/check', [AutenticacionAdminController::class, 'checkAdmin'])->name('admin.check');
-Route::get('/admin/save', [AutenticacionAdminController::class, 'saveAdmin'])->name('admin.save');
-Route::get('/admin/loginAdmin', [AutenticacionAdminController::class, 'login']);
+Route::get('/admin/loginAdmin', [AutenticacionAdminController::class, 'login']); //Loguea administrador
 
 Route::post('/auth/check', [AutenticacionDocenteController::class, 'check'])->name('auth.check'); //Hace el login de docente 
 Route::get('/auth/login', [AutenticacionDocenteController::class, 'login']);
@@ -39,6 +38,7 @@ Route::resource('/docentes', DocenteController::class);
 
 Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/admin/save', [AutenticacionAdminController::class, 'saveAdmin'])->name('admin.save');
     Route::resource('/materias', MateriaController::class);
     Route::resource('/docentes', DocenteController::class);
     //Route::get('/auth/login', "App\Http\Controllers\AutenticacionDocente@login");
