@@ -59,7 +59,7 @@ Materia
                                 @foreach ($materias as $materia)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    
+
                                     <td>{{ $materia->matIdMateria }}</td>
                                     <td>{{ $materia->matNombreMateria }}</td>
                                     <td>{{ $materia->matDescripcion }}</td>
@@ -79,12 +79,12 @@ Materia
                         </table>
                         <tfoot>
                             <tr>
-                                <td colspan="4">{{$materias->appends(['busqueda'=>$busqueda])}}</td> 
+                                <td colspan="4">{{$materias->appends(['busqueda'=>$busqueda])}}</td>
                             </tr>
-                        </tfoot> 
+                        </tfoot>
                         <div class="container">
-                            <div class="justify-content-center">
-                                <a href="/home" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Regresar</button></a>
+                            <div class="justify-content-cente">
+                                <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>
                             </div>
                         </div>
                     </div>

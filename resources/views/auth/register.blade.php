@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar el nuevo administrador:') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar el nuevo administrador') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -96,8 +96,8 @@
 
                     </form>
                     <div class="container">
-                        <div class="justify-content-center">
-                            <a href="/home" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Regresar</button></a>
+                        <div class="justify-content-cente">
+                            <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>
                         </div>
                     </div>
                 </div>

@@ -1,30 +1,28 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Agregar nueva Materia
+Agregar nueva Materia
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-                @includeif('partials.errors')
+            @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Agregar nueva Materia</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('materias.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
+            <div class="card card-default">
+                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar la materia') }}</div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('materias.store') }}" role="form" enctype="multipart/form-data">
+                        @csrf
 
-                            @include('materia.form')
+                        @include('materia.form')
 
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-@endsection
+    </div>
+
+    @endsection
