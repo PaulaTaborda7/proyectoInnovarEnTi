@@ -49,7 +49,7 @@
                     </form>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Regresar</button></a>
+                            <a class="ml-4 text-sm btn btn-primary" href="/">Regresar</a>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Crear Institucion</span>
+                        <span class="card-title">Crear Institución</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('institucions.store') }}"  role="form" enctype="multipart/form-data">
