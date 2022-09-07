@@ -34,7 +34,7 @@ class Docente extends Model
 		'name' => 'required',
 		'documentoIdentidad' => 'required',
 		'email' => 'required',
-    'tipo' => 'required',
+    //'tipo' => 'required',
     'password' => 'required',
 		'docTipoContrato' => 'required',
 		'docAreaCurricular' => 'required',
