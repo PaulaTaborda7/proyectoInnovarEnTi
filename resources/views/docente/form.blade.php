@@ -21,25 +21,44 @@
         {{ Form::text('tipo', $docente->tipo, ['class' => 'form-control' . ($errors->has('tipo') ? ' is-invalid' : ''), 'placeholder' => '2']),  }}
         {!! $errors->first('tipo', '<div class="invalid-feedback">:message</div>') !!}
     </div>-->
-    
+
     <!--Ya tiene el valor por defecto (2)-->
     <div class="form-group">
         <span>Tipo de usuario</span>
         <input id="tipo" type="text" class="form-control" name="tipo" disabled placeholder="2">
     </div>
 
+
+    <!--
     <div class="form-group">
         <span>Contraseña</span>
         <br>
         {{ Form::password('password', $docente->password, ['class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Password']) }}
         {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
+    </div>-->
+
+    <div class="form-group">
+        <span>Contraseña</span>
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required value="{{ old('password', $docente->password) }}" autocomplete="new-password">
+        @error('password')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
+    <!--
     <div class="form-group ">
         <span>Confirmar contraseña</span>
         <br>
         {{ Form::password('password', $docente->password, ['class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Confirmar Password']) }}
         {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
+    </div>-->
+    <div class="form-group">
+        <span>Confirmar contraseña</span>
+        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+  
     </div>
+
     <div class="form-group">
         <span>Tipo de contrato</span>
         {{ Form::text('docTipoContrato', $docente->docTipoContrato, ['class' => 'form-control' . ($errors->has('docTipoContrato') ? ' is-invalid' : ''), 'placeholder' => 'Tipo de contrato']) }}
