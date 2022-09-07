@@ -15,11 +15,19 @@
         {{ Form::text('email', $docente->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
         {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
     </div>
+    <!--
     <div class="form-group">
         <span>Tipo de usuario</span>
-        {{ Form::text('tipo', $docente->tipo, ['class' => 'form-control' . ($errors->has('tipo') ? ' is-invalid' : ''), 'placeholder' => 'Tipo']) }}
+        {{ Form::text('tipo', $docente->tipo, ['class' => 'form-control' . ($errors->has('tipo') ? ' is-invalid' : ''), 'placeholder' => '2']),  }}
         {!! $errors->first('tipo', '<div class="invalid-feedback">:message</div>') !!}
+    </div>-->
+    
+    <!--Ya tiene el valor por defecto (2)-->
+    <div class="form-group">
+        <span>Tipo de usuario</span>
+        <input id="tipo" type="text" class="form-control" name="tipo" disabled placeholder="2">
     </div>
+
     <div class="form-group">
         <span>Contraseña</span>
         <br>
@@ -57,7 +65,7 @@
     </div>
     <div class="container">
         <div class="justify-content-cente">
-            <a class="ml-4 text-sm btn btn-primary" href="{{ route('materias.index') }}">Regresar</a>
+            <a class="ml-4 text-sm btn btn-primary" href="{{ route('docentes.index') }}">Regresar</a>
         </div>
     </div>
 </div>

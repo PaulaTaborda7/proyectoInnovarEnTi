@@ -70,7 +70,7 @@ class DocenteController extends Controller
             'name' => $request['name'],
             'documentoIdentidad' => $request['documentoIdentidad'],
             'email' => $request['email'],
-            'tipo' => $request['tipo'],
+            'tipo' => '2',
             'password' => Hash::make($request['password']),
             'docTipoContrato' => $request['docTipoContrato'],
             'docAreaCurricular' => $request['docAreaCurricular'],
