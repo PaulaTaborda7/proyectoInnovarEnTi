@@ -48,12 +48,12 @@ Docente
                                     <th>N°</th>
 
                                     <th>Nombre completo</th>
-                                    <th>Documento</th>
-                                    <th>Email</th>
-                                    <th>Tipo</th>
-                                    <th>Tipo contrato</th>
+                                    <th>Documento de identidad</th>
+                                    <th>Correo electrónico</th>
+                                    <th>Tipo de usuario</th>
+                                    <th>Tipo de contrato</th>
                                     <th>Área curricular</th>
-                                    <th>Código NIT institución</th>
+                                    <th>Código NIT de la institución</th>
 
                                     <th></th>
                                 </tr>
