@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,31 +29,39 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
             <div class="container-fluid">
                 <!--las imágenes van en la carpeta public-->
-                <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
+                <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px">
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><h3 style="-webkit-text-stroke: 0.7px rgb(46, 68, 94)">INNOVAR EN TI</h3></a>
+                            <a class="nav-link active" aria-current="page" href=" # ">
+                                <h3 class="display-4">INNOVAR EN TI</h3>
+                            </a>
                         </li>
+<<<<<<< HEAD
                         @guest
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
+=======
+                        @if (Session::has('LoggedAdmin'))
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-white">
+                                {{ Session::get('nombre')  }}
+                                {{-- {{ Auth::user()->name }} --}}
+>>>>>>> f6831da2e18052790b8b49ddafe76f0f12eaba3e
                             </a>
 
-                            <a href=""></a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar sesión') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -60,7 +69,11 @@
                                 </form>
                             </div>
                         </li>
+<<<<<<< HEAD
                     @endguest
+=======
+                        @endif                       
+>>>>>>> f6831da2e18052790b8b49ddafe76f0f12eaba3e
                     </ul>
                 </div>
             </div>
@@ -70,4 +83,5 @@
         </main>
     </div>
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $institucion->name ?? 'Show Institucion' }}
+    {{ $institucion->name ?? 'Ver información de Institución Educativa' }}
 @endsection
 
 @section('content')
@@ -11,45 +11,45 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Institucion</span>
+                            <span class="card-title">Ver información de Institución Educativa</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('institucions.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('institucions.index') }}">Regresar</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Codigonit:</strong>
+                            <strong>NIT:</strong>
                             {{ $institucion->codigoNit }}
                         </div>
                         <div class="form-group">
-                            <strong>Insdireccion:</strong>
+                            <strong>Dirección:</strong>
                             {{ $institucion->insDireccion }}
                         </div>
                         <div class="form-group">
-                            <strong>Insdepartamento:</strong>
+                            <strong>Departamento:</strong>
                             {{ $institucion->insDepartamento }}
                         </div>
                         <div class="form-group">
-                            <strong>Inspais:</strong>
+                            <strong>País:</strong>
                             {{ $institucion->insPais }}
                         </div>
                         <div class="form-group">
-                            <strong>Instelefono:</strong>
+                            <strong>Teléfono:</strong>
                             {{ $institucion->insTelefono }}
                         </div>
                         <div class="form-group">
-                            <strong>Inscalendario:</strong>
+                            <strong>Tipo de calendario:</strong>
                             {{ $institucion->insCalendario }}
                         </div>
                         <div class="form-group">
-                            <strong>Inscantidaddocentes:</strong>
+                            <strong>Cantidad de docentes:</strong>
                             {{ $institucion->insCantidadDocentes }}
                         </div>
                         <div class="form-group">
-                            <strong>Inscantidadestudiantes:</strong>
+                            <strong>Cantidad de estudiantes:</strong>
                             {{ $institucion->insCantidadEstudiantes }}
                         </div>
                         <div class="form-group">

@@ -42,14 +42,14 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Ingresarr') }}
+                                    {{ __('Ingresar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Regresar</button></a>
+                            <a class="ml-4 text-sm btn btn-primary" href="/">Regresar</a>
                         </div>
                     </div>
                 </div>

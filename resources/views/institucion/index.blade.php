@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-Institucion
+    Institución Educativa
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@ Institucion
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Institucion') }}
+                            {{ __('Institución Educativa') }}
                         </span>
 
                         <div class="float-right">
                             <a href="{{ route('institucions.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                {{ __('Registrar Institución') }}
+                                {{ __('Registrar Institución Educativa') }}
                             </a>
                         </div>
                     </div>
@@ -45,16 +45,16 @@ Institucion
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>No</th>
+                                    <th>No.</th>
 
-                                    <th>Codigonit</th>
-                                    <th>Insdireccion</th>
-                                    <th>Insdepartamento</th>
-                                    <th>Inspais</th>
-                                    <th>Instelefono</th>
-                                    <th>Inscalendario</th>
-                                    <th>Inscantidaddocentes</th>
-                                    <th>Inscantidadestudiantes</th>
+                                    <th>NIT</th>
+                                    <th>Dirección</th>
+                                    <th>Departamento</th>
+                                    <th>País</th>
+                                    <th>Teléfono</th>
+                                    <th>Tipo de calendario</th>
+                                    <th>Cantidad de docentes</th>
+                                    <th>Cantidad de estudiantes</th>
                                     <th>Completo</th>
                                     <th>Dea</th>
 
@@ -79,11 +79,11 @@ Institucion
 
                                     <td>
                                         <form action="{{ route('institucions.destroy',$institucion->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('institucions.show',$institucion->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('institucions.edit',$institucion->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('institucions.show',$institucion->id) }}"><i class="fa fa-fw fa-eye"></i>Ver más</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('institucions.edit',$institucion->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                                         </form>
                                     </td>
                                 </tr>
