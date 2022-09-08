@@ -46,6 +46,12 @@
         </header>
         <br>
         <main>
+            {{-- Acá se obtiene el mensaje de fracaso enviado desde SoloAdmin --}}
+            @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+            @endif
             <div class="container" style="background-color: #F1FEFE">
                 <div class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('Selecciona el perfil') }}</div>
                 <br>

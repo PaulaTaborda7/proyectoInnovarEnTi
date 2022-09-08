@@ -24,33 +24,30 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
+Auth::routes(); //Revisar estas rutas
 
-Route::post('/admin/check', [AutenticacionAdminController::class, 'checkAdmin'])->name('admin.check');
+Route::post('/admin/check', [AutenticacionAdminController::class, 'checkAdmin'])->name('admin.check'); //Revisa el login de un administrador
 Route::get('/admin/loginAdmin', [AutenticacionAdminController::class, 'login']); //Loguea administrador
-
-Route::post('/auth/check', [AutenticacionDocenteController::class, 'check'])->name('auth.check'); //Hace el login de docente 
-Route::get('/auth/login', [AutenticacionDocenteController::class, 'login']);
-Route::get('/auth/register', [AutenticacionDocenteController::class, 'register']);
-Route::get('/auth/login', [AutenticacionDocenteController::class, 'index'])->name('auth.index');
-Route::get('/vistadocentes', [DocenteController::class, 'index2']);
-Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de usuario Route::resource('/materias', MateriaController::class);
-Route::resource('/docentes', DocenteController::class);
+Route::post('/auth/check', [AutenticacionDocenteController::class, 'check'])->name('auth.check'); //Hace el chequeo del login de docente 
+Route::get('/auth/login', [AutenticacionDocenteController::class, 'login']); //Hace el login de docente 
+Route::get('/auth/index', [AutenticacionDocenteController::class, 'index'])->name('auth.index'); //Va al login de docente
 
 Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/admin/save', [AutenticacionAdminController::class, 'saveAdmin'])->name('admin.save');
     Route::resource('/materias', MateriaController::class);
-    Route::resource('/docentes', DocenteController::class);
+    Route::resource('/docentes', DocenteController::class);//Rutas del CRUD de docente
     Route::resource('/institucions', InstitucionController::class);
+    Route::get('/admin/auth/register', [AutenticacionDocenteController::class, 'register']); //Hace el registro de docente 
     //Route::get('/auth/login', "App\Http\Controllers\AutenticacionDocente@login");
     //Route::get('/docente/registerDocente', [AutenticacionDocente::class, 'register'])->name('admin.docente.create');
 });
 
 
-// Route::group(['middleware' => ['solodocente']], function () {
-//     //Route::resource('/docentes', DocenteController::class);
-// });
+Route::group(['middleware' => ['solodocente']], function () {
+    Route::get('/vistadocentes', [DocenteController::class, 'index2']); //Va a la vista de docentes
+    Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de docente     
+});
 
 Route::group(['middleware' => ['soloestudiante']], function () {
     Route::resource('/estudiante', EstudianteController::class);
