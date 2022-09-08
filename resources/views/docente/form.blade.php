@@ -56,7 +56,6 @@
     <div class="form-group">
         <span>Confirmar contraseña</span>
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-  
     </div>
 
     <div class="form-group">

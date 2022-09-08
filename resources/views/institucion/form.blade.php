@@ -27,11 +27,22 @@
         {{ Form::text('insTelefono', $institucion->insTelefono, ['class' => 'form-control' . ($errors->has('insTelefono') ? ' is-invalid' : ''), 'placeholder' => 'teléfono']) }}
         {!! $errors->first('insTelefono', '<div class="invalid-feedback">:message</div>') !!}
     </div>
+    <!--
     <div class="form-group">
         {{ Form::label('Tipo de calendario') }}
         {{ Form::text('insCalendario', $institucion->insCalendario, ['class' => 'form-control' . ($errors->has('insCalendario') ? ' is-invalid' : ''), 'placeholder' => 'calendario']) }}
         {!! $errors->first('insCalendario', '<div class="invalid-feedback">:message</div>') !!}
+    </div>-->
+
+    <div class="form-group">
+        <span>Tipo de calendario</span>
+        <select name="insCalendario" id="insCalendario" class="form-control">
+            <option value="selecciona">Selecciona una opción</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+        </select>
     </div>
+
     <div class="form-group">
         {{ Form::label('Cantidad de docentes') }}
         {{ Form::text('insCantidadDocentes', $institucion->insCantidadDocentes, ['class' => 'form-control' . ($errors->has('insCantidadDocentes') ? ' is-invalid' : ''), 'placeholder' => 'cantidad de docentes']) }}
