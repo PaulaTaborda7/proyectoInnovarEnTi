@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="tipo" class="col-md-4 col-form-label text-md-end">{{ __('Tipo ') }}</label>
+                            <label for="tipo" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de usuario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo">

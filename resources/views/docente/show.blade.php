@@ -21,31 +21,31 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Name:</strong>
+                            <strong>Nombre completo:</strong>
                             {{ $docente->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Documentoidentidad:</strong>
+                            <strong>Documento de identidad:</strong>
                             {{ $docente->documentoIdentidad }}
                         </div>
                         <div class="form-group">
-                            <strong>Email:</strong>
+                            <strong>Correo electrónico:</strong>
                             {{ $docente->email }}
                         </div>
                         <div class="form-group">
-                            <strong>Tipo:</strong>
+                            <strong>Tipo de usuario:</strong>
                             {{ $docente->tipo }}
                         </div>
                         <div class="form-group">
-                            <strong>Doctipocontrato:</strong>
+                            <strong>Tipo de contrato:</strong>
                             {{ $docente->docTipoContrato }}
                         </div>
                         <div class="form-group">
-                            <strong>Docareacurricular:</strong>
+                            <strong>Área curricular:</strong>
                             {{ $docente->docAreaCurricular }}
                         </div>
                         <div class="form-group">
-                            <strong>Inscodigonit:</strong>
+                            <strong>Código NIT de la institución:</strong>
                             {{ $docente->insCodigoNit }}
                         </div>
 
