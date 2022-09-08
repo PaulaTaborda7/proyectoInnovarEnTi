@@ -60,11 +60,11 @@
         {!! $errors->first('completo', '<div class="invalid-feedback">:message</div>') !!}
     </div> -->
     <div class="form-group">
-        <span>Tipo de calendario</span>
+        <span>Completo</span>
         <select name="insCalendario" id="insCalendario" class="form-control">
             <option value="selecciona">Selecciona una opción</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
         </select>
     </div>
     <!--
