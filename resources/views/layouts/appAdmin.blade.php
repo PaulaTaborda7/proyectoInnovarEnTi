@@ -43,19 +43,11 @@
                                 <h3 class="display-4">INNOVAR EN TI</h3>
                             </a>
                         </li>
-<<<<<<< HEAD
-                        @guest
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-=======
                         @if (Session::has('LoggedAdmin'))
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-white">
                                 {{ Session::get('nombre')  }}
                                 {{-- {{ Auth::user()->name }} --}}
->>>>>>> f6831da2e18052790b8b49ddafe76f0f12eaba3e
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -69,11 +61,7 @@
                                 </form>
                             </div>
                         </li>
-<<<<<<< HEAD
-                    @endguest
-=======
                         @endif                       
->>>>>>> f6831da2e18052790b8b49ddafe76f0f12eaba3e
                     </ul>
                 </div>
             </div>
