@@ -65,7 +65,7 @@ class AutenticacionDocenteController extends Controller
         if(session()->has('LoggedDocente')){
             session()->pull('LoggedDocente');
             session()->pull('nombreCompletoDocente');
-            return redirect()->route('auth.index');
+            return redirect('/');
         }
     }
 }
