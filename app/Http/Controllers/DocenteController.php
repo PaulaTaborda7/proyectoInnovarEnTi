@@ -29,7 +29,6 @@ class DocenteController extends Controller
                     ->orWhere('documentoIdentidad','LIKE','%'.$busqueda.'%')
                     ->orWhere('email','LIKE','%'.$busqueda.'%')
                     ->orWhere('tipo','LIKE','%'.$busqueda.'%')
-                    ->orWhere('password','LIKE','%'.$busqueda.'%')
                     ->orWhere('docTipoContrato','LIKE','%'.$busqueda.'%')
                     ->orWhere('docAreaCurricular','LIKE','%'.$busqueda.'%')
                     ->orWhere('insCodigoNit','LIKE','%'.$busqueda.'%')

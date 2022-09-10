@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-Actualizar información de Institución Educativa
+Create Estudiante
 @endsection
 
 @section('content')
@@ -12,13 +12,12 @@ Actualizar información de Institución Educativa
             @includeif('partials.errors')
 
             <div class="card card-default">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Actualizar información de la materia') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar un estudiante') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('institucions.update', $institucion->id) }}" role="form" enctype="multipart/form-data">
-                        {{ method_field('PATCH') }}
+                    <form method="POST" action="{{ route('estudiantes.store') }}" role="form" enctype="multipart/form-data">
                         @csrf
 
-                        @include('institucion.form')
+                        @include('estudiante.form')
 
                     </form>
                 </div>

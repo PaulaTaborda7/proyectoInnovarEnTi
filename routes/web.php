@@ -24,6 +24,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Auth::routes(); //Revisar estas rutas
 
 Route::post('/admin/check', [AutenticacionAdminController::class, 'checkAdmin'])->name('admin.check'); //Revisa el login de un administrador
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['soloadmin']], function () {
 Route::group(['middleware' => ['solodocente']], function () {
     Route::get('/vistadocentes', [DocenteController::class, 'index2']); //Va a la vista de docentes
     Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de docente     
+    Route::resource('/estudiantes', EstudianteController::class);
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {

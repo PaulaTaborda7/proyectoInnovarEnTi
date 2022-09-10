@@ -9,12 +9,16 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    {{ __('You are logged in like DOCENTE!') }}
+                    <div class="container">
+                        <div class="justify-content-center">
+                            <a href="/estudiantes" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar estudiantes</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
