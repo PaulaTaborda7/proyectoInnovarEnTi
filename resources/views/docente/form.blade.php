@@ -2,8 +2,8 @@
     <form action="/auth/register" method="post"></form>
     <div class="form-group">
         <span>Nombre completo</span>
-        {{ Form::text('name', $docente->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-        {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
+        {{ Form::text('nombre', $docente->name, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+        {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
     </div>
     <div class="form-group">
         <span>Documento de identidad</span>

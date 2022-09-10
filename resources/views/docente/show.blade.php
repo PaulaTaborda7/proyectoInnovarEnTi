@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $docente->name ?? 'Show Docente' }}
+    {{ $docente->nombre ?? 'Show Docente' }}
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
                         
                         <div class="form-group">
                             <strong>Nombre completo:</strong>
-                            {{ $docente->name }}
+                            {{ $docente->nombre }}
                         </div>
                         <div class="form-group">
                             <strong>Documento de identidad:</strong>

@@ -25,7 +25,7 @@ class DocenteController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $docentes = Docente::where('name','LIKE','%'.$busqueda.'%')
+        $docentes = Docente::where('nombre','LIKE','%'.$busqueda.'%')
                     ->orWhere('documentoIdentidad','LIKE','%'.$busqueda.'%')
                     ->orWhere('email','LIKE','%'.$busqueda.'%')
                     ->orWhere('tipo','LIKE','%'.$busqueda.'%')
@@ -66,7 +66,7 @@ class DocenteController extends Controller
 
         // $docente = Docente::create($request->all());
         Docente::create([
-            'name' => $request['name'],
+            'nombre' => $request['nombre'],
             'documentoIdentidad' => $request['documentoIdentidad'],
             'email' => $request['email'],
             'tipo' => '2',

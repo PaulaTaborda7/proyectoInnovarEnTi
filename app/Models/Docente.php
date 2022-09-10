@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
  * Class Docente
  *
  * @property $id
- * @property $name
+ * @property $nombre
  * @property $documentoIdentidad
  * @property $email
  * @property $tipo
@@ -31,7 +31,7 @@ class Docente extends Model
 {
     
     static $rules = [
-		'name' => 'required',
+		'nombre' => 'required',
 		'documentoIdentidad' => 'required',
 		'email' => 'required',
     //'tipo' => 'required',
@@ -67,7 +67,7 @@ class Docente extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','documentoIdentidad','email','tipo', 'password', 'docTipoContrato','docAreaCurricular','insCodigoNit'];
+    protected $fillable = ['nombre','documentoIdentidad','email','tipo', 'password', 'docTipoContrato','docAreaCurricular','insCodigoNit'];
 
 
 

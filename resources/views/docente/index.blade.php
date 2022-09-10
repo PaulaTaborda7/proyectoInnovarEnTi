@@ -63,7 +63,7 @@ Docente
                                 <tr>
                                     <td>{{ ++$i }}</td>
 
-                                    <td>{{ $docente->name }}</td>
+                                    <td>{{ $docente->nombre }}</td>
                                     <td>{{ $docente->documentoIdentidad }}</td>
                                     <td>{{ $docente->email }}</td>
                                     <td>{{ $docente->tipo }}</td>

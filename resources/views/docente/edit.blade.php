@@ -12,7 +12,7 @@ Update Docente
             @includeif('partials.errors')
 
             <div class="card card-default">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Actualizar información de la materia') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Actualizar información del docente') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('docentes.update', $docente->id) }}" role="form" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}
@@ -26,4 +26,4 @@ Update Docente
         </div>
     </div>
 </div>
-    @endsection
+@endsection
