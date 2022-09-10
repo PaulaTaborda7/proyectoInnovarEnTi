@@ -62,6 +62,25 @@
                             </div>
                         </li>
                         @endif
+                        @if (Session::has('LoggedEstudiante'))
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-white">
+                                {{ Session::get('nombreCompletoEstudiante')  }}
+                                {{-- {{ Auth::user()->name }} --}}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('estudiante.logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar sesión') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('estudiante.logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>

@@ -58,7 +58,7 @@
                 <div class="d-flex justify-content-center">
                     <a href="/admin/loginAdmin" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
                     <a href="/auth/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
-                    <a href="#" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
+                    <a href="/estudiante/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
                     <a href="#" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a> 
                 </div>
             </div>        

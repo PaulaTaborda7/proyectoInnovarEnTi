@@ -6,6 +6,7 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\PadreController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\AutenticacionDocenteController;
+use App\Http\Controllers\AutenticacionEstudianteController;
 use App\Http\Controllers\AutenticacionAdminController;
 use App\Http\Controllers\InstitucionController; 
 
@@ -30,6 +31,10 @@ Auth::routes(); //Revisar estas rutas
 Route::post('/admin/check', [AutenticacionAdminController::class, 'checkAdmin'])->name('admin.check'); //Revisa el login de un administrador
 Route::get('/admin/loginAdmin', [AutenticacionAdminController::class, 'login']); //Loguea administrador
 Route::post('/auth/check', [AutenticacionDocenteController::class, 'check'])->name('auth.check'); //Hace el chequeo del login de docente 
+Route::post('/estudiante/check', [AutenticacionEstudianteController::class, 'check'])->name('estudiante.check'); //Hace el chequeo del login de docente 
+Route::get('/estudiante/login', [AutenticacionEstudianteController::class, 'login']); //Hace el login de estudiante
+
+
 Route::get('/auth/login', [AutenticacionDocenteController::class, 'login']); //Hace el login de docente 
 Route::get('/auth/index', [AutenticacionDocenteController::class, 'index'])->name('auth.index'); //Va al login de docente
 
@@ -51,9 +56,11 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::resource('/estudiantes', EstudianteController::class);
 });
 
-Route::group(['middleware' => ['soloestudiante']], function () {
-    Route::resource('/estudiante', EstudianteController::class);
-});
+// Route::group(['middleware' => ['soloestudiante']], function () {
+    //Route::resource('/estudiante', EstudianteController::class);
+    Route::get('/vistaestudiantes', [AutenticacionEstudianteController::class, 'index2']); //Va a la vista de estudiantes
+    Route::post('/estudiante/logout', [AutenticacionEstudianteController::class, 'logout'])->name('estudiante.logout');
+// });
 
 Route::group(['middleware' => ['solopadre']], function () {
     Route::resource('/padre', PadreController::class);
