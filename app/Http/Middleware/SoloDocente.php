@@ -27,9 +27,10 @@ class SoloDocente
             return back();
         }
          //Si el administrador está loggeado y desea ir a alguna de las rutas desprotegidas para los docentes, automáticamente se cerrará la sesión de administrador
-         if(session()->has('LoggedAdmin') || (($request->path() == 'auth/login'))){
+        if(session()->has('LoggedAdmin') || (($request->path() == 'auth/login'))){
             echo "<script> alert('Se cerrará su sesión como administrador') </script>";
             session()->pull('LoggedAdmin');
+            session()->pull('nombreAdmin');
         }
 
         if(session()->has('LoggedEstudiante') || ($request->path() == 'auth/login')){

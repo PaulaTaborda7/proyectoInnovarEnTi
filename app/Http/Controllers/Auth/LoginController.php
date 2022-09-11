@@ -81,8 +81,8 @@ class LoginController extends Controller
             if ($request->hasSession()) {
                 //$request->session()->put('auth.password_confirmed_at', time());
                 $request->session()->put('LoggedAdmin', $datosAdministrador->id); //Nos referiremos al id del Administrador loggeado por el nombre loggedAdmin
-                $emailAdmin = $datosAdministrador->email;
-                $request->session()->put('emailAdmin', $emailAdmin);
+                $nombreAdmin = $datosAdministrador->nombre;
+                $request->session()->put('nombreAdmin', $nombreAdmin);
             }
 
             return $this->sendLoginResponse($request);
