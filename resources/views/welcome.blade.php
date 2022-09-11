@@ -46,7 +46,7 @@
         </header>
         <br>
         <main>
-            {{-- Acá se obtiene el mensaje de fracaso enviado desde SoloAdmin --}}
+            {{-- Acá se obtiene el mensaje de fracaso enviado desde SoloAdmin, SoloDocente, SoloEstudiante --}}
             @if (Session::get('fail'))
             <div class="alert alert-danger">
                 {{ Session::get('fail') }}

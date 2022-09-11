@@ -19,8 +19,8 @@ class SoloAdmin
     {
         // Si no ha iniciado sesión y quiere entrar a alguna vista que no sea el login del administrador...
         //Se redirige a la vista de welcome con un mensaje de error
-        if(!session()->has('LoggedAdmin') && ($request->path() != 'admin')){
-            return redirect('/')->with('fail', 'Debes haber iniciado sesión para poder acceder');
+        if(!session()->has('LoggedAdmin') && ($request->path() != 'admin') && ($request->path() != 'home')){
+            return redirect('/')->with('fail', 'Debes haber iniciado sesión para poder acceder AQUI');
         }
         // Si ya se ha iniciado sesión y quiere ir al login del administrador...
         //Se deja en la misma página en que estaba
@@ -28,10 +28,16 @@ class SoloAdmin
             return back();
         }
         // Si hay un docente con sesión iniciada y quiere ir al login de administrador, cierro la sesión de ese docente
-        if(session()->has('LoggedDocente') || ($request->path() == 'login')){
+        if(session()->has('LoggedDocente') || (($request->path() == 'admin/loginAdmin'))){
             echo "<script> alert('Se cerrará su sesión como docente') </script>";
             session()->pull('LoggedDocente');
         }
+        //Si hay un estudiante con sesión iniciada y quiere ir al login de administrador, cierro la sesión de ese docente
+        if(session()->has('LoggedEstudiante') || ($request->path() == 'admin/loginAdmin')){
+            echo "<script> alert('Se cerrará su sesión como estudiante') </script>";
+            session()->pull('LoggedEstudiante');
+        }
+
         // Elimino el caché para prevenir vulneraciones
         return $next($request)  ->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')
                                 ->header('Pragma', 'no-cache')

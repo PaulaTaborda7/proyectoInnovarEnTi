@@ -41,6 +41,7 @@ Route::get('/auth/index', [AutenticacionDocenteController::class, 'index'])->nam
 Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/admin/save', [AutenticacionAdminController::class, 'saveAdmin'])->name('admin.save');
+    Route::post('/admin/logout', [AutenticacionAdminController::class, 'logoutAdmin'])->name('admin.logout');
     Route::resource('/materias', MateriaController::class);
     Route::resource('/docentes', DocenteController::class);//Rutas del CRUD de docente
     Route::resource('/institucions', InstitucionController::class);
@@ -56,11 +57,11 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::resource('/estudiantes', EstudianteController::class);
 });
 
-// Route::group(['middleware' => ['soloestudiante']], function () {
+Route::group(['middleware' => ['soloestudiante']], function () {
     //Route::resource('/estudiante', EstudianteController::class);
     Route::get('/vistaestudiantes', [AutenticacionEstudianteController::class, 'index2']); //Va a la vista de estudiantes
     Route::post('/estudiante/logout', [AutenticacionEstudianteController::class, 'logout'])->name('estudiante.logout');
-// });
+});
 
 Route::group(['middleware' => ['solopadre']], function () {
     Route::resource('/padre', PadreController::class);

@@ -81,8 +81,8 @@ class AutenticacionAdminController extends Controller
             // Verificamos la contraseña
             if(Hash::check($request->password, $datosAdministrador->password)){
                 $request->session()->put('LoggedAdmin', $datosAdministrador->id); //Nos referiremos al id del Administrador loggeado por el nombre loggedAdmin
-                $emailAdmin = $datosAdministrador->email;
-                $request->session()->put('emailAdmin', $emailAdmin);
+                $nombreAdmin = $datosAdministrador->nombre;
+                $request->session()->put('nombreAdmin', $nombreAdmin);
                 //Llevo al Administrador loggeado al index de Administrador. Esta línea va a web.php y ve que esta ruta llama a AutenticacionAdminController en su metodo AdministradorIndex
                 return redirect()->route('home');
             }else{
@@ -94,8 +94,8 @@ class AutenticacionAdminController extends Controller
     public function logoutAdmin(){
         if(session()->has('LoggedAdmin')){
             session()->pull('LoggedAdmin');
-            session()->pull('emailAdmin');
-            return redirect()->route('admin.login');
+            session()->pull('nombreAdmin');
+            return redirect('/');
         }
     }
 }

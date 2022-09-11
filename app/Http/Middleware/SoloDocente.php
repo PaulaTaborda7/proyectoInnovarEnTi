@@ -26,11 +26,23 @@ class SoloDocente
         if(session()->has('LoggedDocente') && ($request->path() == 'auth/login' || $request->path() == '/')){
             return back();
         }
-         // Si el administrador está loggeado y desea ir a alguna de las rutas desprotegidas para los docentes, automáticamente se cerrará la sesión de administrador
-         if(session()->has('LoggedAdmin') && ($request->path() == 'auth/login')){
+         //Si el administrador está loggeado y desea ir a alguna de las rutas desprotegidas para los docentes, automáticamente se cerrará la sesión de administrador
+         if(session()->has('LoggedAdmin') || (($request->path() == 'auth/login'))){
             echo "<script> alert('Se cerrará su sesión como administrador') </script>";
             session()->pull('LoggedAdmin');
         }
+
+        if(session()->has('LoggedEstudiante') || ($request->path() == 'auth/login')){
+            echo "<script> alert('Se cerrará su sesión como estudiante') </script>";
+            session()->pull('LoggedEstudiante');
+        }
+        // Este NO HA DADO
+        // if(session()->has('LoggedAdmin') || ($request->path() == 'estudiante/login')){
+        //     echo "<script> alert('Se cerrará su sesión como administrador') </script>";
+        //     session()->pull('LoggedAdmin');
+        // }
+
+        
         // Elimino el caché para prevenir vulneraciones
         return $next($request)  ->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')
                                 ->header('Pragma', 'no-cache')
