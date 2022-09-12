@@ -1,9 +1,9 @@
 <?php
-
+ 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+ 
 return new class extends Migration
 {
     /**
@@ -16,18 +16,18 @@ return new class extends Migration
         Schema::create('docentes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('documentoIdentidad')->unique();
-            $table->string('email')->unique();
-            $table->string('tipo')->nullable();
-            $table->string('password')->nullable();
+            $table->string('documentoIdentidad');
+            $table->string('email');
+            $table->string('tipo');
+            $table->string('password');
             $table->string('docTipoContrato');
             $table->string('docAreaCurricular');
             $table->string('insCodigoNit');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->foreign('insCodigoNit')->references('codigoNit')->on('institucions');
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

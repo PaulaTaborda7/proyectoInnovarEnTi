@@ -25,7 +25,7 @@ class DocenteController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $docentes = Docente::where('nombre','LIKE','%'.$busqueda.'%')
+        $docentes = Docente::where('documentoIdentidad','LIKE','%'.$busqueda.'%')
                     ->orWhere('documentoIdentidad','LIKE','%'.$busqueda.'%')
                     ->orWhere('email','LIKE','%'.$busqueda.'%')
                     ->orWhere('tipo','LIKE','%'.$busqueda.'%')
@@ -115,12 +115,37 @@ class DocenteController extends Controller
      */
     public function update(Request $request, Docente $docente)
     {
-        request()->validate(Docente::$rules);
+        // request()->validate(Docente::$rules);
 
-        $docente->update($request->all());
+        // $docente->update($request->all());
 
-        return redirect()->route('docentes.index')
-            ->with('success', 'INFORMACIÓN DE DOCENTE ACTUALIZADA CON ÉXITO');
+        // return redirect()->route('docentes.index')
+        //     ->with('success', 'Información de docente actualizada con éxito');
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'documentoIdentidad' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'docTipoContrato' => 'required',
+            'docAreaCurricular' => 'required',
+            'insCodigoNit' => 'required',
+        ]);
+
+        $docente = Docente::find($docente->id);
+
+        $docente->nombre = $request->nombre;
+        $docente->documentoIdentidad = $request->documentoIdentidad;
+        $docente->email = $request->email;
+        $docente->password = $request->password;
+        $docente->docTipoContrato = $request->docTipoContrato;
+        $docente->docAreaCurricular = $request->docAreaCurricular;
+        $docente->insCodigoNit = $request->insCodigoNit;
+        $save = $docente->save();
+        if($save){
+            return redirect()->route('docentes.index')->with('success', 'El docente '.$docente->nombre.' ha sido editado con éxito.');
+        }else{
+            return redirect()->route('docentes.index')->with('fail', 'Ha ocurrido un error editando el docente '.$docente->nombre.'.');
+        }
     }
 
     /**

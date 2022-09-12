@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 
 @section('template_title')
 Materia
@@ -13,12 +13,12 @@ Materia
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Materia') }}
+                            {{ __('Temática') }}
                         </span>
 
                         <div class="float-right">
                             <a href="{{ route('materias.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                {{ __('Agregar nueva materia') }}
+                                {{ __('Agregar nueva temática') }}
                             </a>
                         </div>
                     </div>
@@ -48,9 +48,9 @@ Materia
                                 <tr>
                                     <th>Consecutivo</th>
 
-                                    <th>Código de la materia</th>
-                                    <th>Nombre de la materia</th>
-                                    <th>Descripción de la materia</th>
+                                    <th>Código de la temática</th>
+                                    <th>Nombre de la temática</th>
+                                    <th>Descripción de la temática</th>
 
                                     <th></th>
                                 </tr>
