@@ -22,6 +22,11 @@ class SoloAdmin
         if(!session()->has('LoggedAdmin') && ($request->path() != 'admin') && ($request->path() != 'home')){
             return redirect('/')->with('fail', 'Debes haber iniciado sesión para poder acceder AQUI');
         }
+
+        if(!session()->has('LoggedAdmin') && ($request->path() == 'home')){
+            return redirect('/')->with('fail', 'Debes haber iniciado sesión para poder acceder AQUI');
+        }
+
         // Si ya se ha iniciado sesión y quiere ir al login del administrador...
         //Se deja en la misma página en que estaba
         if(session()->has('LoggedAdmin') && ($request->path() == 'admin')){
