@@ -18,7 +18,7 @@ Update Estudiante
                         {{ method_field('PATCH') }}
                         @csrf
 
-                        @include('estudiante.form')
+                        @include('estudiante.formEdit')
 
                     </form>
                 </div>

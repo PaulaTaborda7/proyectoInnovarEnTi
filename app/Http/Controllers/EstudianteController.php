@@ -108,7 +108,17 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, Estudiante $estudiante)
     {
-        request()->validate(Estudiante::$rules);
+        //request()->validate(Estudiante::$rules);
+        $validated = $request->validate([
+            'nombre' => 'required',
+            //'documentoIdentidad' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'estPromedio' => 'required',
+            'insCodigoNit' => 'required',
+            'numIdentidadPadre' => 'required',
+            'gruIdCurso' => 'required',
+        ]);
 
         $estudiante->update($request->all());
 

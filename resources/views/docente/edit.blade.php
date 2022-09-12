@@ -18,7 +18,7 @@ Update Docente
                         {{ method_field('PATCH') }}
                         @csrf
 
-                        @include('docente.form')
+                        @include('docente.formEdit')
 
                     </form>
                 </div>

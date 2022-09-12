@@ -123,7 +123,7 @@ class DocenteController extends Controller
         //     ->with('success', 'Información de docente actualizada con éxito');
         $validated = $request->validate([
             'nombre' => 'required',
-            'documentoIdentidad' => 'required',
+            //'documentoIdentidad' => 'required',
             'email' => 'required',
             'password' => 'required',
             'docTipoContrato' => 'required',
