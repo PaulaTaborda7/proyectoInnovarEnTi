@@ -56,7 +56,19 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'email'=>'required|email',
+            'password'=>'required|min:5',
+        ],
+        [
+            'email.required' => 'El campo correo electrónico es obligatorio',
+            'email.email' => 'El campo correo electrónico debe ser un correo electrónico válido',
+            'password.required' => 'El campo contraseña es obligatorio',
+            'password.min' => 'La contraseña debe tener como mínimo 5 caracteres',
+        ]);
 
+        // Estas lineas de codigo no funcionan pues no muestran los mensajes de error //
+        /*
         $camposFormulario = [
             'email'=>'required|email',
             'password'=>'required|min:5',
@@ -66,9 +78,13 @@ class LoginController extends Controller
             'email.required' => 'El correo electrónico es requerido',
             'password.required' => 'La contraseña es requerida',
             'password.min' => 'La contraseña debe tener mínimo 5 caracteres',
-        ];
+            'email.email' => 'El correo electrónico debe ser un correo electrónico válido',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+            'password_confirmation.required' => 'La confirmación de la contraseña es requerida',
+       ];
 
         $this->validateLogin($request, $camposFormulario, $message);
+        */
 
         //Consulto los datos del Administrador con el email que se ha ingresado al formulario
         $datosAdministrador = User::where('email', '=', $request->email)->first();

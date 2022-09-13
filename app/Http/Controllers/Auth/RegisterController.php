@@ -57,6 +57,17 @@ class RegisterController extends Controller
             'documentoIdentidad' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password-confirmation' => ['required']
+        ]
+        ,[
+            'name.required' => 'El campo nombre es obligatorio',
+            'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
+            'email.required' => 'El campo email es obligatorio',
+            'password.required' => 'El campo contraseña es obligatorio',
+            'password-confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+            'email.unique' => 'El email ya está registrado'
         ]);
     }
 
@@ -75,6 +86,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'tipo' => '1',
             'password' => Hash::make($data['password']),
+            'password-confirmation' => Hash::make($data['password-confirmation']),
         ]);
     }
     public function register(Request $request)

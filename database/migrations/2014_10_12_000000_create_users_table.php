@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tipo')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('password-confirmation');
             $table->rememberToken();
             $table->timestamps();
         });
