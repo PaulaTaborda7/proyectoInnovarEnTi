@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-Agregar nueva Materia
+Agregar nueva temática
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Agregar nueva Materia
             @includeif('partials.errors')
 
             <div class="card card-default">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar la materia') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar la temática') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('materias.store') }}" role="form" enctype="multipart/form-data">
                         @csrf

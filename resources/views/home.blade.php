@@ -23,7 +23,7 @@
                     <br>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/materias" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar materias</button></a>
+                            <a href="/materias" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar temáticas</button></a>
                         </div>
                     </div>
                     <br>
