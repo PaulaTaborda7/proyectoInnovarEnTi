@@ -66,7 +66,7 @@ class RegisterController extends Controller
             'email.required' => 'El campo email es obligatorio',
             'email.unique' => 'El email ya está registrado',
             'password.required' => 'El campo contraseña es obligatorio',
-            'passwordconfirmation.required' => 'El campo confirmar contraseña es obligatorio',
+            'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
             'password.min' => 'La contraseña debe tener al menos 8 caracteres',
             'password.confirmed' => 'Las contraseñas no coinciden',
         ]);

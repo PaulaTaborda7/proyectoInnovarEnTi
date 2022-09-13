@@ -35,6 +35,7 @@ class AutenticacionAdminController extends Controller
             'email.unique' => 'El correo electrónico ingresado ya está en uso',
             'password.required' => 'La contraseña es requerida',
             'password.min' => 'La contraseña debe tener mínimo 5 caracteres',
+            'password_confirmation.required' => 'La confirmación de la contraseña es requerida',
         ];
 
         $this->validate($request, $camposFormulario, $message);
