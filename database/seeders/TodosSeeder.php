@@ -22,7 +22,7 @@ class TodosSeeder extends Seeder
             'documentoIdentidad' => '123456789',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
-            'password-confirmation' => Hash::make('admin'),
+            'password_confirmation' => Hash::make('admin'),
             'tipo' => '1',
         ]);
     }

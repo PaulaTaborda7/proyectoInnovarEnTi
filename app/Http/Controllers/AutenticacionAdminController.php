@@ -46,6 +46,7 @@ class AutenticacionAdminController extends Controller
         $administrador->email = $request->email;
         $administrador->tipo = $request->tipo;
         $administrador->password = Hash::make($request->password); //Encripto la contraseña
+        $administrador->password_confirmation = Hash::make($request->password_confirmation); //Encripto la contraseña
 
         $save = $administrador->save();
 

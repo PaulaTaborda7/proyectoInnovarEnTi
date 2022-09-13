@@ -78,9 +78,6 @@ class LoginController extends Controller
             'email.required' => 'El correo electrónico es requerido',
             'password.required' => 'La contraseña es requerida',
             'password.min' => 'La contraseña debe tener mínimo 5 caracteres',
-            'email.email' => 'El correo electrónico debe ser un correo electrónico válido',
-            'password.confirmed' => 'Las contraseñas no coinciden',
-            'password_confirmation.required' => 'La confirmación de la contraseña es requerida',
        ];
 
         $this->validateLogin($request, $camposFormulario, $message);
