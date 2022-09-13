@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         <span>Tipo de usuario</span>
-        <input id="tipo" type="text" class="form-control" name="tipo" disabled placeholder="3">
+        <input id="tipo" type="text" class="form-control" name="tipo" disabled placeholder="2">
     </div>
     <div class="form-group">
         <span>Contraseña</span>
@@ -43,7 +43,7 @@
         {!! $errors->first('docAreaCurricular', '<div class="invalid-feedback">:message</div>') !!}
     </div>
     <div class="form-group">
-        <span>Código NIT de la institución educativa'</span>
+        <span>Código NIT de la institución educativa</span>
         {{ Form::text('insCodigoNit', $docente->insCodigoNit, ['class' => 'form-control' . ($errors->has('insCodigoNit') ? ' is-invalid' : ''), 'placeholder' => 'Inscodigonit']) }}
         {!! $errors->first('insCodigoNit', '<div class="invalid-feedback">:message</div>') !!}
     </div>
@@ -56,7 +56,7 @@
     </div>
     <div class="container">
         <div class="justify-content-cente">
-            <a class="ml-4 text-sm btn btn-primary" href="{{ route('estudiantes.index') }}">Regresar</a>
+            <a class="ml-4 text-sm btn btn-primary" href="{{ route('docentes.index') }}">Regresar</a>
         </div>
     </div>
 </div>
