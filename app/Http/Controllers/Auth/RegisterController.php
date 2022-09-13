@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'documentoIdentidad' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'password_confirmation' => ['required']
+            'password_confirmation' => ['required','same:password'],
         ]
         ,[
             'name.required' => 'El campo nombre es obligatorio',
@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'password.min' => 'La contraseña debe tener al menos 8 caracteres',
             'password.confirmed' => 'Las contraseñas no coinciden',
             'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+            'password_confirmation.same' => 'Las contraseñas no coinciden',
         ]);
     }
 

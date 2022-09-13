@@ -17,6 +17,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property $email
  * @property $tipo
  * @property $password
+ * @property $password_confirmation
  * @property $docTipoContrato
  * @property $docAreaCurricular
  * @property $insCodigoNit
@@ -34,8 +35,8 @@ class Docente extends Model
 		'nombre' => 'required',
 		'documentoIdentidad' => 'required',
 		'email' => 'required',
-    //'tipo' => 'required',
     'password' => 'required',
+    'password_confirmation' => 'required',
 		'docTipoContrato' => 'required',
 		'docAreaCurricular' => 'required',
 		'insCodigoNit' => 'required',
@@ -46,8 +47,10 @@ class Docente extends Model
      *
      * @var array<int, string>
      */
+    //esta linea es para ocultar el password en la tabla
     protected $hidden = [
       'password',
+      'password_confirmation',
       'remember_token',
   ];
 
@@ -67,7 +70,7 @@ class Docente extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','documentoIdentidad','email','tipo', 'password', 'docTipoContrato','docAreaCurricular','insCodigoNit'];
+    protected $fillable = ['nombre','documentoIdentidad','email','tipo', 'password', 'password_confirmation','docTipoContrato','docAreaCurricular','insCodigoNit'];
 
 
 

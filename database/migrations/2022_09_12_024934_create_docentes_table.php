@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('tipo');
             $table->string('password');
+            $table->string('password_confirmation');
             $table->string('docTipoContrato');
             $table->string('docAreaCurricular');
             $table->string('insCodigoNit');

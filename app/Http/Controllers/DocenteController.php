@@ -62,7 +62,32 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Docente::$rules);
+        $request->validate([
+            'nombre' => 'required',
+            'documentoIdentidad' => ['required','unique:docentes'],
+            'email' => ['required','unique:docentes'],
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+            'docTipoContrato' => 'required',
+            'docAreaCurricular' => 'required',
+            'insCodigoNit' => 'required',
+        ],[
+            'nombre.required' => 'El campo nombre es obligatorio',
+            'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
+            'documentoIdentidad.unique' => 'El documento de identidad ya existe',
+            'email.required' => 'El campo correo electrónico es obligatorio',
+            'email.unique' => 'El correo electrónico ya existe',
+            'password.required' => 'El campo contraseña es obligatorio',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+            'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+            'password_confirmation.same' => 'Las contraseñas no coinciden',
+            'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+            'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+            'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+        ]);
+
+        //request()->validate(Docente::$rules);
 
         // $docente = Docente::create($request->all());
         Docente::create([
@@ -71,6 +96,7 @@ class DocenteController extends Controller
             'email' => $request['email'],
             'tipo' => '2',
             'password' => Hash::make($request['password']),
+            'password_confirmation' => Hash::make($request['password_confirmation']),
             'docTipoContrato' => $request['docTipoContrato'],
             'docAreaCurricular' => $request['docAreaCurricular'],
             'insCodigoNit' => $request['insCodigoNit'],
@@ -123,9 +149,10 @@ class DocenteController extends Controller
         //     ->with('success', 'Información de docente actualizada con éxito');
         $validated = $request->validate([
             'nombre' => 'required',
-            //'documentoIdentidad' => 'required',
+            'documentoIdentidad' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'password_confirmation' => 'required|same:password',
             'docTipoContrato' => 'required',
             'docAreaCurricular' => 'required',
             'insCodigoNit' => 'required',
@@ -137,6 +164,7 @@ class DocenteController extends Controller
         $docente->documentoIdentidad = $request->documentoIdentidad;
         $docente->email = $request->email;
         $docente->password = $request->password;
+        $docente->password_confirmation = $request->password_confirmation;
         $docente->docTipoContrato = $request->docTipoContrato;
         $docente->docAreaCurricular = $request->docAreaCurricular;
         $docente->insCodigoNit = $request->insCodigoNit;
