@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('documentoIdentidad');
             $table->string('email');
             $table->string('tipo');
-            $table->string('password');
-            $table->string('password_confirmation');
             $table->string('docTipoContrato');
             $table->string('docAreaCurricular');
             $table->string('insCodigoNit');
             $table->foreign('insCodigoNit')->references('codigoNit')->on('institucions');
+            $table->string('password');
+            $table->string('password_confirmation');
             $table->timestamps();
         });
     }

@@ -30,28 +30,28 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class Docente extends Model
 {
-    
-    static $rules = [
-		'nombre' => 'required',
-		'documentoIdentidad' => 'required',
-		'email' => 'required',
+
+  static $rules = [
+    'nombre' => 'required',
+    'documentoIdentidad' => 'required',
+    'email' => 'required',
+    'docTipoContrato' => 'required',
+    'docAreaCurricular' => 'required',
+    'insCodigoNit' => 'required',
     'password' => 'required',
     'password_confirmation' => 'required',
-		'docTipoContrato' => 'required',
-		'docAreaCurricular' => 'required',
-		'insCodigoNit' => 'required',
-    ];
+  ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    //esta linea es para ocultar el password en la tabla
-    protected $hidden = [
-      'password',
-      'password_confirmation',
-      'remember_token',
+  /**
+   * The attributes that should be hidden for serialization.
+   *
+   * @var array<int, string>
+   */
+  //esta linea es para ocultar el password en la tabla
+  protected $hidden = [
+    'password',
+    'password_confirmation',
+    'remember_token',
   ];
 
   /**
@@ -60,18 +60,15 @@ class Docente extends Model
    * @var array<string, string>
    */
   protected $casts = [
-      'email_verified_at' => 'datetime',
+    'email_verified_at' => 'datetime',
   ];
-  
-    protected $perPage = 20;
 
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['nombre','documentoIdentidad','email','tipo', 'password', 'password_confirmation','docTipoContrato','docAreaCurricular','insCodigoNit'];
+  protected $perPage = 20;
 
-
-
+  /**
+   * Attributes that should be mass-assignable.
+   *
+   * @var array
+   */
+  protected $fillable = ['nombre', 'documentoIdentidad', 'email', 'tipo', 'docTipoContrato', 'docAreaCurricular', 'insCodigoNit','password', 'password_confirmation', ];
 }
