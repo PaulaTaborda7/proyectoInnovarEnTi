@@ -12,13 +12,13 @@ Actualizar información de Institución Educativa
             @includeif('partials.errors')
 
             <div class="card card-default">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Actualizar información de la materia') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Actualizar información de la institución educativa') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('institucions.update', $institucion->id) }}" role="form" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}
                         @csrf
 
-                        @include('institucion.form')
+                        @include('institucion.formEdit')
 
                     </form>
                 </div>

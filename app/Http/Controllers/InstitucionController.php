@@ -19,20 +19,20 @@ class InstitucionController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $institucions = Institucion::where('codigoNit','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insDireccion','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insDepartamento','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insPais','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insTelefono','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insCalendario','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insCantidadDocentes','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insCantidadEstudiantes','LIKE','%'.$busqueda.'%')
-                    ->orWhere('completo','LIKE','%'.$busqueda.'%')
-                    ->orWhere('dea','LIKE','%'.$busqueda.'%')
-                    ->latest('id')
-                    ->paginate(10);
+        $institucions = Institucion::where('codigoNit', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insDireccion', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insDepartamento', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insPais', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insTelefono', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insCalendario', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insCantidadDocentes', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insCantidadEstudiantes', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('completo', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('dea', 'LIKE', '%' . $busqueda . '%')
+            ->latest('id')
+            ->paginate(10);
 
-        return view('institucion.index', compact('institucions','busqueda'))
+        return view('institucion.index', compact('institucions', 'busqueda'))
             ->with('i', (request()->input('page', 1) - 1) * $institucions->perPage());
     }
 
@@ -55,6 +55,31 @@ class InstitucionController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'codigoNit' => ['required', 'unique:institucions'],
+            'insDireccion' => 'required',
+            'insDepartamento' => 'required',
+            'insPais' => 'required',
+            'insTelefono' => 'required',
+            'insCalendario' => 'required',
+            'insCantidadDocentes' => 'required',
+            'insCantidadEstudiantes' => 'required',
+            'completo' => 'required',
+            'dea' => 'required',
+        ], [
+            'codigoNit.required' => 'El campo código NIT de institución educativa es obligatorio',
+            'codigoNit.unique' => 'El código NIT de institución educativa ya existe',
+            'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
+            'insDepartamento.required' => 'El campo departamento es obligatorio',
+            'insPais.required' => 'El campo país es obligatorio',
+            'insTelefono.required' => 'El campo teléfono es obligatorio',
+            'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
+            'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
+            'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
+            'completo.required' => 'El campo completo es obligatorio',
+            'dea.required' => 'El campo dea es obligatorio',
+        ]);
+
         request()->validate(Institucion::$rules);
 
         $institucion = Institucion::create($request->all());
@@ -98,6 +123,55 @@ class InstitucionController extends Controller
      */
     public function update(Request $request, Institucion $institucion)
     {
+        if ($request->codigoNit != $institucion->codigoNit) {
+            $request->validate([
+                'codigoNit' => ['required', 'unique:institucions'],
+                'insDireccion' => 'required',
+                'insDepartamento' => 'required',
+                'insPais' => 'required',
+                'insTelefono' => 'required',
+                'insCalendario' => 'required',
+                'insCantidadDocentes' => 'required',
+                'insCantidadEstudiantes' => 'required',
+                'completo' => 'required',
+                'dea' => 'required',
+            ], [
+                'codigoNit.required' => 'El campo código NIT de institución educativa es obligatorio',
+                'codigoNit.unique' => 'El código NIT de institución educativa ya existe',
+                'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
+                'insDepartamento.required' => 'El campo departamento es obligatorio',
+                'insPais.required' => 'El campo país es obligatorio',
+                'insTelefono.required' => 'El campo teléfono es obligatorio',
+                'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
+                'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
+                'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
+                'completo.required' => 'El campo completo es obligatorio',
+                'dea.required' => 'El campo dea es obligatorio',
+            ]);
+        }else{
+            $request->validate([
+                'insDireccion' => 'required',
+                'insDepartamento' => 'required',
+                'insPais' => 'required',
+                'insTelefono' => 'required',
+                'insCalendario' => 'required',
+                'insCantidadDocentes' => 'required',
+                'insCantidadEstudiantes' => 'required',
+                'completo' => 'required',
+                'dea' => 'required',
+            ], [
+                'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
+                'insDepartamento.required' => 'El campo departamento es obligatorio',
+                'insPais.required' => 'El campo país es obligatorio',
+                'insTelefono.required' => 'El campo teléfono es obligatorio',
+                'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
+                'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
+                'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
+                'completo.required' => 'El campo completo es obligatorio',
+                'dea.required' => 'El campo dea es obligatorio',
+            ]);
+        }
+
         request()->validate(Institucion::$rules);
 
         $institucion->update($request->all());
