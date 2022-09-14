@@ -55,9 +55,9 @@ class MateriaController extends Controller
             'matNombreMateria' => 'required',
             'matDescripcion' => 'required',
         ],[
-            'matIdMateria.required' => 'El campo código de materia es obligatorio',
-            'matIdMateria.unique' => 'El código de materia ya existe',
-            'matNombreMateria.required' => 'El campo nombre de materia es obligatorio',
+            'matIdMateria.required' => 'El campo código de temática es obligatorio',
+            'matIdMateria.unique' => 'El código de temática ya existe',
+            'matNombreMateria.required' => 'El campo nombre de temática es obligatorio',
             'matDescripcion.required' => 'El campo descripción es obligatorio',
         ]);
 
@@ -104,6 +104,29 @@ class MateriaController extends Controller
      */
     public function update(Request $request, Materia $materia)
     {
+        //Esto se hizo porque cuando no se modificaba el codigo de la materia, daba error de que el codigo ya existe
+        if($request->matIdMateria == $materia->matIdMateria){
+            $request->validate([
+                'matNombreMateria' => 'required',
+                'matDescripcion' => 'required',
+            ],[
+                'matNombreMateria.required' => 'El campo nombre de temática es obligatorio',
+                'matDescripcion.required' => 'El campo descripción es obligatorio',
+            ]);
+
+        }else{
+            $request->validate([
+                'matIdMateria' => ['required','unique:materias'],
+                'matNombreMateria' => 'required',
+                'matDescripcion' => 'required',
+            ],[
+                'matIdMateria.required' => 'El campo código de materia es obligatorio',
+                'matIdMateria.unique' => 'El código de temática ya existe',
+                'matNombreMateria.required' => 'El campo nombre de temática es obligatorio',
+                'matDescripcion.required' => 'El campo descripción es obligatorio',
+            ]);
+        }
+
         request()->validate(Materia::$rules);
 
         $materia->update($request->all());
