@@ -20,8 +20,8 @@ class EstudianteController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $estudiantes = Estudiante::where('numIdentidad','LIKE','%'.$busqueda.'%')
-                    ->orWhere('nombre','LIKE','%'.$busqueda.'%')
+        $estudiantes = Estudiante::where('nombre','LIKE','%'.$busqueda.'%')
+                    ->orWhere('numIdentidad','LIKE','%'.$busqueda.'%')
                     ->orWhere('email','LIKE','%'.$busqueda.'%')
                     ->orWhere('tipo','LIKE','%'.$busqueda.'%')
                     ->orWhere('estPromedio','LIKE','%'.$busqueda.'%')
@@ -58,8 +58,8 @@ class EstudianteController extends Controller
 
         // $docente = Docente::create($request->all());
         Estudiante::create([
-            'numIdentidad' => $request['numIdentidad'],
             'nombre' => $request['nombre'],
+            'numIdentidad' => $request['numIdentidad'],
             'email' => $request['email'],
             'tipo' => '3',
             'password' => Hash::make($request['password']),
@@ -111,7 +111,7 @@ class EstudianteController extends Controller
         //request()->validate(Estudiante::$rules);
         $validated = $request->validate([
             'nombre' => 'required',
-            //'documentoIdentidad' => 'required',
+            'documentoIdentidad' => 'required',
             'email' => 'required',
             'password' => 'required',
             'estPromedio' => 'required',

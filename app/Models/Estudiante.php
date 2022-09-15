@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * Class Estudiante
  *
  * @property $id
- * @property $numIdentidad
  * @property $nombre
+ * @property $numIdentidad
  * @property $email
  * @property $tipo
  * @property $password
@@ -26,36 +26,34 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Estudiante extends Model
 {
-    
-    static $rules = [
-		'numIdentidad' => 'required',
-		'nombre' => 'required',
-		'email' => 'required',
-		//'tipo' => 'required',
+
+  static $rules = [
+    'nombre' => 'required',
+    'numIdentidad' => 'required',
+    'email' => 'required',
+    //'tipo' => 'required',
     'password' => 'required',
-		'estPromedio' => 'required',
-		'insCodigoNit' => 'required',
-		'numIdentidadPadre' => 'required',
-		'gruIdCurso' => 'required',
-    ];
+    'estPromedio' => 'required',
+    'insCodigoNit' => 'required',
+    'numIdentidadPadre' => 'required',
+    'gruIdCurso' => 'required',
+  ];
 
-    protected $perPage = 20;
+  protected $perPage = 20;
 
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['numIdentidad','nombre','email','tipo','password','estPromedio','insCodigoNit','numIdentidadPadre','gruIdCurso'];
+  /**
+   * Attributes that should be mass-assignable.
+   *
+   * @var array
+   */
+  protected $fillable = ['nombre', 'numIdentidad', 'email', 'tipo', 'password', 'estPromedio', 'insCodigoNit', 'numIdentidadPadre', 'gruIdCurso'];
 
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function institucion()
-    {
-        return $this->hasOne('App\Models\Institucion', 'codigoNit', 'insCodigoNit');
-    }
-    
-
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function institucion()
+  {
+    return $this->hasOne('App\Models\Institucion', 'codigoNit', 'insCodigoNit');
+  }
 }
