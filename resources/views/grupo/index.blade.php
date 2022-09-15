@@ -45,15 +45,15 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Idenficador</th>
-										<th>Nombre</th>
+                                        <th>No.</th>
+
+                                        <th>Nombre</th>
+										<th>Código ID del grupo</th>
 										<th>Jornada</th>
 										<th>Cantidad de estudiantes</th>
 										<th>Cantidad de materias</th>
-										<th>Codigo nit de Institucion</th>
-										<th>Numero de identidad del docente</th>
+										<th>Código NIT de Institución educativa</th>
+										<th>Número de identidad del docente encargado</th>
 
                                         <th></th>
                                     </tr>
@@ -63,8 +63,8 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $grupo->gruIdGrupo }}</td>
 											<td>{{ $grupo->gruNombre }}</td>
+                                            <td>{{ $grupo->gruIdGrupo }}</td>
 											<td>{{ $grupo->gruJornada }}</td>
 											<td>{{ $grupo->gruCantEstudiante }}</td>
 											<td>{{ $grupo->gruCantMateria }}</td>
@@ -73,11 +73,11 @@
 
                                             <td>
                                                 <form action="{{ route('grupos.destroy',$grupo->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('grupos.show',$grupo->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('grupos.edit',$grupo->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('grupos.show',$grupo->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('grupos.edit',$grupo->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

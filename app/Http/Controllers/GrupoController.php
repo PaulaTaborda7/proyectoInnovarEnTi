@@ -19,8 +19,8 @@ class GrupoController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $grupos = Grupo::where('gruIdGrupo','LIKE','%'.$busqueda.'%')
-                    ->orWhere('gruNombre','LIKE','%'.$busqueda.'%')
+        $grupos = Grupo::where('gruNombre','LIKE','%'.$busqueda.'%')
+                    ->orWhere('gruIdGrupo','LIKE','%'.$busqueda.'%')
                     ->orWhere('gruJornada','LIKE','%'.$busqueda.'%')
                     ->orWhere('gruCantEstudiante','LIKE','%'.$busqueda.'%')
                     ->orWhere('gruCantMateria','LIKE','%'.$busqueda.'%')
@@ -52,6 +52,25 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'gruNombre' => 'required',
+            'gruIdGrupo' => 'required'|'unique:grupos',
+            'gruJornada' => 'required',
+            'gruCantEstudiante' => 'required',
+            'gruCantMateria' => 'required',
+            'insCodigoNit' => 'required',
+            'numIdentidadDocente' => 'required',
+        ], [
+            'gruNombre.required' => 'El campo nombre es obligatorio',
+            'gruIdGrupo.required' => 'El campo ID del grupo es obligatorio',
+            'gruIdGrupo.unique' => 'El ID del grupo ya existe',
+            'gruJornada.required' => 'El campo jornada es obligatorio',
+            'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
+            'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
+            'insCodigoNit.required' => 'El campo codigo de la institucion es obligatorio',
+            'numIdentidadDocente.required' => 'El campo numero de identidad del docente es obligatorio',
+        ]);
+
         request()->validate(Grupo::$rules);
 
         $grupo = Grupo::create($request->all());
@@ -95,6 +114,43 @@ class GrupoController extends Controller
      */
     public function update(Request $request, Grupo $grupo)
     {
+        if($request->gruIdGrupo != $grupo->gruIdGrupo){
+            $request->validate([
+                'gruNombre' => 'required',
+                'gruIdGrupo' => 'required'|'unique:grupos',
+                'gruJornada' => 'required',
+                'gruCantEstudiante' => 'required',
+                'gruCantMateria' => 'required',
+                'insCodigoNit' => 'required',
+                'numIdentidadDocente' => 'required',
+            ], [
+                'gruNombre.required' => 'El campo nombre es obligatorio',
+                'gruIdGrupo.required' => 'El campo ID del grupo es obligatorio',
+                'gruIdGrupo.unique' => 'El ID del grupo ya existe',
+                'gruJornada.required' => 'El campo jornada es obligatorio',
+                'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
+                'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
+                'insCodigoNit.required' => 'El campo codigo de la institucion es obligatorio',
+                'numIdentidadDocente.required' => 'El campo numero de identidad del docente es obligatorio',
+            ]);
+        }else{
+            $request->validate([
+                'gruNombre' => 'required',
+                'gruJornada' => 'required',
+                'gruCantEstudiante' => 'required',
+                'gruCantMateria' => 'required',
+                'insCodigoNit' => 'required',
+                'numIdentidadDocente' => 'required',
+            ], [
+                'gruNombre.required' => 'El campo nombre es obligatorio',
+                'gruJornada.required' => 'El campo jornada es obligatorio',
+                'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
+                'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
+                'insCodigoNit.required' => 'El campo codigo de la institucion es obligatorio',
+                'numIdentidadDocente.required' => 'El campo numero de identidad del docente es obligatorio',
+            ]);
+        }
+
         request()->validate(Grupo::$rules);
 
         $grupo->update($request->all());
