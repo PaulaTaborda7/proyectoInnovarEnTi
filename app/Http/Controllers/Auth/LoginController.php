@@ -50,47 +50,45 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        //return view('auth.login');
-        return redirect('/')->with('fail', 'Debes haber iniciado sesión para poder acceder AQUI');
+        return redirect('/')->with('fail', 'Debes haber iniciado sesión como Administrador para poder acceder AQUI');
     }
 
+    // esta funcion es la que se ejecuta cuando se hace el submit del formulario de login
     public function login(Request $request)
     {
-        $request->validate([
-            'email'=>'required|email',
-            'password'=>'required|min:5',
-        ],
-        [
-            'email.required' => 'El campo correo electrónico es obligatorio',
-            'email.email' => 'El campo correo electrónico debe ser un correo electrónico válido',
-            'password.required' => 'El campo contraseña es obligatorio',
-            'password.min' => 'La contraseña debe tener como mínimo 5 caracteres',
-        ]);
-
-        // Estas lineas de codigo no funcionan pues no muestran los mensajes de error //
-        /*
-        $camposFormulario = [
-            'email'=>'required|email',
-            'password'=>'required|min:5',
-        ];
-
-        $message = [
-            'email.required' => 'El correo electrónico es requerido',
-            'password.required' => 'La contraseña es requerida',
-            'password.min' => 'La contraseña debe tener mínimo 5 caracteres',
-       ];
-
-        $this->validateLogin($request, $camposFormulario, $message);
-        */
+        $request->validate(
+            [
+                'email' => 'required|email',
+                'password' => 'required|min:5',
+            ],
+            [
+                'email.required' => 'El campo correo electrónico es obligatorio',
+                'email.email' => 'El campo correo electrónico debe ser un correo electrónico válido',
+                'password.required' => 'El campo contraseña es obligatorio',
+                'password.min' => 'La contraseña debe tener como mínimo 5 caracteres',
+            ]
+        );
 
         //Consulto los datos del Administrador con el email que se ha ingresado al formulario
         $datosAdministrador = User::where('email', '=', $request->email)->first();
 
+        // esto me toco hacerlo porque los comentarios de AutenticationAdminController no funcionan (revisar)
+        if(!$datosAdministrador){
+            return back()->with('fail', 'No se ha encontrado ningún administrador con dicho correo electrónico');
+        }
+        else{
+            if(!Hash::check($request->password, $datosAdministrador->password)){
+                return back()->with('fail', 'Contraseña incorrecta');
+            }
+        }
+
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);

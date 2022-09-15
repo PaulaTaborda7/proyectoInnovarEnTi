@@ -4,6 +4,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            {{-- Acá se obtiene el mensaje de éxito enviado desde AutenticacionAdminController --}}
+            @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+            @endif
+
+            {{-- Acá se obtiene el mensaje de fracaso enviado desde AutenticacionAdminController --}}
+            @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+            @endif
+
             <div class="card">
                 <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para ingresar al sistema como Administrador') }}</div>
 
