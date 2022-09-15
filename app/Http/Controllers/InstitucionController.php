@@ -19,7 +19,8 @@ class InstitucionController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $institucions = Institucion::where('codigoNit', 'LIKE', '%' . $busqueda . '%')
+        $institucions = Institucion::where('insNombre', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('codigoNit', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insDireccion', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insDepartamento', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insPais', 'LIKE', '%' . $busqueda . '%')
@@ -56,6 +57,7 @@ class InstitucionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'insNombre' => 'required',
             'codigoNit' => ['required', 'unique:institucions'],
             'insDireccion' => 'required',
             'insDepartamento' => 'required',
@@ -67,6 +69,7 @@ class InstitucionController extends Controller
             'completo' => 'required',
             'dea' => 'required',
         ], [
+            'insNombre.required' => 'El campo nombre de institución educativa es obligatorio',
             'codigoNit.required' => 'El campo código NIT de institución educativa es obligatorio',
             'codigoNit.unique' => 'El código NIT de institución educativa ya existe',
             'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
@@ -125,6 +128,7 @@ class InstitucionController extends Controller
     {
         if ($request->codigoNit != $institucion->codigoNit) {
             $request->validate([
+                'insNombre' => 'required',
                 'codigoNit' => ['required', 'unique:institucions'],
                 'insDireccion' => 'required',
                 'insDepartamento' => 'required',
@@ -136,6 +140,7 @@ class InstitucionController extends Controller
                 'completo' => 'required',
                 'dea' => 'required',
             ], [
+                'insNombre.required' => 'El campo nombre de institución educativa es obligatorio',
                 'codigoNit.required' => 'El campo código NIT de institución educativa es obligatorio',
                 'codigoNit.unique' => 'El código NIT de institución educativa ya existe',
                 'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
@@ -150,6 +155,7 @@ class InstitucionController extends Controller
             ]);
         }else{
             $request->validate([
+                'insNombre' => 'required',
                 'insDireccion' => 'required',
                 'insDepartamento' => 'required',
                 'insPais' => 'required',
@@ -160,6 +166,7 @@ class InstitucionController extends Controller
                 'completo' => 'required',
                 'dea' => 'required',
             ], [
+                'insNombre.required' => 'El campo nombre de institución educativa es obligatorio',
                 'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
                 'insDepartamento.required' => 'El campo departamento es obligatorio',
                 'insPais.required' => 'El campo país es obligatorio',

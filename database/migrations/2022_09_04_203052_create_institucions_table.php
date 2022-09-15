@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('institucions', function (Blueprint $table) {
             $table->id();
+            $table->string('insNombre');
             $table->string('codigoNit')->unique();
             $table->string('insDireccion');
             $table->string('insDepartamento');

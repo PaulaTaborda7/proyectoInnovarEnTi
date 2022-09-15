@@ -1,15 +1,15 @@
 <div class="container">
-
-    <div class="form-group">
-        <span>Número del documento de identidad</span>
-        {{ Form::text('numIdentidad', $estudiante->numIdentidad, ['class' => 'form-control' . ($errors->has('numIdentidad') ? ' is-invalid' : ''), 'placeholder' => 'Numidentidad']) }}
-        {!! $errors->first('numIdentidad', '<div class="invalid-feedback">:message</div>') !!}
-    </div>
     <div class="form-group">
         <span>Nombre completo</span>
         {{ Form::text('nombre', $estudiante->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
         {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
     </div>
+    <div class="form-group">
+        <span>Número del documento de identidad</span>
+        {{ Form::text('numIdentidad', $estudiante->numIdentidad, ['class' => 'form-control' . ($errors->has('numIdentidad') ? ' is-invalid' : ''), 'placeholder' => 'Numidentidad']) }}
+        {!! $errors->first('numIdentidad', '<div class="invalid-feedback">:message</div>') !!}
+    </div>
+
     <div class="form-group">
         <span>Correo electrónico</span>
         {{ Form::text('email', $estudiante->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}

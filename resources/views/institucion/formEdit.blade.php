@@ -1,6 +1,16 @@
 <div class="container">
 
     <div class="form-group">
+        <span>Nombre de la institución educativa</span>
+        {{ Form::text('insNombre', $institucion->insNombre, ['class' => 'form-control' . ($errors->has('insNombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+        @error('insNombre')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
         <span>NIT</span>
         {{ Form::text('codigoNit', $institucion->codigoNit, ['class' => 'form-control' . ($errors->has('codigoNit') ? ' is-invalid' : ''), 'placeholder' => 'NIT']) }}
         @error('codigoNit')

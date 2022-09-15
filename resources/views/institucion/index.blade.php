@@ -47,6 +47,7 @@
                                 <tr>
                                     <th>No.</th>
 
+                                    <th>Nombre</th>
                                     <th>NIT</th>
                                     <th>Dirección</th>
                                     <th>Departamento</th>
@@ -66,6 +67,7 @@
                                 <tr>
                                     <td>{{ ++$i }}</td>
 
+                                    <td>{{ $institucion->insNombre }}</td>
                                     <td>{{ $institucion->codigoNit }}</td>
                                     <td>{{ $institucion->insDireccion }}</td>
                                     <td>{{ $institucion->insDepartamento }}</td>
