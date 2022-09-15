@@ -26,10 +26,9 @@ class AutenticacionDocenteController extends Controller
 
     // Con esta función o método realizo el login de un docente previamente registrado en la base de datos
     public function check(Request $request){
-        echo 'Hola';
         //Hago la validación de los campos del formulario
         $camposFormulario = [
-            'email'=>'required|email',
+            'email'=>'required',
             'password'=>'required|min:5',
         ];
 
@@ -60,7 +59,7 @@ class AutenticacionDocenteController extends Controller
         }
     }
 
-
+    // Esta funcion permite cerrar la sesión del docente
     public function logout(){
         if(session()->has('LoggedDocente')){
             session()->pull('LoggedDocente');
