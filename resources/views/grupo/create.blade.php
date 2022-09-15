@@ -12,7 +12,7 @@
             @includeif('partials.errors')
 
             <div class="card card-default">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar un grupo') }}</div>>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar un grupo') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('grupos.store') }}"  role="form" enctype="multipart/form-data">
                         @csrf
