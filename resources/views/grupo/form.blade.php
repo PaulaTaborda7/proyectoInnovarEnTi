@@ -67,7 +67,11 @@
     <div class="form-group">
         <span>Número de identidad del docente encargado</span>
         {{ Form::text('numIdentidadDocente', $grupo->numIdentidadDocente, ['class' => 'form-control' . ($errors->has('numIdentidadDocente') ? ' is-invalid' : ''), 'placeholder' => 'Número de documento de identidad']) }}
-        {!! $errors->first('numIdentidadDocente', '<div class="invalid-feedback">:message</div>') !!}
+        @error('numIdentidadDocente')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
 
     <div class="row mb-0">

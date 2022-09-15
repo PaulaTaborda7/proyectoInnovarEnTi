@@ -52,10 +52,10 @@ class GrupoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {  
         $request->validate([
             'gruNombre' => 'required',
-            'gruIdGrupo' => 'required'|'unique:grupos',
+            'gruIdGrupo' => 'required|unique:grupos',
             'gruJornada' => 'required',
             'gruCantEstudiante' => 'required',
             'gruCantMateria' => 'required',
@@ -68,10 +68,10 @@ class GrupoController extends Controller
             'gruJornada.required' => 'El campo jornada es obligatorio',
             'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
             'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
-            'insCodigoNit.required' => 'El campo codigo de la institucion es obligatorio',
-            'numIdentidadDocente.required' => 'El campo numero de identidad del docente es obligatorio',
+            'insCodigoNit.required' => 'El campo código de la institución es obligatorio',
+            'numIdentidadDocente.required' => 'El campo número de identidad del docente es obligatorio',
         ]);
-
+        
         request()->validate(Grupo::$rules);
 
         $grupo = Grupo::create($request->all());
@@ -114,7 +114,7 @@ class GrupoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Grupo $grupo)
-    {
+    { 
         if($request->gruIdGrupo != $grupo->gruIdGrupo){
             $request->validate([
                 'gruNombre' => 'required',
