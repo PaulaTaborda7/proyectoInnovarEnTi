@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('numIdentidad');
             $table->string('email')->unique();
             $table->string('tipo');
-            $table->string('password');
             $table->float('estPromedio');
             $table->string('insCodigoNit');
             $table->foreign('insCodigoNit')->references('codigoNit')->on('institucions');
@@ -27,6 +26,8 @@ return new class extends Migration
             //$table->foreign('numIdentidadPadre')->references('numIdentidad')->on('padres');
             $table->string('gruIdCurso');
             //$table->foreign('gruIdCurso')->references('gruIdGrupo')->on('grupos');
+            $table->string('password');
+            $table->string('password_confirmation');
             $table->timestamps();
         });
     }

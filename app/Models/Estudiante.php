@@ -12,11 +12,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property $numIdentidad
  * @property $email
  * @property $tipo
- * @property $password
  * @property $estPromedio
  * @property $insCodigoNit
  * @property $numIdentidadPadre
  * @property $gruIdCurso
+ * @property $password
+ * @property $password_confirmation
  * @property $created_at
  * @property $updated_at
  *
@@ -32,11 +33,12 @@ class Estudiante extends Model
     'numIdentidad' => 'required',
     'email' => 'required',
     //'tipo' => 'required',
-    'password' => 'required',
     'estPromedio' => 'required',
     'insCodigoNit' => 'required',
     'numIdentidadPadre' => 'required',
     'gruIdCurso' => 'required',
+    'password' => 'required',
+    'password_confirmation' => 'required|same:password',
   ];
 
   protected $perPage = 20;
@@ -46,7 +48,7 @@ class Estudiante extends Model
    *
    * @var array
    */
-  protected $fillable = ['nombre', 'numIdentidad', 'email', 'tipo', 'password', 'estPromedio', 'insCodigoNit', 'numIdentidadPadre', 'gruIdCurso'];
+  protected $fillable = ['nombre', 'numIdentidad', 'email', 'tipo','estPromedio', 'insCodigoNit', 'numIdentidadPadre', 'gruIdCurso', 'password', 'password_confirmation'];
 
 
   /**

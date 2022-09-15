@@ -47,8 +47,8 @@ Estudiante
                                 <tr>
                                     <th>No.</th>
 
-                                    <th>Número de identidad</th>
                                     <th>Nombre</th>
+                                    <th>Número de identidad</th>
                                     <th>Córreo electrónico</th>
                                     <th>Tipo de usuario</th>
                                     <th>Promedio</th>
@@ -64,8 +64,8 @@ Estudiante
                                 <tr>
                                     <td>{{ ++$i }}</td>
 
-                                    <td>{{ $estudiante->numIdentidad }}</td>
                                     <td>{{ $estudiante->nombre }}</td>
+                                    <td>{{ $estudiante->numIdentidad }}</td>
                                     <td>{{ $estudiante->email }}</td>
                                     <td>{{ $estudiante->tipo }}</td>
                                     <td>{{ $estudiante->estPromedio }}</td>
