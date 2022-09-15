@@ -9,7 +9,8 @@ use App\Http\Controllers\AutenticacionDocenteController;
 use App\Http\Controllers\AutenticacionEstudianteController;
 use App\Http\Controllers\AutenticacionAdminController;
 use App\Http\Controllers\GrupoController;
-use App\Http\Controllers\InstitucionController; 
+use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\RedController;
 
 use Illuminate\Http\Request;
 /*
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/admin/auth/register', [AutenticacionDocenteController::class, 'register']); //Hace el registro de docente 
     //Route::get('/auth/login', "App\Http\Controllers\AutenticacionDocente@login");
     //Route::get('/docente/registerDocente', [AutenticacionDocente::class, 'register'])->name('admin.docente.create');
+    Route::resource('/reds', RedController::class);
 });
 
 Route::group(['middleware' => ['solodocente']], function () {
