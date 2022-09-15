@@ -2,25 +2,70 @@
     <div class="form-group">
         <span>Nombre completo</span>
         {{ Form::text('nombre', $docente->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-        {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
+        @error('nombre')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
     <div class="form-group">
         <span>Documento de identidad</span>
         {{ Form::text('documentoIdentidad', $docente->documentoIdentidad, ['class' => 'form-control' . ($errors->has('documentoIdentidad') ? ' is-invalid' : ''), 'placeholder' => 'Documento de identidad']) }}
-        {!! $errors->first('documentoIdentidad', '<div class="invalid-feedback">:message</div>') !!}
+        @error('documentoIdentidad')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
+
     <div class="form-group">
         <span>Correo electrónico</span>
         {{ Form::text('email', $docente->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
-        {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
+        @error('email')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
+
     <div class="form-group">
         <span>Tipo de usuario</span>
         <input id="tipo" type="text" class="form-control" name="tipo" disabled placeholder="2">
     </div>
+
+    <div class="form-group">
+        {{ Form::label('Tipo de contrato') }}
+        {{ Form::text('docTipoContrato', $docente->docTipoContrato, ['class' => 'form-control' . ($errors->has('docTipoContrato') ? ' is-invalid' : ''), 'placeholder' => 'Tipo de contrato']) }}
+        @error('docTipoContrato')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('Área curricular') }}
+        {{ Form::text('docAreaCurricular', $docente->docAreaCurricular, ['class' => 'form-control' . ($errors->has('docAreaCurricular') ? ' is-invalid' : ''), 'placeholder' => 'Área curricular']) }}
+        @error('docAreaCurricular')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+    
+    <div class="form-group">
+        <span>Código NIT de la institución educativa</span>
+        {{ Form::text('insCodigoNit', $docente->insCodigoNit, ['class' => 'form-control' . ($errors->has('insCodigoNit') ? ' is-invalid' : ''), 'placeholder' => 'NIT de institución']) }}
+        @error('insCodigoNit')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
     <div class="form-group">
         <span>Contraseña</span>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required value="{{ old('password', $docente->password) }}" autocomplete="new-password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="********">
         @error('password')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -30,23 +75,14 @@
 
     <div class="form-group">
         <span>Confirmar contraseña</span>
-        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+        <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder="********">
+        @error('password_confirmation')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
-    <div class="form-group">
-        {{ Form::label('Tipo de contrato') }}
-        {{ Form::text('docTipoContrato', $docente->docTipoContrato, ['class' => 'form-control' . ($errors->has('docTipoContrato') ? ' is-invalid' : ''), 'placeholder' => 'Tipo de contrato']) }}
-        {!! $errors->first('docTipoContrato', '<div class="invalid-feedback">:message</div>') !!}
-    </div>
-    <div class="form-group">
-        {{ Form::label('Área curricular') }}
-        {{ Form::text('docAreaCurricular', $docente->docAreaCurricular, ['class' => 'form-control' . ($errors->has('docAreaCurricular') ? ' is-invalid' : ''), 'placeholder' => 'Área curricular']) }}
-        {!! $errors->first('docAreaCurricular', '<div class="invalid-feedback">:message</div>') !!}
-    </div>
-    <div class="form-group">
-        <span>Código NIT de la institución educativa</span>
-        {{ Form::text('insCodigoNit', $docente->insCodigoNit, ['class' => 'form-control' . ($errors->has('insCodigoNit') ? ' is-invalid' : ''), 'placeholder' => 'Inscodigonit']) }}
-        {!! $errors->first('insCodigoNit', '<div class="invalid-feedback">:message</div>') !!}
-    </div>
+
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">
             <button type="submit" class="btn btn-primary">

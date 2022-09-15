@@ -62,7 +62,32 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Docente::$rules);
+        $request->validate([
+            'nombre' => 'required',
+            'documentoIdentidad' => ['required','unique:docentes'],
+            'email' => ['required','unique:docentes'],
+            'docTipoContrato' => 'required',
+            'docAreaCurricular' => 'required',
+            'insCodigoNit' => 'required',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required','same:password'],
+        ],[
+            'nombre.required' => 'El campo nombre es obligatorio',
+            'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
+            'documentoIdentidad.unique' => 'El documento de identidad ya existe',
+            'email.required' => 'El campo correo electrónico es obligatorio',
+            'email.unique' => 'El correo electrónico ya existe',
+            'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+            'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+            'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+            'password.required' => 'El campo contraseña es obligatorio',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+            'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+            'password_confirmation.same' => 'Las contraseñas no coinciden',
+        ]);
+
+        //request()->validate(Docente::$rules);
 
         // $docente = Docente::create($request->all());
         Docente::create([
@@ -70,10 +95,11 @@ class DocenteController extends Controller
             'documentoIdentidad' => $request['documentoIdentidad'],
             'email' => $request['email'],
             'tipo' => '2',
-            'password' => Hash::make($request['password']),
             'docTipoContrato' => $request['docTipoContrato'],
             'docAreaCurricular' => $request['docAreaCurricular'],
             'insCodigoNit' => $request['insCodigoNit'],
+            'password' => Hash::make($request['password']),
+            'password_confirmation' => Hash::make($request['password_confirmation']),
         ]);
 
         return redirect()->route('docentes.index')
@@ -113,6 +139,7 @@ class DocenteController extends Controller
      * @param  Docente $docente
      * @return \Illuminate\Http\Response
      */
+    //esta funcion es para actualizar los datos del docente
     public function update(Request $request, Docente $docente)
     {
         // request()->validate(Docente::$rules);
@@ -121,30 +148,119 @@ class DocenteController extends Controller
 
         // return redirect()->route('docentes.index')
         //     ->with('success', 'Información de docente actualizada con éxito');
-        $validated = $request->validate([
-            'nombre' => 'required',
-            //'documentoIdentidad' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'docTipoContrato' => 'required',
-            'docAreaCurricular' => 'required',
-            'insCodigoNit' => 'required',
-        ]);
+
+        //estas validaciones son para actualizar los datos del docente 
+        if(($request->documentoIdentidad == $docente->documentoIdentidad) && ($request->email == $docente->email)){
+            $request->validate([
+                'nombre' => 'required',
+                'docTipoContrato' => 'required',
+                'docAreaCurricular' => 'required',
+                'insCodigoNit' => 'required',
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'password_confirmation' => ['required','same:password'],
+            ],[
+                'nombre.required' => 'El campo nombre es obligatorio',
+                'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+                'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+                'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                'password.required' => 'El campo contraseña es obligatorio',
+                'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+                'password.confirmed' => 'Las contraseñas no coinciden',
+                'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+                'password_confirmation.same' => 'Las contraseñas no coinciden',
+            ]);
+        }else{
+            if($request->documentoIdentidad == $docente->documentoIdentidad){
+                $request->validate([
+                    'nombre' => 'required',
+                    'email' => ['required','unique:docentes'],
+                    'docTipoContrato' => 'required',
+                    'docAreaCurricular' => 'required',
+                    'insCodigoNit' => 'required',
+                    'password' => ['required', 'string', 'min:8', 'confirmed'],
+                    'password_confirmation' => ['required','same:password'],
+                ],[
+                    'nombre.required' => 'El campo nombre es obligatorio',
+                    'email.required' => 'El campo correo electrónico es obligatorio',
+                    'email.unique' => 'El correo electrónico ya existe',
+                    'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+                    'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+                    'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                    'password.required' => 'El campo contraseña es obligatorio',
+                    'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+                    'password.confirmed' => 'Las contraseñas no coinciden',
+                    'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+                    'password_confirmation.same' => 'Las contraseñas no coinciden',
+                ]);
+            }
+            else{
+                if($request->email == $docente->email){
+                    $request->validate([
+                        'nombre' => 'required',
+                        'documentoIdentidad' => ['required','unique:docentes'],
+                        'docTipoContrato' => 'required',
+                        'docAreaCurricular' => 'required',
+                        'insCodigoNit' => 'required',
+                        'password' => ['required', 'string', 'min:8', 'confirmed'],
+                        'password_confirmation' => ['required','same:password'],
+                    ],[
+                        'nombre.required' => 'El campo nombre es obligatorio',
+                        'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
+                        'documentoIdentidad.unique' => 'El documento de identidad ya existe',
+                        'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+                        'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+                        'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                        'password.required' => 'El campo contraseña es obligatorio',
+                        'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+                        'password.confirmed' => 'Las contraseñas no coinciden',
+                        'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+                        'password_confirmation.same' => 'Las contraseñas no coinciden',
+                    ]);
+                }
+                else{
+                    $request->validate([
+                        'nombre' => 'required',
+                        'documentoIdentidad' => ['required','unique:docentes'],
+                        'email' => ['required','unique:docentes'],
+                        'docTipoContrato' => 'required',
+                        'docAreaCurricular' => 'required',
+                        'insCodigoNit' => 'required',
+                        'password' => ['required', 'string', 'min:8', 'confirmed'],
+                        'password_confirmation' => ['required','same:password'],
+                    ],[
+                        'nombre.required' => 'El campo nombre es obligatorio',
+                        'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
+                        'documentoIdentidad.unique' => 'El documento de identidad ya existe',
+                        'email.required' => 'El campo correo electrónico es obligatorio',
+                        'email.unique' => 'El correo electrónico ya existe',
+                        'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+                        'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+                        'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                        'password.required' => 'El campo contraseña es obligatorio',
+                        'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+                        'password.confirmed' => 'Las contraseñas no coinciden',
+                        'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+                        'password_confirmation.same' => 'Las contraseñas no coinciden',
+                    ]);
+                }
+            }
+        }
 
         $docente = Docente::find($docente->id);
 
         $docente->nombre = $request->nombre;
         $docente->documentoIdentidad = $request->documentoIdentidad;
         $docente->email = $request->email;
-        $docente->password = $request->password;
         $docente->docTipoContrato = $request->docTipoContrato;
         $docente->docAreaCurricular = $request->docAreaCurricular;
         $docente->insCodigoNit = $request->insCodigoNit;
+        $docente->password = Hash::make($request->password);
+        $docente->password_confirmation = Hash::make($request->password_confirmation);
         $save = $docente->save();
         if($save){
-            return redirect()->route('docentes.index')->with('success', 'El docente '.$docente->nombre.' ha sido editado con éxito.');
+            return redirect()->route('docentes.index')->with('success', 'EL DOCENTE '.$docente->nombre.' HA SIDO EDITADO CON ÉXITO.');
         }else{
-            return redirect()->route('docentes.index')->with('fail', 'Ha ocurrido un error editando el docente '.$docente->nombre.'.');
+            return redirect()->route('docentes.index')->with('fail', 'HA OCURRIDO UN ERROR EDITANDO EL DOCENTE'.$docente->nombre.'.');
         }
     }
 
@@ -155,6 +271,7 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
+
         $docente = Docente::find($id)->delete();
 
         return redirect()->route('docentes.index')
