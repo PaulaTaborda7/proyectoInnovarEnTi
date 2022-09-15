@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
-            $table->string('gruIdGrupo')->unique();
             $table->string('gruNombre');
+            $table->string('gruIdGrupo')->unique();
             $table->string('gruJornada');
             $table->integer('gruCantEstudiante');
             $table->integer('gruCantMateria');

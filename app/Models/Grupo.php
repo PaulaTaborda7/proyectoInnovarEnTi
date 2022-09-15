@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * Class Grupo
  *
  * @property $id
- * @property $gruIdGrupo
  * @property $gruNombre
+ * @property $gruIdGrupo
  * @property $gruJornada
  * @property $gruCantEstudiante
  * @property $gruCantMateria
@@ -25,10 +25,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Grupo extends Model
 {
-    
     static $rules = [
+        'gruNombre' => 'required',
 		'gruIdGrupo' => 'required',
-		'gruNombre' => 'required',
 		'gruJornada' => 'required',
 		'gruCantEstudiante' => 'required',
 		'gruCantMateria' => 'required',
@@ -43,7 +42,7 @@ class Grupo extends Model
      *
      * @var array
      */
-    protected $fillable = ['gruIdGrupo','gruNombre','gruJornada','gruCantEstudiante','gruCantMateria','insCodigoNit','numIdentidadDocente'];
+    protected $fillable = ['gruNombre', 'gruIdGrupo','gruJornada','gruCantEstudiante','gruCantMateria','insCodigoNit','numIdentidadDocente'];
 
 
     /**

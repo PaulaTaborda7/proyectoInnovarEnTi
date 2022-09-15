@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grupo;
 use Illuminate\Http\Request;
+use Validator;
 
 /**
  * Class GrupoController
@@ -76,7 +77,7 @@ class GrupoController extends Controller
         $grupo = Grupo::create($request->all());
 
         return redirect()->route('grupos.index')
-            ->with('success', 'Grupo created successfully.');
+            ->with('success', 'GRUPO CREADO EXITOSAMENTE');
     }
 
     /**
@@ -117,7 +118,7 @@ class GrupoController extends Controller
         if($request->gruIdGrupo != $grupo->gruIdGrupo){
             $request->validate([
                 'gruNombre' => 'required',
-                'gruIdGrupo' => 'required'|'unique:grupos',
+                'gruIdGrupo' => ['required', 'unique:grupos'],
                 'gruJornada' => 'required',
                 'gruCantEstudiante' => 'required',
                 'gruCantMateria' => 'required',
@@ -156,7 +157,7 @@ class GrupoController extends Controller
         $grupo->update($request->all());
 
         return redirect()->route('grupos.index')
-            ->with('success', 'Grupo updated successfully');
+            ->with('success', 'INFORMACIÓN DEL GRUPO ACTUALIZADA CON ÉXITO');
     }
 
     /**
@@ -169,6 +170,6 @@ class GrupoController extends Controller
         $grupo = Grupo::find($id)->delete();
 
         return redirect()->route('grupos.index')
-            ->with('success', 'Grupo deleted successfully');
+            ->with('success', 'GRUPO ELIMINADO CON ÉXITO');
     }
 }

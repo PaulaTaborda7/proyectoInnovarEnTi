@@ -1,5 +1,5 @@
 <div class="container">
-
+    
     <div class="form-group">
         <span>Nombre del grupo</span>
         {{ Form::text('gruNombre', $grupo->gruNombre, ['class' => 'form-control' . ($errors->has('gruNombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
