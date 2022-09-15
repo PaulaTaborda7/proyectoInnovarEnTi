@@ -25,7 +25,7 @@ class DocenteController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $docentes = Docente::where('documentoIdentidad','LIKE','%'.$busqueda.'%')
+        $docentes = Docente::where('nombre','LIKE','%'.$busqueda.'%')
                     ->orWhere('documentoIdentidad','LIKE','%'.$busqueda.'%')
                     ->orWhere('email','LIKE','%'.$busqueda.'%')
                     ->orWhere('tipo','LIKE','%'.$busqueda.'%')

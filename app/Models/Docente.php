@@ -16,12 +16,11 @@ use Laravel\Sanctum\HasApiTokens;
  * @property $documentoIdentidad
  * @property $email
  * @property $tipo
- * @property $password
- * @property $password_confirmation
  * @property $docTipoContrato
  * @property $docAreaCurricular
  * @property $insCodigoNit
- * @property $email_verified_at
+ * @property $password
+ * @property $password_confirmation
  * @property $created_at
  * @property $updated_at
  *
