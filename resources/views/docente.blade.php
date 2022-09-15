@@ -19,6 +19,12 @@
                             <a href="/estudiantes" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar estudiantes</button></a>
                         </div>
                     </div>
+                    <br>
+                    <div class="container">
+                        <div class="justify-content-center">
+                            <a href="/grupos" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar grupos</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

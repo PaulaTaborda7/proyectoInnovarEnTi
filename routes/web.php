@@ -8,6 +8,7 @@ use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\AutenticacionDocenteController;
 use App\Http\Controllers\AutenticacionEstudianteController;
 use App\Http\Controllers\AutenticacionAdminController;
+use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\InstitucionController; 
 
 use Illuminate\Http\Request;
@@ -55,6 +56,7 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::get('/vistadocentes', [DocenteController::class, 'index2']); //Va a la vista de docentes
     Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de docente     
     Route::resource('/estudiantes', EstudianteController::class);
+    Route::resource('/grupos', GrupoController::class);
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {

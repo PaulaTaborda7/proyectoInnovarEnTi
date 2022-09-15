@@ -1,9 +1,9 @@
 <?php
- 
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
- 
+
 return new class extends Migration
 {
     /**
@@ -13,21 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('docentes', function (Blueprint $table) {
+        Schema::create('grupos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('documentoIdentidad')->unique();
-            $table->string('email');
-            $table->string('tipo');
-            $table->string('password');
-            $table->string('docTipoContrato');
-            $table->string('docAreaCurricular');
+            $table->string('gruIdGrupo')->unique();
+            $table->string('gruNombre');
+            $table->string('gruJornada');
+            $table->integer('gruCantEstudiante');
+            $table->integer('gruCantMateria');
             $table->string('insCodigoNit');
             $table->foreign('insCodigoNit')->references('codigoNit')->on('institucions');
+            $table->string('numIdentidadDocente');
+            $table->foreign('numIdentidadDocente')->references('documentoIdentidad')->on('docentes');
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('docentes');
+        Schema::dropIfExists('grupos');
     }
 };
