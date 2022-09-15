@@ -29,13 +29,13 @@ class AutenticacionDocenteController extends Controller
         //Hago la validación de los campos del formulario
         $camposFormulario = [
             'email'=>'required',
-            'password'=>'required|min:5',
+            'password'=>'required|min:8',
         ];
 
         $message = [
             'email.required' => 'El correo electrónico es requerido',
             'password.required' => 'La contraseña es requerida',
-            'password.min' => 'La contraseña debe tener mínimo 5 caracteres',
+            'password.min' => 'La contraseña debe tener mínimo 8 caracteres',
         ];
 
         $this->validate($request, $camposFormulario, $message);
