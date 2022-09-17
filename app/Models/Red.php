@@ -30,7 +30,7 @@ class Red extends Model
 		'redDescripcion' => 'required',
 		'redTipoRecurso' => 'required',
 		'idMateria' => 'required',
-		'redUrl' => 'required',
+		//'redUrl' => 'required',
     ];
 
     protected $perPage = 20;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Red;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 /**
  * Class RedController
@@ -43,12 +44,52 @@ class RedController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Red::$rules);
-
-        $red = Red::create($request->all());
-
-        return redirect()->route('reds.index')
-            ->with('success', 'Red created successfully.');
+        $request->validate([
+            'redNombre' => 'required',
+            'redIdRed' => ['required', 'unique:reds'],
+            'redDescripcion' => 'required',
+            'redTipoRecurso' => 'required',
+            'idMateria' => 'required',
+        ], [
+            // 'nombre.required' => 'El campo nombre es obligatorio',
+            // 'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
+            // 'documentoIdentidad.unique' => 'El documento de identidad ya existe',
+            // 'email.required' => 'El campo correo electrónico es obligatorio',
+            // 'email.unique' => 'El correo electrónico ya existe',
+            // 'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
+            // 'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
+            // 'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+            // 'password.required' => 'El campo contraseña es obligatorio',
+            // 'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+            // 'password.confirmed' => 'Las contraseñas no coinciden',
+            // 'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+            // 'password_confirmation.same' => 'Las contraseñas no coinciden',
+        ]);
+        // $red = Red::create([
+        //     'redNombre' => $request['redNombre'],
+        //     'redIdRed' => $request['redIdRed'],
+        //     'redDescripcion' => $request['redDescripcion'],
+        //     'redTipoRecurso' => $request['redTipoRecurso'],
+        //     'idMateria' => $request['idMateria'],
+        // ]);
+        $red = new Red();
+        $red->id = $request->id;
+        $red->redNombre = $request->redNombre;
+        $red->redIdRed = $request->redIdRed;
+        $red->redDescripcion = $request->redDescripcion;
+        $red->redTipoRecurso = $request->redTipoRecurso;
+        $red->idMateria = $request->idMateria;
+        if($request->hasFile('redUrl')){
+            $archivo = $request->file('redUrl')->getClientOriginalName();
+            $red->redUrl = $request->file('redUrl')
+                ->storeAs('archivosred/'.$red->redIdRed, $archivo);
+        }
+        $save = $red->save();
+        if($save){
+            return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
+        }else{
+            return redirect()->route('reds.index')->with('fail', 'No se ha podido crear el RED');
+        }
     }
 
     /**
