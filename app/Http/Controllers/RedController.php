@@ -50,28 +50,17 @@ class RedController extends Controller
             'redDescripcion' => 'required',
             'redTipoRecurso' => 'required',
             'idMateria' => 'required',
+            'redUrl' => 'required',
         ], [
-            // 'nombre.required' => 'El campo nombre es obligatorio',
-            // 'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
-            // 'documentoIdentidad.unique' => 'El documento de identidad ya existe',
-            // 'email.required' => 'El campo correo electrónico es obligatorio',
-            // 'email.unique' => 'El correo electrónico ya existe',
-            // 'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
-            // 'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
-            // 'insCodigoNit.required' => 'El campo código NIT es obligatorio',
-            // 'password.required' => 'El campo contraseña es obligatorio',
-            // 'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-            // 'password.confirmed' => 'Las contraseñas no coinciden',
-            // 'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
-            // 'password_confirmation.same' => 'Las contraseñas no coinciden',
+            'redNombre.required' => 'El campo nombre de recurso es obligatorio',
+            'redIdRed.required' => 'El campo código de recurso es obligatorio',
+            'redIdRed.unique' => 'El código de recurso ya existe',
+            'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
+            'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
+            'idMateria.required' => 'El campo código de temática es obligatorio',
+            'redUrl.required' => 'El campo URL de recurso es obligatorio',
         ]);
-        // $red = Red::create([
-        //     'redNombre' => $request['redNombre'],
-        //     'redIdRed' => $request['redIdRed'],
-        //     'redDescripcion' => $request['redDescripcion'],
-        //     'redTipoRecurso' => $request['redTipoRecurso'],
-        //     'idMateria' => $request['idMateria'],
-        // ]);
+
         $red = new Red();
         $red->id = $request->id;
         $red->redNombre = $request->redNombre;
@@ -127,12 +116,46 @@ class RedController extends Controller
      */
     public function update(Request $request, Red $red)
     {
+        if($request->redIdRed == $red->redIdRed){
+            $request->validate([
+                'redNombre' => 'required',
+                'redDescripcion' => 'required',
+                'redTipoRecurso' => 'required',
+                'idMateria' => 'required',
+                //'redUrl' => 'required',
+            ], [
+                'redNombre.required' => 'El campo nombre de recurso es obligatorio',
+                'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
+                'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
+                'idMateria.required' => 'El campo código de temática es obligatorio',
+                //'redUrl.required' => 'El campo URL de recurso es obligatorio',
+            ]);
+        }else{
+            $request->validate([
+                'redNombre' => 'required',
+                'redIdRed' => ['required', 'unique:reds'],
+                'redDescripcion' => 'required',
+                'redTipoRecurso' => 'required',
+                'idMateria' => 'required',
+                //'redUrl' => 'required',
+            ], [
+                'redNombre.required' => 'El campo nombre de recurso es obligatorio',
+                'redIdRed.required' => 'El campo código de recurso es obligatorio',
+                'redIdRed.unique' => 'El código de recurso ya existe',
+                'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
+                'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
+                'idMateria.required' => 'El campo código de temática es obligatorio',
+                //'redUrl.required' => 'El campo URL de recurso es obligatorio',
+            ]);
+        }
+
+
         request()->validate(Red::$rules);
 
         $red->update($request->all());
 
         return redirect()->route('reds.index')
-            ->with('success', 'Red updated successfully');
+            ->with('success', 'Información de RED actualizada con éxito');
     }
 
     /**
@@ -145,6 +168,6 @@ class RedController extends Controller
         $red = Red::find($id)->delete();
 
         return redirect()->route('reds.index')
-            ->with('success', 'Red deleted successfully');
+            ->with('success', 'RED eliminado con éxito');
     }
 }
