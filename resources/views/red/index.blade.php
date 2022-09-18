@@ -41,12 +41,13 @@ Red
                                     <th>Descripción del Recurso Educativo Digital</th>
                                     <th>Tipo de Recurso Educativo Digital</th>
                                     <th>Código de la temática asociada al RED</th>
-                                    <th>URL del RED</th>
+                                    {{-- <th>URL del RED</th> --}}
 
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {{ $i = 0}}
                                 @foreach ($reds as $red)
                                 <tr>
                                     <td>{{ ++$i }}</td>
@@ -56,7 +57,7 @@ Red
                                     <td>{{ $red->redDescripcion }}</td>
                                     <td>{{ $red->redTipoRecurso }}</td>
                                     <td>{{ $red->idMateria }}</td>
-                                    <td>{{ $red->redUrl }}</td>
+                                    {{-- <td>{{ $red->redUrl }}</td> --}}
 
                                     <td>
                                         <form action="{{ route('reds.destroy',$red->id) }}" method="POST">
@@ -80,7 +81,7 @@ Red
                     </div>
                 </div>
             </div>
-            {!! $reds->links() !!}
+            {{-- {!! $reds->links() !!} --}}
         </div>
     </div>
 </div>

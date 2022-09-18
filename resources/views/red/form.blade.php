@@ -25,10 +25,10 @@
         {!! $errors->first('idMateria', '<div class="invalid-feedback">:message</div>') !!}
     </div>
 
-    <div class="form-group">
-        <span>Archivo</span>
-        <input type="file" name="redUrl" id="redUrl" class="form-control @error('redUrl') is-invalid @enderror" enctype="multipart/form-data">
-        @error('redUrl')
+    <div class="form-group mt-4">
+        <label for="files">Archivo</label>
+        <input type="file" name="files[]" id="files" class="form-control @error('files') is-invalid @enderror" enctype="multipart/form-data" multiple>
+        @error('files')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
