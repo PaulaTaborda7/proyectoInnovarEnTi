@@ -18,7 +18,7 @@ Update Red
                         {{ method_field('PATCH') }}
                         @csrf
 
-                        @include('red.form')
+                        @include('red.formEdit')
 
                     </form>
                 </div>

@@ -44,18 +44,10 @@
         </span>
         @enderror
     </div>
-<<<<<<< HEAD
-
-    <div class="form-group mt-4">
-        <label for="files">Archivo</label>
-        <input type="file" name="files[]" id="files" class="form-control @error('files') is-invalid @enderror" enctype="multipart/form-data" multiple>
-        @error('files')
-=======
     <div class="form-group">
         <span>Archivo</span>
         <input type="file" name="redUrl" id="redUrl" class="form-control @error('redUrl') is-invalid @enderror" enctype="multipart/form-data">
         @error('redUrl')
->>>>>>> 6dba178e0a159e0c9c4d7570062c07325ea8da4b
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -65,7 +57,7 @@
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">
             <button type="submit" class="btn btn-primary">
-                {{ __('Agregar') }}
+                {{ __('Editar') }}
             </button>
         </div>
     </div>
