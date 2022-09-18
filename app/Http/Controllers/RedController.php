@@ -62,7 +62,6 @@ class RedController extends Controller
             'idMateria.required' => 'El campo código de temática es obligatorio',
             'redUrl.required' => 'El campo URL de recurso es obligatorio',
         ]);
-<<<<<<< HEAD
         $red = Red::create([
             'redNombre' => $request['redNombre'],
             'redIdRed' => $request['redIdRed'],
@@ -85,23 +84,6 @@ class RedController extends Controller
                     ]);
                 }
             }
-=======
-
-        $red = new Red();
-        $red->id = $request->id;
-        $red->redNombre = $request->redNombre;
-        $red->redIdRed = $request->redIdRed;
-        $red->redDescripcion = $request->redDescripcion;
-        $red->redTipoRecurso = $request->redTipoRecurso;
-        $red->idMateria = $request->idMateria;
-        if($request->hasFile('redUrl')){
-            $archivo = $request->file('redUrl')->getClientOriginalName();
-            $red->redUrl = $request->file('redUrl')
-                ->storeAs('archivosred/'.$red->redIdRed, $archivo);
-        }
-        $save = $red->save();
-        if($save){
->>>>>>> 6dba178e0a159e0c9c4d7570062c07325ea8da4b
             return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
         }
         else{
