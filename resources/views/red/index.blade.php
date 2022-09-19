@@ -63,6 +63,7 @@ Red
                                         <form action="{{ route('reds.destroy',$red->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary " href="{{ route('reds.show',$red->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
                                             <a class="btn btn-sm btn-success" href="{{ route('reds.edit',$red->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                            <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital',$red->id) }}"><i class="fa fa-eye"></i> Probar RED</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>

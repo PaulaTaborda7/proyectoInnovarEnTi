@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Red;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -46,22 +47,22 @@ class RedController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'redNombre' => 'required',
-            'redIdRed' => ['required', 'unique:reds'],
-            'redDescripcion' => 'required',
-            'redTipoRecurso' => 'required',
-            'idMateria' => 'required',
-            'redUrl' => 'required',
-        ], [
-            'redNombre.required' => 'El campo nombre de recurso es obligatorio',
-            'redIdRed.required' => 'El campo código de recurso es obligatorio',
-            'redIdRed.unique' => 'El código de recurso ya existe',
-            'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
-            'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
-            'idMateria.required' => 'El campo código de temática es obligatorio',
-            'redUrl.required' => 'El campo URL de recurso es obligatorio',
-        ]);
+        // $data = $request->validate([
+        //     'redNombre' => 'required',
+        //     'redIdRed' => ['required', 'unique:reds'],
+        //     'redDescripcion' => 'required',
+        //     'redTipoRecurso' => 'required',
+        //     'idMateria' => 'required',
+        //     'redUrl' => 'required',
+        // ], [
+        //     'redNombre.required' => 'El campo nombre de recurso es obligatorio',
+        //     'redIdRed.required' => 'El campo código de recurso es obligatorio',
+        //     'redIdRed.unique' => 'El código de recurso ya existe',
+        //     'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
+        //     'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
+        //     'idMateria.required' => 'El campo código de temática es obligatorio',
+        //     'redUrl.required' => 'El campo URL de recurso es obligatorio',
+        // ]);
         $red = Red::create([
             'redNombre' => $request['redNombre'],
             'redIdRed' => $request['redIdRed'],
@@ -70,7 +71,7 @@ class RedController extends Controller
             'idMateria' => $request['idMateria'],
         ]);
         if($request->has('files')){
-            $allowedfileExtension=['pdf','jpg','png','docx','css','js','html'];
+            $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
             $files = $request->file('files');
             foreach($files as $file){
                 $fileName = $file->getClientOriginalName();
@@ -85,43 +86,26 @@ class RedController extends Controller
                 }
             }
             return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
-        }
-        else{
+        }else {
             return redirect()->route('reds.index')->with('fail', 'No se ha podido crear el RED');
         }
-            // foreach($request->file('files')as $file){
-            //     $fileName = $data['redNombre'].'.'.$file->extension();
-            //     $file->move(public_path('archivos/'.$red->redIdRed,),$fileName);
-            //     File::create([
-            //         'red_id'=>$red->id,
-            //         'file'=>$fileName
-            //     ]);
-            // }
-        
-        // $red = new Red();
-        // $red->id = $request->id;
-        // $red->redNombre = $request->redNombre;
-        // $red->redIdRed = $request->redIdRed;
-        // $red->redDescripcion = $request->redDescripcion;
-        // $red->redTipoRecurso = $request->redTipoRecurso;
-        // $red->idMateria = $request->idMateria;
-        //$red = Red::create($data);
-
-        // if($request->hasFile('files')){
-        //     foreach($request->file('files')as $file){
-        //         $archivo = $request->file('files')->getClientOriginalName();
-        //         $red->files = $request->file('files')->storeAs('archivosred/'.$red->redIdRed, $archivo);
-        //         $file->move(public_path('archivosred/'.$red->redIdRed), $archivo);
-
-        //     }
-        // }
-
         // $save = $red->save();
         // if($save){
         //     return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
         // }else{
         //     return redirect()->route('reds.index')->with('fail', 'No se ha podido crear el RED');
         // }
+    }
+
+    public function files($id){
+        //$file = File::find($id);
+        //echo $id;
+        //$file = DB::table('files')->select('*')->where('red_id','=',$id)->first();
+        //$idFile = $file->id;
+        $red = Red::find($id);
+        $redIdRed = $red->redIdRed;
+        // if(!$file) abort(404);
+        return view('pruebared',compact('redIdRed'));
     }
 
     /**
