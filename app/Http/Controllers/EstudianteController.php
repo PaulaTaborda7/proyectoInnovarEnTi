@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Class EstudianteController
@@ -17,21 +16,11 @@ class EstudianteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $busqueda = $request->busqueda;
-        $estudiantes = Estudiante::where('nombre', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('numIdentidad', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('email', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('tipo', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('estPromedio', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('insCodigoNit', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('numIdentidadPadre', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('gruIdCurso', 'LIKE', '%' . $busqueda . '%')
-            ->latest('id')
-            ->paginate(10);
+        $estudiantes = Estudiante::paginate();
 
-        return view('estudiante.index', compact('estudiantes', 'busqueda'))
+        return view('estudiante.index', compact('estudiantes'))
             ->with('i', (request()->input('page', 1) - 1) * $estudiantes->perPage());
     }
 
@@ -54,53 +43,12 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'numIdentidad' => ['required', 'unique:estudiantes'],
-            'email' => ['required', 'unique:estudiantes'],
-            'estPromedio' => 'required|numeric|between:0,5.0',
-            'insCodigoNit' => 'required',
-            'numIdentidadPadre' => 'required',
-            'gruIdCurso' => 'required',
-            'password' => 'required',
-            'password_confirmation' => 'required|same:password',
-        ], [
-            'nombre.required' => 'El campo nombre es obligatorio',
-            'numIdentidad.required' => 'El campo número de identidad es obligatorio',
-            'numIdentidad.unique' => 'El número de identidad ya existe',
-            'email.required' => 'El campo correo electrónico es obligatorio',
-            'email.unique' => 'El correo electrónico ya existe',
-            'estPromedio.required' => 'El campo promedio es obligatorio',
-            'estPromedio.numeric' => 'El campo promedio debe ser numérico',
-            'estPromedio.between' => 'El campo promedio debe estar entre 0 y 5.0',
-            'insCodigoNit.required' => 'El campo código de institución es obligatorio',
-            'numIdentidadPadre.required' => 'El campo número de identidad del padre es obligatorio',
-            'gruIdCurso.required' => 'El campo código de curso es obligatorio',
-            'password.required' => 'El campo contraseña es obligatorio',
-            'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-            'password.confirmed' => 'Las contraseñas no coinciden',
-            'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
-            'password_confirmation.same' => 'Las contraseñas no coinciden',
-        ]);
+        request()->validate(Estudiante::$rules);
 
-        //request()->validate(Estudiante::$rules);
-
-        // $estudiante = Docente::create($request->all());
-        Estudiante::create([
-            'nombre' => $request['nombre'],
-            'numIdentidad' => $request['numIdentidad'],
-            'email' => $request['email'],
-            'tipo' => '3',
-            'estPromedio' => $request['estPromedio'],
-            'insCodigoNit' => $request['insCodigoNit'],
-            'numIdentidadPadre' => $request['numIdentidadPadre'],
-            'gruIdCurso' => $request['gruIdCurso'],
-            'password' => Hash::make($request['password']),
-            'password_confirmation' => Hash::make($request['password_confirmation']),
-        ]);
+        $estudiante = Estudiante::create($request->all());
 
         return redirect()->route('estudiantes.index')
-            ->with('success', 'INFORMACIÓN DE ESTUDIANTE REGISTRADA CON ÉXITO');
+            ->with('success', 'Estudiante created successfully.');
     }
 
     /**
@@ -138,133 +86,12 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, Estudiante $estudiante)
     {
-        if (($request->numIdentidad == $estudiante->numIdentidad) && ($request->email == $estudiante->email)) {
-            $request->validate([
-                'nombre' => 'required',
-                'estPromedio' => 'required|numeric|between:0,5.0',
-                'insCodigoNit' => 'required',
-                'numIdentidadPadre' => 'required',
-                'gruIdCurso' => 'required',
-                'password' => 'required',
-                'password_confirmation' => 'required|same:password',
-            ], [
-                'nombre.required' => 'El campo nombre es obligatorio',
-                'estPromedio.required' => 'El campo promedio es obligatorio',
-                'estPromedio.numeric' => 'El campo promedio debe ser numérico',
-                'estPromedio.between' => 'El campo promedio debe estar entre 0 y 5.0',
-                'insCodigoNit.required' => 'El campo código de institución es obligatorio',
-                'numIdentidadPadre.required' => 'El campo número de identidad del padre es obligatorio',
-                'gruIdCurso.required' => 'El campo código de curso es obligatorio',
-                'password.required' => 'El campo contraseña es obligatorio',
-                'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-                'password.confirmed' => 'Las contraseñas no coinciden',
-                'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
-                'password_confirmation.same' => 'Las contraseñas no coinciden',
-            ]);
-        } else {
-            if ($request->numIdentidad == $estudiante->numIdentidad) {
-                $request->validate([
-                    'nombre' => 'required',
-                    'email' => ['required', 'unique:estudiantes'],
-                    'estPromedio' => 'required|numeric|between:0,5.0',
-                    'insCodigoNit' => 'required',
-                    'numIdentidadPadre' => 'required',
-                    'gruIdCurso' => 'required',
-                    'password' => 'required',
-                    'password_confirmation' => 'required|same:password',
-                ], [
-                    'nombre.required' => 'El campo nombre es obligatorio',
-                    'email.required' => 'El campo correo electrónico es obligatorio',
-                    'email.unique' => 'El correo electrónico ya existe',
-                    'estPromedio.required' => 'El campo promedio es obligatorio',
-                    'estPromedio.numeric' => 'El campo promedio debe ser numérico',
-                    'estPromedio.between' => 'El campo promedio debe estar entre 0 y 5.0',
-                    'insCodigoNit.required' => 'El campo código de institución es obligatorio',
-                    'numIdentidadPadre.required' => 'El campo número de identidad del padre es obligatorio',
-                    'gruIdCurso.required' => 'El campo código de curso es obligatorio',
-                    'password.required' => 'El campo contraseña es obligatorio',
-                    'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-                    'password.confirmed' => 'Las contraseñas no coinciden',
-                    'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
-                    'password_confirmation.same' => 'Las contraseñas no coinciden',
-                ]);
-            } else {
-                if ($request->email == $estudiante->email) {
-                    $request->validate([
-                        'nombre' => 'required',
-                        'numIdentidad' => ['required', 'unique:estudiantes'],
-                        'estPromedio' => 'required|numeric|between:0,5.0',
-                        'insCodigoNit' => 'required',
-                        'numIdentidadPadre' => 'required',
-                        'gruIdCurso' => 'required',
-                        'password' => 'required',
-                        'password_confirmation' => 'required|same:password',
-                    ], [
-                        'nombre.required' => 'El campo nombre es obligatorio',
-                        'numIdentidad.required' => 'El campo número de identidad es obligatorio',
-                        'numIdentidad.unique' => 'El número de identidad ya existe',
-                        'estPromedio.required' => 'El campo promedio es obligatorio',
-                        'estPromedio.numeric' => 'El campo promedio debe ser numérico',
-                        'estPromedio.between' => 'El campo promedio debe estar entre 0 y 5.0',
-                        'insCodigoNit.required' => 'El campo código de institución es obligatorio',
-                        'numIdentidadPadre.required' => 'El campo número de identidad del padre es obligatorio',
-                        'gruIdCurso.required' => 'El campo código de curso es obligatorio',
-                        'password.required' => 'El campo contraseña es obligatorio',
-                        'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-                        'password.confirmed' => 'Las contraseñas no coinciden',
-                        'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
-                        'password_confirmation.same' => 'Las contraseñas no coinciden',
-                    ]);
-                } else {
-                    $request->validate([
-                        'nombre' => 'required',
-                        'numIdentidad' => ['required', 'unique:estudiantes'],
-                        'email' => ['required', 'unique:estudiantes'],
-                        'estPromedio' => 'required|numeric|between:0,5.0',
-                        'insCodigoNit' => 'required',
-                        'numIdentidadPadre' => 'required',
-                        'gruIdCurso' => 'required',
-                        'password' => 'required',
-                        'password_confirmation' => 'required|same:password',
-                    ], [
-                        'nombre.required' => 'El campo nombre es obligatorio',
-                        'numIdentidad.required' => 'El campo número de identidad es obligatorio',
-                        'numIdentidad.unique' => 'El número de identidad ya existe',
-                        'email.required' => 'El campo correo electrónico es obligatorio',
-                        'email.unique' => 'El correo electrónico ya existe',
-                        'estPromedio.required' => 'El campo promedio es obligatorio',
-                        'estPromedio.numeric' => 'El campo promedio debe ser numérico',
-                        'estPromedio.between' => 'El campo promedio debe estar entre 0 y 5.0',
-                        'insCodigoNit.required' => 'El campo código de institución es obligatorio',
-                        'numIdentidadPadre.required' => 'El campo número de identidad del padre es obligatorio',
-                        'gruIdCurso.required' => 'El campo código de curso es obligatorio',
-                        'password.required' => 'El campo contraseña es obligatorio',
-                        'password.min' => 'La contraseña debe tener al menos 8 caracteres',
-                        'password.confirmed' => 'Las contraseñas no coinciden',
-                        'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
-                        'password_confirmation.same' => 'Las contraseñas no coinciden',
-                    ]);
-                }
-            }
-        }
+        request()->validate(Estudiante::$rules);
 
-        $estudiante = Estudiante::find($estudiante->id);
+        $estudiante->update($request->all());
 
-        $estudiante->nombre = $request->nombre;
-        $estudiante->numIdentidad = $request->numIdentidad;
-        $estudiante->email = $request->email;
-        $estudiante->estPromedio = $request->estPromedio;
-        $estudiante->insCodigoNit = $request->insCodigoNit;
-        $estudiante->numIdentidadPadre = $request->numIdentidadPadre;
-        $estudiante->gruIdCurso = $request->gruIdCurso;
-        $estudiante->password = Hash::make($request->password);
-        $estudiante->password_confirmation = Hash::make($request->password_confirmation);
-        $save = $estudiante->save();
-        if ($save) {
-            return redirect()->route('estudiantes.index')->with('success', 'EL ESTUDIANTE ' . $estudiante->nombre . ' HA SIDO EDITADO CON ÉXITO.');
-        } else {
-            return redirect()->route('estudiantes.index')->with('fail', 'HA OCURRIDO UN ERROR EDITANDO EL ESTUDIANTE' . $estudiante->nombre . '.');
-        }
+        return redirect()->route('estudiantes.index')
+            ->with('success', 'Estudiante updated successfully');
     }
 
     /**
@@ -277,6 +104,6 @@ class EstudianteController extends Controller
         $estudiante = Estudiante::find($id)->delete();
 
         return redirect()->route('estudiantes.index')
-            ->with('success', 'ESTUDIANTE ELIMINADO CON ÉXITO');
+            ->with('success', 'Estudiante deleted successfully');
     }
 }

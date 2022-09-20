@@ -65,6 +65,7 @@ Route::group(['middleware' => ['soloestudiante']], function () {
     //Route::resource('/estudiante', EstudianteController::class);
     Route::get('/vistaestudiantes', [AutenticacionEstudianteController::class, 'index2']); //Va a la vista de estudiantes
     Route::post('/estudiante/logout', [AutenticacionEstudianteController::class, 'logout'])->name('estudiante.logout');
+
 });
 
 Route::group(['middleware' => ['solopadre']], function () {

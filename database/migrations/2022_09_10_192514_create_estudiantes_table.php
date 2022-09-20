@@ -28,6 +28,7 @@ return new class extends Migration
             //$table->foreign('gruIdCurso')->references('gruIdGrupo')->on('grupos');
             $table->string('password');
             $table->string('password_confirmation');
+            $table->string('observacion');
             $table->timestamps();
         });
     }
