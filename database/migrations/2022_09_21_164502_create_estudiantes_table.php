@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('numIdentidadPadre');
             //$table->foreign('numIdentidadPadre')->references('numIdentidad')->on('padres');
             $table->string('gruIdCurso');
-            //$table->foreign('gruIdCurso')->references('gruIdGrupo')->on('grupos');
+            $table->foreign('gruIdCurso')->references('gruIdGrupo')->on('grupos');
             $table->string('observacion');
             $table->string('password');
             $table->string('password_confirmation');
