@@ -47,7 +47,7 @@
                             </table>
                             <div class="container">
                                 <div class="justify-content-center">
-                                    <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>
+                                    <a class="ml-4 text-sm btn btn-primary" href="{{ route('institucions.index') }}">Regresar</a>
                                 </div>
                             </div>
                         </div>
