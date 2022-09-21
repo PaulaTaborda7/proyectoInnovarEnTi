@@ -62,6 +62,7 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
                     <div class="container">
                         <div class="justify-content-center">
                             <a class="ml-4 text-sm btn btn-primary" href="/">Regresar</a>

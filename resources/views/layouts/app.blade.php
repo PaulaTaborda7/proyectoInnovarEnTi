@@ -32,8 +32,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0022FA">
+            <div class="container">
                 <!--las imágenes van en la carpeta public-->
                 <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px">
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -104,9 +104,56 @@
                 </div>
             </div>
         </nav>
+        </header>
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center fw-bold fs-4">Acerca de INNOVAR EN TI</h5>
+                        <p>
+                            INNOVAR EN TI es un emprendimiento de una empresa que se desea creó con el objetivo de
+                            brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los estudiantes en los
+                            colegios sean mucho más dinámicas y de calidad.
+                        </p>
+                    </div>
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center fw-bold fs-4">Sobre los Recursos Educativos Digitales</h5>
+                        <p>
+                            INNOVAR EN TI ofrece los recursos educativos para los grados primero, segundo y tercero de los colegios públicos
+                            y privados, en primera instancia, del país, después a nivel internacional.
+                        </p>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <div class="d-flex justify-content-center">
+                <section class="mb-1">
+                    <!-- Facebook -->
+                    <i class="bi bi-facebook"></i>
+
+                    <!-- Twitter -->
+                    <i class="bi bi-twitter"></i>
+
+                    <!-- Google -->
+                    <i class="bi bi-google"></i>
+
+                    <!-- Instagram -->
+                    <i class="bi bi-instagram"></i>
+                </section>
+            </div>
+            <!-- Copyright -->
+            <div class="text-center p-3 text-light" style="background-color:#0022FA">
+                © 2022 Copyright
+            </div>
+        </footer>
     </div>
 </body>
 

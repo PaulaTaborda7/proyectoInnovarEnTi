@@ -1,10 +1,10 @@
-@extends('layouts.appAdmin')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" class="center">
                 <div class="card-header">{{ __('Opciones del administrador') }}</div>
 
                 <div class="card-body">
@@ -16,32 +16,32 @@
                     @if (Route::has('register'))
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><button class="btn btn-outline-info">Registrar administrador</button></a>
+                            <a class="btn btn-primary" class="ml-4 " href="{{ route('register') }}">Administrar temáticas</a>
                         </div>
                     </div>
                     @endif
                     <br>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/materias" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar temáticas</button></a>
+                            <a class="btn btn-primary" class="ml-4 " href="/materias">Administrar temáticas</a>
                         </div>
                     </div>
                     <br>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/docentes" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar docentes</button></a>
+                            <a class="btn btn-primary" class="ml-4 " href="/docentes">Administrar docentes</a>
                         </div>
                     </div>
                     <br>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/institucions" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar instituciones educativas</button></a>
+                            <a class="btn btn-primary" class="ml-4 " href="/institucions">Administrar instituciones educativas</a>
                         </div>
                     </div>
                     <br>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="/reds" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar Recursos Educativos Digitales</button></a>
+                            <a class="btn btn-primary" class="ml-4 " href="/reds">Administrar Recursos Educativos Digitales</a>
                         </div>
                     </div>
                 </div>

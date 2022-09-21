@@ -66,7 +66,7 @@ Materia
 
                                     <td>
                                         <form action="{{ route('materias.destroy',$materia->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}"><i class="fa fa-fw fa-eye"></i>Ver más</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}" ><i class="fa fa-fw fa-eye"></i>Ver más</a>
                                             <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
                                             @csrf
                                             @method('DELETE')

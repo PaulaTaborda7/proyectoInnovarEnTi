@@ -30,7 +30,7 @@
     </head>
     <body class="antialiased">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0022FA">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
                     <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
@@ -64,7 +64,7 @@
             </div>        
         </main>
         <br>
-        <footer class="bg-light text-center text-lg-start">
+        <footer class="bg-light text-center text-lg-start" class="position-relative">
             <!-- Grid container -->
             <div class="container p-4">
                 <!--Grid row-->
@@ -106,7 +106,7 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light" style="background-image:url(https://img.freepik.com/foto-gratis/fondo-acuarela-azul-cielo-estelar_125540-592.jpg?w=2000)">
+            <div class="text-center p-3 text-light" style="background-color:#0022FA">
                 © 2022 Copyright
             </div>
         </footer>
