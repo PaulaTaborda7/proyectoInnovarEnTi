@@ -30,7 +30,7 @@
     </head>
     <body class="antialiased">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0022FA">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=2000)">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
                     <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
@@ -106,7 +106,7 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light" style="background-color:#0022FA">
+            <div class="text-center p-3 text-light" style="background-image:url(https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=2000)">
                 © 2022 Copyright
             </div>
         </footer>
