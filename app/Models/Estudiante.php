@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $gruIdCurso
  * @property $password
  * @property $password_confirmation
+ * @property $observacion
  * @property $created_at
  * @property $updated_at
  *
@@ -27,35 +28,54 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Estudiante extends Model
 {
-
-  static $rules = [
-    'nombre' => 'required',
-    'numIdentidad' => 'required',
-    'email' => 'required',
-    //'tipo' => 'required',
-    'estPromedio' => 'required',
-    'insCodigoNit' => 'required',
-    'numIdentidadPadre' => 'required',
-    'gruIdCurso' => 'required',
+    
+    static $rules = [
+		'nombre' => 'required',
+		'numIdentidad' => 'required',
+		'email' => 'required',
+		'tipo' => 'required',
+		'estPromedio' => 'required',
+		'insCodigoNit' => 'required',
+		'numIdentidadPadre' => 'required',
+		'gruIdCurso' => 'required',
     'password' => 'required',
-    'password_confirmation' => 'required|same:password',
-  ];
-
-  protected $perPage = 20;
-
-  /**
-   * Attributes that should be mass-assignable.
-   *
-   * @var array
-   */
-  protected $fillable = ['nombre', 'numIdentidad', 'email', 'tipo','estPromedio', 'insCodigoNit', 'numIdentidadPadre', 'gruIdCurso', 'password', 'password_confirmation'];
+		'password_confirmation' => 'required',
+		'observacion' => 'required',
+    ];
 
 
-  /**
-   * @return \Illuminate\Database\Eloquent\Relations\HasOne
-   */
-  public function institucion()
-  {
-    return $this->hasOne('App\Models\Institucion', 'codigoNit', 'insCodigoNit');
-  }
+    protected $hidden = [
+      'password',
+      'password_confirmation',
+      'remember_token',
+    ];
+  
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+      'email_verified_at' => 'datetime',
+    ];
+
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['nombre','numIdentidad','email','tipo','estPromedio','insCodigoNit','numIdentidadPadre','gruIdCurso', 'password','password_confirmation','observacion',];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function institucion()
+    {
+        return $this->hasOne('App\Models\Institucion', 'codigoNit', 'insCodigoNit');
+    }
+    
+
 }

@@ -1,0 +1,7 @@
+Grado: primero
+Nivel: espacial
+Tipo: actividad seleccionar
+Categoría: ubicacion en el espacio
+Enunciado: Escoger el animal más alto
+
+nota: no posee audio!

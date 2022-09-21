@@ -1,28 +1,30 @@
 @extends('layouts.app')
 
 @section('template_title')
-Create Estudiante
+    Create Estudiante
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <section class="content container-fluid">
+        <div class="row">
+            <div class="col-md-12">
 
-            @includeif('partials.errors')
+                @includeif('partials.errors')
 
-            <div class="card card-default">
-                <div class="card-header text-center fw-bold fs-4">{{ __('Llena los siguientes datos para registrar un estudiante') }}</div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('estudiantes.store') }}" role="form" enctype="multipart/form-data">
-                        @csrf
+                <div class="card card-default">
+                    <div class="card-header">
+                        <span class="card-title">Create Estudiante</span>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('estudiantes.store') }}"  role="form" enctype="multipart/form-data">
+                            @csrf
 
-                        @include('estudiante.form')
+                            @include('estudiante.form')
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection
