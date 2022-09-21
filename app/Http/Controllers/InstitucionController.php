@@ -37,6 +37,10 @@ class InstitucionController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $institucions->perPage());
     }
 
+    public function verDocentes($id){
+        return view('consultaDocentes',compact('id'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

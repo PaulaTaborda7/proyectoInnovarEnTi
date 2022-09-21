@@ -25,21 +25,22 @@ class DocenteController extends Controller
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
-        $docentes = Docente::where('nombre','LIKE','%'.$busqueda.'%')
-                    ->orWhere('documentoIdentidad','LIKE','%'.$busqueda.'%')
-                    ->orWhere('email','LIKE','%'.$busqueda.'%')
-                    ->orWhere('tipo','LIKE','%'.$busqueda.'%')
-                    ->orWhere('docTipoContrato','LIKE','%'.$busqueda.'%')
-                    ->orWhere('docAreaCurricular','LIKE','%'.$busqueda.'%')
-                    ->orWhere('insCodigoNit','LIKE','%'.$busqueda.'%')
-                    ->latest('id')
-                    ->paginate(10);
+        $docentes = Docente::where('nombre', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('documentoIdentidad', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('email', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('tipo', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('docTipoContrato', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('docAreaCurricular', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insCodigoNit', 'LIKE', '%' . $busqueda . '%')
+            ->latest('id')
+            ->paginate(10);
 
-        return view('docente.index', compact('docentes','busqueda'))
+        return view('docente.index', compact('docentes', 'busqueda'))
             ->with('i', (request()->input('page', 1) - 1) * $docentes->perPage());
     }
 
-    public function index2(Request $request) {
+    public function index2(Request $request)
+    {
         return view('docente');
     }
 
@@ -64,14 +65,14 @@ class DocenteController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'documentoIdentidad' => ['required','unique:docentes'],
-            'email' => ['required','unique:docentes'],
+            'documentoIdentidad' => ['required', 'unique:docentes'],
+            'email' => ['required', 'unique:docentes'],
             'docTipoContrato' => 'required',
             'docAreaCurricular' => 'required',
             'insCodigoNit' => 'required',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'password_confirmation' => ['required','same:password'],
-        ],[
+            'password_confirmation' => ['required', 'same:password'],
+        ], [
             'nombre.required' => 'El campo nombre es obligatorio',
             'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
             'documentoIdentidad.unique' => 'El documento de identidad ya existe',
@@ -143,15 +144,15 @@ class DocenteController extends Controller
     public function update(Request $request, Docente $docente)
     {
         //estas validaciones son para actualizar los datos del docente 
-        if(($request->documentoIdentidad == $docente->documentoIdentidad) && ($request->email == $docente->email)){
+        if (($request->documentoIdentidad == $docente->documentoIdentidad) && ($request->email == $docente->email)) {
             $request->validate([
                 'nombre' => 'required',
                 'docTipoContrato' => 'required',
                 'docAreaCurricular' => 'required',
                 'insCodigoNit' => 'required',
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
-                'password_confirmation' => ['required','same:password'],
-            ],[
+                'password_confirmation' => ['required', 'same:password'],
+            ], [
                 'nombre.required' => 'El campo nombre es obligatorio',
                 'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
                 'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
@@ -162,17 +163,17 @@ class DocenteController extends Controller
                 'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
                 'password_confirmation.same' => 'Las contraseñas no coinciden',
             ]);
-        }else{
-            if($request->documentoIdentidad == $docente->documentoIdentidad){
+        } else {
+            if ($request->documentoIdentidad == $docente->documentoIdentidad) {
                 $request->validate([
                     'nombre' => 'required',
-                    'email' => ['required','unique:docentes'],
+                    'email' => ['required', 'unique:docentes'],
                     'docTipoContrato' => 'required',
                     'docAreaCurricular' => 'required',
                     'insCodigoNit' => 'required',
                     'password' => ['required', 'string', 'min:8', 'confirmed'],
-                    'password_confirmation' => ['required','same:password'],
-                ],[
+                    'password_confirmation' => ['required', 'same:password'],
+                ], [
                     'nombre.required' => 'El campo nombre es obligatorio',
                     'email.required' => 'El campo correo electrónico es obligatorio',
                     'email.unique' => 'El correo electrónico ya existe',
@@ -185,18 +186,17 @@ class DocenteController extends Controller
                     'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
                     'password_confirmation.same' => 'Las contraseñas no coinciden',
                 ]);
-            }
-            else{
-                if($request->email == $docente->email){
+            } else {
+                if ($request->email == $docente->email) {
                     $request->validate([
                         'nombre' => 'required',
-                        'documentoIdentidad' => ['required','unique:docentes'],
+                        'documentoIdentidad' => ['required', 'unique:docentes'],
                         'docTipoContrato' => 'required',
                         'docAreaCurricular' => 'required',
                         'insCodigoNit' => 'required',
                         'password' => ['required', 'string', 'min:8', 'confirmed'],
-                        'password_confirmation' => ['required','same:password'],
-                    ],[
+                        'password_confirmation' => ['required', 'same:password'],
+                    ], [
                         'nombre.required' => 'El campo nombre es obligatorio',
                         'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
                         'documentoIdentidad.unique' => 'El documento de identidad ya existe',
@@ -209,18 +209,17 @@ class DocenteController extends Controller
                         'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
                         'password_confirmation.same' => 'Las contraseñas no coinciden',
                     ]);
-                }
-                else{
+                } else {
                     $request->validate([
                         'nombre' => 'required',
-                        'documentoIdentidad' => ['required','unique:docentes'],
-                        'email' => ['required','unique:docentes'],
+                        'documentoIdentidad' => ['required', 'unique:docentes'],
+                        'email' => ['required', 'unique:docentes'],
                         'docTipoContrato' => 'required',
                         'docAreaCurricular' => 'required',
                         'insCodigoNit' => 'required',
                         'password' => ['required', 'string', 'min:8', 'confirmed'],
-                        'password_confirmation' => ['required','same:password'],
-                    ],[
+                        'password_confirmation' => ['required', 'same:password'],
+                    ], [
                         'nombre.required' => 'El campo nombre es obligatorio',
                         'documentoIdentidad.required' => 'El campo documento de identidad es obligatorio',
                         'documentoIdentidad.unique' => 'El documento de identidad ya existe',
@@ -250,10 +249,10 @@ class DocenteController extends Controller
         $docente->password = Hash::make($request->password);
         $docente->password_confirmation = Hash::make($request->password_confirmation);
         $save = $docente->save();
-        if($save){
-            return redirect()->route('docentes.index')->with('success', 'EL DOCENTE '.$docente->nombre.' HA SIDO EDITADO CON ÉXITO.');
-        }else{
-            return redirect()->route('docentes.index')->with('fail', 'HA OCURRIDO UN ERROR EDITANDO EL DOCENTE'.$docente->nombre.'.');
+        if ($save) {
+            return redirect()->route('docentes.index')->with('success', 'EL DOCENTE ' . $docente->nombre . ' HA SIDO EDITADO CON ÉXITO.');
+        } else {
+            return redirect()->route('docentes.index')->with('fail', 'HA OCURRIDO UN ERROR EDITANDO EL DOCENTE' . $docente->nombre . '.');
         }
     }
 

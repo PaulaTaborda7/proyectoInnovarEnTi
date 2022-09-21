@@ -52,6 +52,7 @@ Route::group(['middleware' => ['soloadmin']], function () {
     //Route::get('/docente/registerDocente', [AutenticacionDocente::class, 'register'])->name('admin.docente.create');
     Route::resource('/reds', RedController::class);
     Route::get('/recurso-educativo-digital/{id}',[RedController::class,'files'])->name('recurso.educativo.digital');
+    Route::get('/listaDocentes/{id}',[InstitucionController::class,'verDocentes'])->name('recurso.educativo.digital.download');
 });
 
 Route::group(['middleware' => ['solodocente']], function () {
