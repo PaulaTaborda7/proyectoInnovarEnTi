@@ -93,8 +93,8 @@
                                 </button>
                             </div>
                         </div>
-
                     </form>
+                    <hr>
                     <div class="container">
                         <div class="justify-content-cente">
                             <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>
