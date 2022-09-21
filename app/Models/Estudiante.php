@@ -16,9 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property $insCodigoNit
  * @property $numIdentidadPadre
  * @property $gruIdCurso
+ * @property $observacion
  * @property $password
  * @property $password_confirmation
- * @property $observacion
  * @property $created_at
  * @property $updated_at
  *
@@ -33,14 +33,13 @@ class Estudiante extends Model
 		'nombre' => 'required',
 		'numIdentidad' => 'required',
 		'email' => 'required',
-		'tipo' => 'required',
 		'estPromedio' => 'required',
 		'insCodigoNit' => 'required',
 		'numIdentidadPadre' => 'required',
 		'gruIdCurso' => 'required',
+    'observacion' => 'required',
     'password' => 'required',
 		'password_confirmation' => 'required',
-		'observacion' => 'required',
     ];
 
 
@@ -66,7 +65,7 @@ class Estudiante extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','numIdentidad','email','tipo','estPromedio','insCodigoNit','numIdentidadPadre','gruIdCurso', 'password','password_confirmation','observacion',];
+    protected $fillable = ['nombre','numIdentidad','email','tipo','estPromedio','insCodigoNit','numIdentidadPadre','gruIdCurso','observacion','password','password_confirmation'];
 
 
     /**

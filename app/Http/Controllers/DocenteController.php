@@ -142,13 +142,6 @@ class DocenteController extends Controller
     //esta funcion es para actualizar los datos del docente
     public function update(Request $request, Docente $docente)
     {
-        // request()->validate(Docente::$rules);
-
-        // $docente->update($request->all());
-
-        // return redirect()->route('docentes.index')
-        //     ->with('success', 'Información de docente actualizada con éxito');
-
         //estas validaciones son para actualizar los datos del docente 
         if(($request->documentoIdentidad == $docente->documentoIdentidad) && ($request->email == $docente->email)){
             $request->validate([

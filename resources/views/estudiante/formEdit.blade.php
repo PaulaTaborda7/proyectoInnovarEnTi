@@ -76,6 +76,16 @@
     </div>
 
     <div class="form-group">
+        <span>Observación</span>
+        <textarea name="observacion" id="observacion" cols="30" rows="10" class="form-control @error('observacion') is-invalid @enderror"></textarea>
+        @error('observacion')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
         <span>Contraseña</span>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="********">
         @error('password')

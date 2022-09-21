@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" class="center">
-                <div class="card-header">{{ __('Opciones del administrador') }}</div>
+            <div class="card-header text-center fw-bold fs-4">{{ __('Opciones del administrador') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,7 +16,7 @@
                     @if (Route::has('register'))
                     <div class="container">
                         <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href="{{ route('register') }}">Administrar temáticas</a>
+                            <a class="btn btn-primary" class="ml-4 " href="{{ route('register') }}">Registrar administrador</a>
                         </div>
                     </div>
                     @endif

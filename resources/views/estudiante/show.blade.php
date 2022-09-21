@@ -11,56 +11,51 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Estudiante</span>
+                            <span class="card-title">Ver información de estudiante</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('estudiantes.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('estudiantes.index') }}"> Volver</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nombre:</strong>
+                            <strong>Nombre completo:</strong>
                             {{ $estudiante->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Numidentidad:</strong>
+                            <strong>Número del documento de identidad:</strong>
                             {{ $estudiante->numIdentidad }}
                         </div>
                         <div class="form-group">
-                            <strong>Email:</strong>
+                            <strong>Correo electrónico:</strong>
                             {{ $estudiante->email }}
                         </div>
                         <div class="form-group">
-                            <strong>Tipo:</strong>
+                            <strong>Tipo de usuario:</strong>
                             {{ $estudiante->tipo }}
                         </div>
                         <div class="form-group">
-                            <strong>Estpromedio:</strong>
+                            <strong>Promedio:</strong>
                             {{ $estudiante->estPromedio }}
                         </div>
                         <div class="form-group">
-                            <strong>Inscodigonit:</strong>
+                            <strong>Código NIT de la institución educativa:</strong>
                             {{ $estudiante->insCodigoNit }}
                         </div>
                         <div class="form-group">
-                            <strong>Numidentidadpadre:</strong>
+                            <strong>Número del documento del acudiente:</strong>
                             {{ $estudiante->numIdentidadPadre }}
                         </div>
                         <div class="form-group">
-                            <strong>Gruidcurso:</strong>
+                            <strong>Código del grupo:</strong>
                             {{ $estudiante->gruIdCurso }}
                         </div>
                         <div class="form-group">
-                            <strong>Password Confirmation:</strong>
-                            {{ $estudiante->password_confirmation }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Observacion:</strong>
+                            <strong>Observación:</strong>
                             {{ $estudiante->observacion }}
                         </div>
-
                     </div>
                 </div>
             </div>
