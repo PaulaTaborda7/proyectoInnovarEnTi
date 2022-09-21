@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grupo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 /**
@@ -43,6 +44,11 @@ class GrupoController extends Controller
     {
         $grupo = new Grupo();
         return view('grupo.create', compact('grupo'));
+    }
+
+    public function verAlumnos($id){
+        $alumnos = DB::select('select * from estudiantes where gruIdCurso = ?', [$id]);
+        return view('consultarAlumnos',compact('alumnos'));
     }
 
     /**
