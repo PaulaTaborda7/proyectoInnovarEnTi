@@ -44,8 +44,6 @@ Estudiante
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>No.</th>
-
                                     <th>Nombre completo</th>
                                     <th>Número del documento de identidad</th>
                                     <th>Correo electrónico</th>
@@ -55,15 +53,12 @@ Estudiante
                                     <th>Número del documento del acudiente</th>
                                     <th>Código del grupo</th>
                                     <th>Observación</th>
-
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($estudiantes as $estudiante)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-
                                     <td>{{ $estudiante->nombre }}</td>
                                     <td>{{ $estudiante->numIdentidad }}</td>
                                     <td>{{ $estudiante->email }}</td>
@@ -73,7 +68,6 @@ Estudiante
                                     <td>{{ $estudiante->numIdentidadPadre }}</td>
                                     <td>{{ $estudiante->gruIdCurso }}</td>
                                     <td>{{ $estudiante->observacion }}</td>
-
                                     <td>
                                         <form action="{{ route('estudiantes.destroy',$estudiante->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary " href="{{ route('estudiantes.show',$estudiante->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>

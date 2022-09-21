@@ -45,8 +45,6 @@
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>No.</th>
-
                                     <th>Nombre</th>
                                     <th>NIT</th>
                                     <th>Dirección</th>
@@ -65,8 +63,6 @@
                             <tbody>
                                 @foreach ($institucions as $institucion)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-
                                     <td>{{ $institucion->insNombre }}</td>
                                     <td>{{ $institucion->codigoNit }}</td>
                                     <td>{{ $institucion->insDireccion }}</td>

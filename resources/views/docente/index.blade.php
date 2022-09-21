@@ -45,8 +45,6 @@ Docente
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>N°</th>
-
                                     <th>Nombre completo</th>
                                     <th>Documento de identidad</th>
                                     <th>Correo electrónico</th>
@@ -61,8 +59,6 @@ Docente
                             <tbody>
                                 @foreach ($docentes as $docente)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-
                                     <td>{{ $docente->nombre }}</td>
                                     <td>{{ $docente->documentoIdentidad }}</td>
                                     <td>{{ $docente->email }}</td>

@@ -46,24 +46,18 @@ Materia
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>Consecutivo</th>
-
                                     <th>Código de la temática</th>
                                     <th>Nombre de la temática</th>
                                     <th>Descripción de la temática</th>
-
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($materias as $materia)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-
                                     <td>{{ $materia->matIdMateria }}</td>
                                     <td>{{ $materia->matNombreMateria }}</td>
                                     <td>{{ $materia->matDescripcion }}</td>
-
                                     <td>
                                         <form action="{{ route('materias.destroy',$materia->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary " href="{{ route('materias.show',$materia->id) }}" ><i class="fa fa-fw fa-eye"></i>Ver más</a>

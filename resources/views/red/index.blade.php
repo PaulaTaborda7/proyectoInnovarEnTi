@@ -34,8 +34,6 @@ Red
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>No.</th>
-
                                     <th>Nombre del Recurso Educativo Digital</th>
                                     <th>ID del Recurso Educativo Digital</th>
                                     <th>Descripción del Recurso Educativo Digital</th>
@@ -47,18 +45,14 @@ Red
                                 </tr>
                             </thead>
                             <tbody>
-                                {{ $i = 0}}
                                 @foreach ($reds as $red)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-
                                     <td>{{ $red->redNombre }}</td>
                                     <td>{{ $red->redIdRed }}</td>
                                     <td>{{ $red->redDescripcion }}</td>
                                     <td>{{ $red->redTipoRecurso }}</td>
                                     <td>{{ $red->idMateria }}</td>
                                     {{-- <td>{{ $red->redUrl }}</td> --}}
-
                                     <td>
                                         <form action="{{ route('reds.destroy',$red->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary " href="{{ route('reds.show',$red->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>

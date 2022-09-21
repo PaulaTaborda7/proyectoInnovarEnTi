@@ -45,8 +45,6 @@ Grupo
                         <table class="table table-striped table-hover">
                             <thead class="thead">
                                 <tr>
-                                    <th>No.</th>
-
                                     <th>Nombre</th>
                                     <th>Código ID del grupo</th>
                                     <th>Jornada</th>
@@ -54,15 +52,12 @@ Grupo
                                     <th>Cantidad de materias</th>
                                     <th>Código NIT de Institución educativa</th>
                                     <th>Número de identidad del docente encargado</th>
-
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($grupos as $grupo)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-
                                     <td>{{ $grupo->gruNombre }}</td>
                                     <td>{{ $grupo->gruIdGrupo }}</td>
                                     <td>{{ $grupo->gruJornada }}</td>
