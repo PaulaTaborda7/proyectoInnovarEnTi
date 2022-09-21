@@ -13,35 +13,46 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>Nombre completo</th>
+                                        <th>Documento de identidad</th>
+                                        <th>Correo electrónico</th>
+                                        <th>Tipo de usuario</th>
+                                        <th>Tipo de contrato</th>
+                                        <th>Área curricular</th>
+                                        <th>Código NIT de la institución</th>
+    
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($todos as $todo)
+                                    <tr>
+                                        <td>{{ $todo->nombre }}</td>
+                                        <td>{{ $todo->documentoIdentidad }}</td>
+                                        <td>{{ $todo->email }}</td>
+                                        <td>{{ $todo->tipo }}</td>
+                                        <td>{{ $todo->docTipoContrato }}</td>
+                                        <td>{{ $todo->docAreaCurricular }}</td>
+                                        <td>{{ $todo->insCodigoNit }}</td>
+
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="container">
+                                <div class="justify-content-center">
+                                    <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

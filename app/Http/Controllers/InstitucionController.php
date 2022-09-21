@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Institucion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class InstitucionController
@@ -38,7 +39,8 @@ class InstitucionController extends Controller
     }
 
     public function verDocentes($id){
-        return view('consultaDocentes',compact('id'));
+        $todos = DB::select('select * from docentes where insCodigoNit = ?', [$id]);
+        return view('consultaDocentes',compact('todos'));
     }
 
     /**
