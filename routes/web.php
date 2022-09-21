@@ -60,6 +60,7 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de docente     
     Route::resource('/estudiantes', EstudianteController::class);
     Route::resource('/grupos', GrupoController::class);
+    Route::get('/listaAlumnos/{id}',[GrupoController::class,'verAlumnos'])->name('lista.alumnos');
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {

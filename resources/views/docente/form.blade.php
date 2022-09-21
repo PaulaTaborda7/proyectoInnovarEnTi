@@ -82,7 +82,6 @@
         </span>
         @enderror
     </div>
-
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">
             <button type="submit" class="btn btn-primary">
@@ -90,6 +89,7 @@
             </button>
         </div>
     </div>
+    <hr>
     <div class="container">
         <div class="justify-content-cente">
             <a class="ml-4 text-sm btn btn-primary" href="{{ route('docentes.index') }}">Regresar</a>

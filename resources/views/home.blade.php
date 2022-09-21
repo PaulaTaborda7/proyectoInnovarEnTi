@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" class="center">
-            <div class="card-header text-center fw-bold fs-4">{{ __('Opciones del administrador') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Opciones del administrador') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,35 +13,38 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    @if (Route::has('register'))
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href="{{ route('register') }}">Registrar administrador</a>
+
+                    <div class="d-flex justify-content-center">
+                        @if (Route::has('register'))
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="{{ route('register') }}">Registrar administrador</a>
+                            </div>
                         </div>
-                    </div>
-                    @endif
-                    <br>
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href="/materias">Administrar temáticas</a>
+                        @endif
+                        <br>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/materias">Administrar temáticas</a>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href="/docentes">Administrar docentes</a>
+                        <br>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/docentes">Administrar docentes</a>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href="/institucions">Administrar instituciones educativas</a>
+                        <br>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/institucions">Administrar instituciones educativas</a>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href="/reds">Administrar Recursos Educativos Digitales</a>
+                        <br>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/reds">Administrar Recursos Educativos Digitales</a>
+                            </div>
                         </div>
                     </div>
                 </div>
