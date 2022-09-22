@@ -54,9 +54,7 @@
                                     <th>Tipo de calendario</th>
                                     <th>Cantidad de docentes</th>
                                     <th>Cantidad de estudiantes</th>
-                                    <th>Completo</th>
-                                    <th>Dea</th>
-
+                                    <th>Tipo paquete</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -72,8 +70,7 @@
                                     <td>{{ $institucion->insCalendario }}</td>
                                     <td>{{ $institucion->insCantidadDocentes }}</td>
                                     <td>{{ $institucion->insCantidadEstudiantes }}</td>
-                                    <td>{{ $institucion->completo }}</td>
-                                    <td>{{ $institucion->dea }}</td>
+                                    <td>{{ $institucion->tipoPaquete }}</td>
 
                                     <td>
                                         <form action="{{ route('institucions.destroy',$institucion->id) }}" method="POST">

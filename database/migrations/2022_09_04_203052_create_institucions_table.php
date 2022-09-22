@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string('insCalendario');
             $table->integer('insCantidadDocentes');
             $table->integer('insCantidadEstudiantes');
-            $table->boolean('completo');
-            $table->boolean('dea');
+            $table->boolean('tipoPaquete');
             $table->timestamps();
         });
     }

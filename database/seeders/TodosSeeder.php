@@ -41,8 +41,7 @@ class TodosSeeder extends Seeder
             'insCalendario' => 'A',
             'insCantidadDocentes' => '10',
             'insCantidadEstudiantes' => '100',
-            'completo' => '1',
-            'dea' => '0',
+            'tipoPaquete' => '1',
         ]);
 
 

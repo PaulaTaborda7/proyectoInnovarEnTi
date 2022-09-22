@@ -6,6 +6,9 @@ use App\Models\Docente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use App\Models\Institucion;
+use App\Models\Red;
+
 /**
  * Class DocenteController
  * @package App\Http\Controllers
@@ -63,7 +66,16 @@ class DocenteController extends Controller
      */
 
     public function verCatalogoRecursos($id){
-        echo $id;
+        $docente = Docente::find($id);
+        $codigoNit = $docente->insCodigoNit;
+        $institucion = Institucion::where('codigoNit', '=', $codigoNit)->first();
+        $tipoPaquete = $institucion->tipoPaquete;
+        $recursos = Red::where('redTipoRecurso', '=', $tipoPaquete)->get();
+        if($tipoPaquete == '1'){
+            return view('docente.catalogoRecursosCompleto', compact('recursos'));
+        }else{
+            return view('docente.catalogoRecursosDEA', compact('recursos'));
+        }
     }
 
     public function store(Request $request)
