@@ -42,6 +42,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <hr>
                                 <div class="container">
                                     <div class="justify-content-center">
                                         <a class="ml-4 text-sm btn btn-primary" href="{{ route('institucions.index') }}">Regresar</a>

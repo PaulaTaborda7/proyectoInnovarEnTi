@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Opciones del docente') }}</div>
+                <div class="card-header text-center fw-bold fs-4">{{ __('Opciones del docente') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,15 +14,18 @@
                     </div>
                     @endif
 
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a href="/estudiantes" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar estudiantes</button></a>
+                    <div class="d-flex justify-content-center">
+
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/estudiantes">Administrar estudiantes</a>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="container">
-                        <div class="justify-content-center">
-                            <a href="/grupos" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Administrar grupos</button></a>
+                        <br>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/grupos" class="ml-4 text-sm text-color: primary">Administrar grupos</a>
+                            </div>
                         </div>
                     </div>
                 </div>
