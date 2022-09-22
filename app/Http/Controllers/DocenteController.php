@@ -61,6 +61,11 @@ class DocenteController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
+    public function verCatalogoRecursos($id){
+        echo $id;
+    }
+
     public function store(Request $request)
     {
         $request->validate([

@@ -61,6 +61,7 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::resource('/estudiantes', EstudianteController::class);
     Route::resource('/grupos', GrupoController::class);
     Route::get('/listaAlumnos/{id}',[GrupoController::class,'verAlumnos'])->name('lista.alumnos');
+    Route::get('/catalogoRecursos/{id}',[DocenteController::class,'verCatalogoRecursos'])->name('catalogo.recursos');
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {

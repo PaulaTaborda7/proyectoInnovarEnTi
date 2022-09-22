@@ -21,10 +21,14 @@
                                 <a class="btn btn-primary" class="ml-4 " href="/estudiantes">Administrar estudiantes</a>
                             </div>
                         </div>
-                        <br>
                         <div class="container">
                             <div class="justify-content-center">
                                 <a class="btn btn-primary" class="ml-4 " href="/grupos" class="ml-4 text-sm text-color: primary">Administrar grupos</a>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="{{ route('catalogo.recursos', Session::get('documentoIdentidadDocente')) }}" class="ml-4 text-sm text-color: primary">Catálogo de recursos</a>
                             </div>
                         </div>
                     </div>
