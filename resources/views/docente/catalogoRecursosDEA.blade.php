@@ -2,5 +2,5 @@
 
 @section('content')
 
-
+<div>pau</div>
 @endsection

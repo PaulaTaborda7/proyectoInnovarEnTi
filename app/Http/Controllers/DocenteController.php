@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Docente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Institucion;
 use App\Models\Red;
@@ -66,7 +67,7 @@ class DocenteController extends Controller
      */
 
     public function verCatalogoRecursos($id){
-        $docente = Docente::find($id);
+        $docente = Docente::where('documentoIdentidad', $id)->first();
         $codigoNit = $docente->insCodigoNit;
         $institucion = Institucion::where('codigoNit', '=', $codigoNit)->first();
         $tipoPaquete = $institucion->tipoPaquete;
