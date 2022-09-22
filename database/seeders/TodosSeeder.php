@@ -44,7 +44,6 @@ class TodosSeeder extends Seeder
             'tipoPaquete' => '1',
         ]);
 
-
         $userDocente = Docente::create([
             'nombre' => 'DoncenteAdmin',
             'documentoIdentidad' => '987654321',
@@ -66,9 +65,6 @@ class TodosSeeder extends Seeder
             'insCodigoNit' => '111',
             'numIdentidadDocente' => '987654321',
         ]);
-
-
-
 
         $userEstudiante = Estudiante::create([
             'nombre' => 'EstudianteAdmin',
