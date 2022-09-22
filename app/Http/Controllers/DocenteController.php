@@ -63,7 +63,8 @@ class DocenteController extends Controller
      */
 
     public function verCatalogoRecursos($id){
-        echo $id;
+        
+        return view('docente.catalogoRecursosCompleto', compact('id'));
     }
 
     public function store(Request $request)
