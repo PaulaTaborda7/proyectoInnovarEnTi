@@ -16,7 +16,7 @@
 
                     <div class="container">
                         <div class="justify-content-center">
-                            <a href="{{ route('descargarpdf', Session::get('identidadEtudiante')) }}" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Descargar PDF</button></a>
+                            <a class="btn btn-primary" class="ml-4 " href="{{ route('descargarpdf', Session::get('identidadEtudiante')) }}" class="ml-4 text-sm text-color: primary">Descargar PDF</a>
                         </div>
                     </div>
                 </div>
