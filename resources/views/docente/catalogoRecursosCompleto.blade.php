@@ -13,17 +13,23 @@
             <div class="row">
                 @foreach($recursos as $recurso)
                 <div class="col-lg-3">
-                    <div class="card" style="margin-bottom: 20px; height: auto;">
+                    <div class="card text-center"  style="margin-bottom: 20px; height: auto;">
                         <br>
                         <strong class="text-center">{{$recurso->redNombre}}</strong>
                         <br>
-                        <img src="{!! asset('archivos/$recurso->redIdRed/animal-1.png') !!}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display: block;" alt="Imágen del RED: Diamante">
+                        <img src="{!! asset('archivos/$recurso->redIdRed/animal-1.png') !!}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display: block;" alt="Imágen del RED">
                         <div class="card-body">
                             <p class="card-text">{{$recurso->redDescripcion}}</p>
                         </div>
                         <div class="card-footer" class="justify-content-center">
-                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
-                            <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                            <div>
+                                <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital.Docente',$recurso->id) }}"><i class="fa fa-eye"></i> Probar RED</a>
+                            </div>
+                            <br>
+                            <div>
+                                <a class="btn btn-sm btn-success" href="#"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                            </div>
                         </div>
                     </div>
                 </div>

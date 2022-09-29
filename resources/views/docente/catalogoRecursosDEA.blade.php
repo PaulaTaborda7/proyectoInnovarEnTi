@@ -13,7 +13,7 @@
             <div class="row">
                 @foreach($recursos as $recurso)
                 <div class="col-lg-3">
-                    <div class="card" style="margin-bottom: 20px; height: auto;">
+                    <div class="card text-center" style="margin-bottom: 20px; height: auto;">
                         <br>
                         <strong class="text-center">{{$recurso->redNombre}}</strong>
                         <br>
@@ -22,8 +22,14 @@
                             <p class="card-text">{{$recurso->redDescripcion}}</p>
                         </div>
                         <div class="card-footer" class="justify-content-center">
-                            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
-                            <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                            <div>
+                                <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital.Docente',$recurso->id) }}"><i class="fa fa-eye"></i> Probar RED</a>
+                            </div>
+                            <br>
+                            <div>
+                                <a class="btn btn-sm btn-success" href="#"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -36,7 +42,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <hr>
-            <div  class="col-auto p-5 text-center">
+            <div class="col-auto p-5 text-center">
                 <a class="ml-4 text-sm btn btn-primary" href="/vistadocentes">Regresar</a>
             </div>
         </div>
