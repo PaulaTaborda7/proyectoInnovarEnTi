@@ -39,14 +39,18 @@ class EstudianteController extends Controller
     }
 
 
-    public function generar_pdf($id){
+    public function generar_pdf($id)
+    {
         $estudiante =  Estudiante::where('numIdentidad', $id)->first();
         $pdf = PDF::loadView('estudiante.padrefamilia', ['estudiante' => $estudiante]);
         return $pdf->download('ReporteEstudiante.pdf');
     }
-
-
-
+    /**
+     * Funcion para identificar los recusos 
+     */
+    public function habilitacion_red(){
+        
+    }
 
 
     /**

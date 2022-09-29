@@ -22,7 +22,7 @@
                     <br>
                     <div class="container">
                         <div class="justify-content-center">
-                            <a class="btn btn-primary" class="ml-4 " href=# class="ml-4 text-sm text-color: primary">Catálogo de Recursos Educativos Digitales</a>
+                            <a class="btn btn-primary" class="ml-4 " href="/reds_habilitados" class="ml-4 text-sm text-color: primary">Catálogo de Recursos Educativos Digitales</a>
                         </div>
                     </div>
                 </div>
