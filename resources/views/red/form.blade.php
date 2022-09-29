@@ -27,7 +27,6 @@
         @enderror
     </div>
 
-
     <div class="form-group">
         <span>Es Tipo RED DEA?</span>
         <select name="redTipoRecurso" id="redTipoRecurso" class="form-control @error('redTipoRecurso') is-invalid @enderror">

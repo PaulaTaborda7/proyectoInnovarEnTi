@@ -26,15 +26,21 @@
         </span>
         @enderror
     </div>
+
     <div class="form-group">
-        <span>Tipo de Recurso Educativo Digital</span>
-        {{ Form::text('redTipoRecurso', $red->redTipoRecurso, ['class' => 'form-control' . ($errors->has('redTipoRecurso') ? ' is-invalid' : ''), 'placeholder' => 'Tipo de recurso']) }}
+        <span>Es Tipo RED DEA?</span>
+        <select name="redTipoRecurso" id="redTipoRecurso" class="form-control @error('redTipoRecurso') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            <option value="0">Si</option>
+            <option value="1">No</option>
+        </select>
         @error('redTipoRecurso')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
+
     <div class="form-group">
         <span>Código de la materia asociada al RED</span>
         {{ Form::text('idMateria', $red->idMateria, ['class' => 'form-control' . ($errors->has('idMateria') ? ' is-invalid' : ''), 'placeholder' => 'Id de materia']) }}
@@ -44,10 +50,11 @@
         </span>
         @enderror
     </div>
-    <div class="form-group">
-        <span>Archivo</span>
-        <input type="file" name="redUrl" id="redUrl" class="form-control @error('redUrl') is-invalid @enderror" enctype="multipart/form-data">
-        @error('redUrl')
+
+    <div class="form-group mt-4">
+        <label for="files">Archivo</label>
+        <input type="file" name="files[]" id="files" class="form-control @error('files') is-invalid @enderror" enctype="multipart/form-data" multiple>
+        @error('files')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
