@@ -9,25 +9,25 @@
             <th>Código NIT de la institución educativa</th>
             <th>Número del documento del acudiente</th>
             <th>Código del grupo</th>
-            <th>Observación</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($estudiante as $estudiantes)
+
         <tr>
-            <td>{{ $estudiantes->nombre }}</td>
-            <td>{{ $estudiantes->numIdentidad }}</td>
-            <td>{{ $estudiantes->email }}</td>
-            <td>{{ $estudiantes->tipo }}</td>
-            <td>{{ $estudiantes->estPromedio }}</td>
+            <td>{{ $estudiante->nombre }}</td>
+            <td>{{ $estudiante->numIdentidad }}</td>
+            <td>{{ $estudiante->email }}</td>
+            <td>{{ $estudiante->tipo }}</td>
+            <td>{{ $estudiante->estPromedio }}</td>
             <td>{{ $estudiante->insCodigoNit }}</td>
             <td>{{ $estudiante->numIdentidadPadre }}</td>
             <td>{{ $estudiante->gruIdCurso }}</td>
-            <td>{{ $estudiantes->observacion }}</td>
-            
-
         </tr>
-        @endforeach
+
     </tbody>
 </table>
+<div class="container text-center">
+    <h2>OBSERVACIÓN</h2>
+    {{ $estudiante->observacion }}
+</div>
