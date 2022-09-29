@@ -40,7 +40,7 @@ class EstudianteController extends Controller
 
 
     public function generar_pdf($id){
-        $estudiante =  DB::select('select * from estudiantes where numIdentidad = ?', [$id]);
+        $estudiante =  Estudiante::where('numIdentidad', $id)->first();
         $pdf = PDF::loadView('estudiante.padrefamilia', ['estudiante' => $estudiante]);
         return $pdf->download('ReporteEstudiante.pdf');
     }
