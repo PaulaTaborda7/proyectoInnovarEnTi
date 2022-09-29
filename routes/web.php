@@ -70,6 +70,7 @@ Route::group(['middleware' => ['soloestudiante']], function () {
     Route::get('/vistaestudiantes', [AutenticacionEstudianteController::class, 'index2']); //Va a la vista de estudiantes
     Route::post('/estudiante/logout', [AutenticacionEstudianteController::class, 'logout'])->name('estudiante.logout');
     Route::get('/descargar_pdf/{id}',[EstudianteController::class,'generar_pdf'])->name('descargarpdf');
+    Route::get('/reds_habilitados',[EstudianteController::class,''])->name('reds.habilitados');
 });
 
 Route::group(['middleware' => ['solopadre']], function () {

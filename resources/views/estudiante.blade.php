@@ -19,6 +19,12 @@
                             <a class="btn btn-primary" class="ml-4 " href="{{ route('descargarpdf', Session::get('identidadEtudiante')) }}" class="ml-4 text-sm text-color: primary">Descargar PDF</a>
                         </div>
                     </div>
+                    <br>
+                    <div class="container">
+                        <div class="justify-content-center">
+                            <a class="btn btn-primary" class="ml-4 " href=# class="ml-4 text-sm text-color: primary">Catálogo de Recursos Educativos Digitales</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
