@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('redNombre');
             $table->string('redIdRed')->unique();
             $table->string('redDescripcion');
-            $table->string('redTipoRecurso');
+            $table->boolean('redTipoRecurso');
             $table->string('idMateria');
             //$table->string('files');
             $table->foreign('idMateria')->references('matIdMateria')->on('materias');

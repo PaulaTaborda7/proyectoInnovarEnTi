@@ -95,32 +95,19 @@
     </div>
 
     <div class="form-group">
-        <span>Completo</span>
-        <select name="completo" id="completo" class="form-control @error('completo') is-invalid @enderror">
+        <span>Tipo paquete</span>
+        <select name="tipoPaquete" id="tipoPaquete" class="form-control @error('tipoPaquete') is-invalid @enderror">
             <option disabled="" selected="" value="">Selecciona una opción</option>
-            <option value="1">1</option>
-            <option value="0">0</option>
+            <option value="1">Completo</option>
+            <option value="0">DEA</option>
         </select>
-        @error('completo')
+        @error('tipoPaquete')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
 
-    <div class="form-group">
-        <span>Dea</span>
-        <select name="dea" id="dea" class="form-control @error('dea') is-invalid @enderror">
-            <option disabled="" selected="" value="">Selecciona una opción</option>
-            <option value="1">1</option>
-            <option value="0">0</option>
-        </select>
-        @error('dea')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
 
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">

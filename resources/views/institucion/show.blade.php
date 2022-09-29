@@ -58,12 +58,8 @@
                             {{ $institucion->insCantidadEstudiantes }}
                         </div>
                         <div class="form-group">
-                            <strong>Completo:</strong>
-                            {{ $institucion->completo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Dea:</strong>
-                            {{ $institucion->dea }}
+                            <strong>Tipo paquete:</strong>
+                            {{ $institucion->tipoPaquete }}
                         </div>
 
                     </div>

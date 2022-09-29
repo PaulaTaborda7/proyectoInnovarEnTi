@@ -51,6 +51,8 @@ class AutenticacionDocenteController extends Controller
                 $request->session()->put('LoggedDocente', $datosDocente->documentoIdentidad); //Nos referiremos al id del usuario loggeado por el nombre loggedDocente
                 $nombreCompleto = $datosDocente->nombre;
                 $request->session()->put('nombreCompletoDocente', $nombreCompleto);
+                $documentoIdentidad = $datosDocente->documentoIdentidad;
+                $request->session()->put('documentoIdentidadDocente', $documentoIdentidad);
                 //Llevo al docente loggeado al index de docente. Esta línea va a web.php y ve que esta ruta llama a AutenticacionDocenteController en su método index2
                 return redirect('/vistadocentes');
             }else{

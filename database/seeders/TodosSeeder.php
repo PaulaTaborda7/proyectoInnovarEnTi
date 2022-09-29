@@ -41,10 +41,8 @@ class TodosSeeder extends Seeder
             'insCalendario' => 'A',
             'insCantidadDocentes' => '10',
             'insCantidadEstudiantes' => '100',
-            'completo' => '1',
-            'dea' => '0',
+            'tipoPaquete' => '1',
         ]);
-
 
         $userDocente = Docente::create([
             'nombre' => 'DoncenteAdmin',
@@ -67,9 +65,6 @@ class TodosSeeder extends Seeder
             'insCodigoNit' => '111',
             'numIdentidadDocente' => '987654321',
         ]);
-
-
-
 
         $userEstudiante = Estudiante::create([
             'nombre' => 'EstudianteAdmin',

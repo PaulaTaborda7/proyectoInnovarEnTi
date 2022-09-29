@@ -29,8 +29,7 @@ class InstitucionController extends Controller
             ->orWhere('insCalendario', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insCantidadDocentes', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insCantidadEstudiantes', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('completo', 'LIKE', '%' . $busqueda . '%')
-            ->orWhere('dea', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('tipoPaquete', 'LIKE', '%' . $busqueda . '%')
             ->latest('id')
             ->paginate(10);
 
@@ -72,8 +71,7 @@ class InstitucionController extends Controller
             'insCalendario' => 'required',
             'insCantidadDocentes' => 'required',
             'insCantidadEstudiantes' => 'required',
-            'completo' => 'required',
-            'dea' => 'required',
+            'tipoPaquete' => 'required',
         ], [
             'insNombre.required' => 'El campo nombre de institución educativa es obligatorio',
             'codigoNit.required' => 'El campo código NIT de institución educativa es obligatorio',
@@ -85,8 +83,7 @@ class InstitucionController extends Controller
             'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
             'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
             'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
-            'completo.required' => 'El campo completo es obligatorio',
-            'dea.required' => 'El campo dea es obligatorio',
+            'tipoPaquete.required' => 'El campo tipoPaquete es obligatorio',
         ]);
 
         request()->validate(Institucion::$rules);
@@ -143,8 +140,7 @@ class InstitucionController extends Controller
                 'insCalendario' => 'required',
                 'insCantidadDocentes' => 'required',
                 'insCantidadEstudiantes' => 'required',
-                'completo' => 'required',
-                'dea' => 'required',
+                'tipoPaquete' => 'required',
             ], [
                 'insNombre.required' => 'El campo nombre de institución educativa es obligatorio',
                 'codigoNit.required' => 'El campo código NIT de institución educativa es obligatorio',
@@ -156,8 +152,7 @@ class InstitucionController extends Controller
                 'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
                 'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
                 'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
-                'completo.required' => 'El campo completo es obligatorio',
-                'dea.required' => 'El campo dea es obligatorio',
+                'tipoPaquete.required' => 'El campo tipoPaquete es obligatorio',
             ]);
         }else{
             $request->validate([
@@ -169,8 +164,7 @@ class InstitucionController extends Controller
                 'insCalendario' => 'required',
                 'insCantidadDocentes' => 'required',
                 'insCantidadEstudiantes' => 'required',
-                'completo' => 'required',
-                'dea' => 'required',
+                'tipoPaquete' => 'required',
             ], [
                 'insNombre.required' => 'El campo nombre de institución educativa es obligatorio',
                 'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
@@ -180,8 +174,7 @@ class InstitucionController extends Controller
                 'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
                 'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
                 'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
-                'completo.required' => 'El campo completo es obligatorio',
-                'dea.required' => 'El campo dea es obligatorio',
+                'tipoPaquete.required' => 'El campo tipoPaquete es obligatorio',
             ]);
         }
 
