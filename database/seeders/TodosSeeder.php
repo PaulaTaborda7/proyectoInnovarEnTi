@@ -6,6 +6,8 @@ use App\Models\Docente;
 use App\Models\Estudiante;
 use App\Models\Grupo;
 use App\Models\Institucion;
+use App\Models\Materia;
+use App\Models\Red;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -78,6 +80,30 @@ class TodosSeeder extends Seeder
             'observacion' => 'Hola',
             'password' => Hash::make('12345678'),
             'password_confirmation' => Hash::make('12345678'),
+        ]);
+
+        //Seeder para temática
+        $tematica1 = Materia::create([
+            'matIdMateria' => '4321',
+            'matNombreMateria' => 'Inglés',
+            'matDescripcion' => 'what is your name?',
+        ]);
+
+
+        //Seeders para recursos
+        $admRed = Red::create([
+            'redNombre' => 'DIAMANTE',
+            'redIdRed' => '3',
+            'redDescripcion' => 'Para aprender',
+            'redTipoRecurso' => '1',
+            'idMateria' => '4321',
+        ]);
+        $admRed2 = Red::create([
+            'redNombre' => 'Imagen UNAL',
+            'redIdRed' => '4',
+            'redDescripcion' => 'Una imagen de la UNAL',
+            'redTipoRecurso' => '0',
+            'idMateria' => '4321',
         ]);
     }
 }
