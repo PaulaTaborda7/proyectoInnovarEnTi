@@ -62,7 +62,7 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::resource('/grupos', GrupoController::class);
     Route::get('/listaAlumnos/{id}',[GrupoController::class,'verAlumnos'])->name('lista.alumnos');
     Route::get('/catalogoRecursos/{id}',[DocenteController::class,'verCatalogoRecursos'])->name('catalogo.recursos');
-    Route::get('/recurso-educativo-digital/{id}',[RedController::class,'filesDocente'])->name('recurso.educativo.digital.Docente');
+    Route::get('/recurso-educativo-digital-Docente/{id}',[RedController::class,'filesDocente'])->name('recurso.educativo.digital.Docente');
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {
