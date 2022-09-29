@@ -15,9 +15,16 @@
                     @endif
 
                     {{ __('You are logged in LIKE ESTUDIANTE!') }}
+
+                    <div class="container">
+                        <div class="justify-content-center">
+                            <a href="{{ route('descargarpdf', Session::get('identidadEtudiante')) }}" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info">Descargar PDF</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

@@ -56,6 +56,8 @@ class AutenticacionEstudianteController extends Controller
                 $request->session()->put('LoggedEstudiante', $datosEstudiante->numIdentidad); //Nos referiremos al id del usuario loggeado por el nombre loggedEstudiante
                 $nombreCompleto = $datosEstudiante->nombre;
                 $request->session()->put('nombreCompletoEstudiante', $nombreCompleto);
+                $numIdentidad = $datosEstudiante-> numIdentidad;
+                $request->session()->put('identidadEtudiante', $numIdentidad);
                 //Llevo al estudiante loggeado al index de estudiante. Esta línea va a web.php y ve que esta ruta llama a AutenticacionDocenteController en su método index2
                 return redirect('/vistaestudiantes');
             }else{

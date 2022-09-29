@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class EstudianteController
@@ -35,6 +37,17 @@ class EstudianteController extends Controller
         return view('estudiante.index', compact('estudiantes', 'busqueda'))
             ->with('i', (request()->input('page', 1) - 1) * $estudiantes->perPage());
     }
+
+
+    public function generar_pdf($id){
+        $estudiante =  DB::select('select * from estudiantes where numIdentidad = ?', [$id]);
+        $pdf = PDF::loadView('estudiante.padrefamilia', ['estudiante' => $estudiante]);
+        return $pdf->download('ReporteEstudiante.pdf');
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
