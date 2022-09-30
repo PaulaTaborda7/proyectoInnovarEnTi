@@ -52,6 +52,7 @@ Docente
                                     <th>Tipo de contrato</th>
                                     <th>Área curricular</th>
                                     <th>Código NIT de la institución</th>
+                                    <th>ID del grupo encargado</th>
 
                                     <th></th>
                                 </tr>
@@ -66,6 +67,7 @@ Docente
                                     <td>{{ $docente->docTipoContrato }}</td>
                                     <td>{{ $docente->docAreaCurricular }}</td>
                                     <td>{{ $docente->insCodigoNit }}</td>
+                                    <td>{{ $docente->idGrupo }}</td>
 
                                     <td>
                                         <form action="{{ route('docentes.destroy',$docente->id) }}" method="POST">

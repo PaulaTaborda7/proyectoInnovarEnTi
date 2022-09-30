@@ -27,7 +27,6 @@ class GrupoController extends Controller
                     ->orWhere('gruCantEstudiante','LIKE','%'.$busqueda.'%')
                     ->orWhere('gruCantMateria','LIKE','%'.$busqueda.'%')
                     ->orWhere('insCodigoNit','LIKE','%'.$busqueda.'%')
-                    ->orWhere('numIdentidadDocente','LIKE','%'.$busqueda.'%')
                     ->latest('id')
                     ->paginate(10);
 
@@ -66,7 +65,6 @@ class GrupoController extends Controller
             'gruCantEstudiante' => 'required',
             'gruCantMateria' => 'required',
             'insCodigoNit' => 'required',
-            'numIdentidadDocente' => 'required',
         ], [
             'gruNombre.required' => 'El campo nombre es obligatorio',
             'gruIdGrupo.required' => 'El campo ID del grupo es obligatorio',
@@ -75,7 +73,6 @@ class GrupoController extends Controller
             'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
             'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
             'insCodigoNit.required' => 'El campo código de la institución es obligatorio',
-            'numIdentidadDocente.required' => 'El campo número de identidad del docente es obligatorio',
         ]);
         
         request()->validate(Grupo::$rules);
@@ -129,7 +126,6 @@ class GrupoController extends Controller
                 'gruCantEstudiante' => 'required',
                 'gruCantMateria' => 'required',
                 'insCodigoNit' => 'required',
-                'numIdentidadDocente' => 'required',
             ], [
                 'gruNombre.required' => 'El campo nombre es obligatorio',
                 'gruIdGrupo.required' => 'El campo ID del grupo es obligatorio',
@@ -138,7 +134,6 @@ class GrupoController extends Controller
                 'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
                 'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
                 'insCodigoNit.required' => 'El campo codigo de la institucion es obligatorio',
-                'numIdentidadDocente.required' => 'El campo numero de identidad del docente es obligatorio',
             ]);
         }else{
             $request->validate([
@@ -147,14 +142,12 @@ class GrupoController extends Controller
                 'gruCantEstudiante' => 'required',
                 'gruCantMateria' => 'required',
                 'insCodigoNit' => 'required',
-                'numIdentidadDocente' => 'required',
             ], [
                 'gruNombre.required' => 'El campo nombre es obligatorio',
                 'gruJornada.required' => 'El campo jornada es obligatorio',
                 'gruCantEstudiante.required' => 'El campo cantidad de estudiantes es obligatorio',
                 'gruCantMateria.required' => 'El campo cantidad de materias es obligatorio',
                 'insCodigoNit.required' => 'El campo codigo de la institucion es obligatorio',
-                'numIdentidadDocente.required' => 'El campo numero de identidad del docente es obligatorio',
             ]);
         }
 

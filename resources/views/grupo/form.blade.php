@@ -64,16 +64,6 @@
         @enderror
     </div>
 
-    <div class="form-group">
-        <span>Número de identidad del docente encargado</span>
-        {{ Form::text('numIdentidadDocente', $grupo->numIdentidadDocente, ['class' => 'form-control' . ($errors->has('numIdentidadDocente') ? ' is-invalid' : ''), 'placeholder' => 'Número de documento de identidad']) }}
-        @error('numIdentidadDocente')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div>
-
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">
             <button type="submit" class="btn btn-primary">

@@ -14,11 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property $gruCantEstudiante
  * @property $gruCantMateria
  * @property $insCodigoNit
- * @property $numIdentidadDocente
  * @property $created_at
  * @property $updated_at
  *
- * @property Docente $docente
  * @property Institucion $institucion
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
@@ -32,7 +30,6 @@ class Grupo extends Model
 		'gruCantEstudiante' => 'required',
 		'gruCantMateria' => 'required',
 		'insCodigoNit' => 'required',
-		'numIdentidadDocente' => 'required',
     ];
 
     protected $perPage = 20;
@@ -42,16 +39,8 @@ class Grupo extends Model
      *
      * @var array
      */
-    protected $fillable = ['gruNombre', 'gruIdGrupo','gruJornada','gruCantEstudiante','gruCantMateria','insCodigoNit','numIdentidadDocente'];
+    protected $fillable = ['gruNombre', 'gruIdGrupo','gruJornada','gruCantEstudiante','gruCantMateria','insCodigoNit'];
 
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function docente()
-    {
-        return $this->hasOne('App\Models\Docente', 'documentoIdentidad', 'numIdentidadDocente');
-    }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('docAreaCurricular');
             $table->string('insCodigoNit');
             $table->foreign('insCodigoNit')->references('codigoNit')->on('institucions');
+            $table->string('idGrupo');
+            $table->foreign('idGrupo')->references('gruIdGrupo')->on('grupos');
             $table->string('password');
             $table->string('password_confirmation');
             $table->timestamps();
