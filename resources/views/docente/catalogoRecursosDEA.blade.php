@@ -17,9 +17,10 @@
                         <br>
                         <strong class="text-center">{{$recurso->redNombre}}</strong>
                         <br>
-                        <img src="{!! asset('archivos/$recurso->redIdRed/animal-1.png') !!}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display: block;" alt="Imágen del RED">
+                        <img src="{!! asset('') !!}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display: block;" alt="Imágen del RED">
                         <div class="card-body">
-                            <p class="card-text">{{$recurso->redDescripcion}}</p>
+                            <p class="card-text"><strong>Descripción: </strong>{{$recurso->redDescripcion}}</p>
+                            <p class="card-text"><strong>Temática a la que está asociado: </strong>{{$recurso->idMateria}}</p>
                         </div>
                         <div class="card-footer" class="justify-content-center">
                             <div>

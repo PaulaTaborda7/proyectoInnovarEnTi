@@ -51,7 +51,6 @@ Grupo
                                     <th>Cantidad de estudiantes</th>
                                     <th>Cantidad de materias</th>
                                     <th>Código NIT de Institución educativa</th>
-                                    <th>Número de identidad del docente encargado</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -64,7 +63,6 @@ Grupo
                                     <td>{{ $grupo->gruCantEstudiante }}</td>
                                     <td>{{ $grupo->gruCantMateria }}</td>
                                     <td>{{ $grupo->insCodigoNit }}</td>
-                                    <td>{{ $grupo->numIdentidadDocente }}</td>
 
                                     <td>
                                         <form action="{{ route('grupos.destroy',$grupo->id) }}" method="POST">

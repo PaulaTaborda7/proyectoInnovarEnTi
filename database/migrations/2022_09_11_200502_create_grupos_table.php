@@ -22,8 +22,6 @@ return new class extends Migration
             $table->integer('gruCantMateria');
             $table->string('insCodigoNit');
             $table->foreign('insCodigoNit')->references('codigoNit')->on('institucions');
-            $table->string('numIdentidadDocente');
-            $table->foreign('numIdentidadDocente')->references('documentoIdentidad')->on('docentes');
             $table->timestamps();
         });
     }

@@ -46,18 +46,6 @@ class TodosSeeder extends Seeder
             'tipoPaquete' => '1',
         ]);
 
-        $userDocente = Docente::create([
-            'nombre' => 'DoncenteAdmin',
-            'documentoIdentidad' => '987654321',
-            'email' => 'doc@gmail.com',
-            'docTipoContrato' => '1',
-            'docAreaCurricular' => '2',
-            'insCodigoNit' => '111',
-            'password' => Hash::make('12345678'),
-            'password_confirmation' => Hash::make('12345678'),
-            'tipo' => '2',
-        ]);
-
         $userGrupo = Grupo::create([
             'gruNombre' => 'GrupoAdmin',
             'gruIdGrupo' => '111',
@@ -65,7 +53,19 @@ class TodosSeeder extends Seeder
             'gruCantEstudiante' => '15',
             'gruCantMateria' => '10',
             'insCodigoNit' => '111',
-            'numIdentidadDocente' => '987654321',
+        ]);
+
+        $userDocente = Docente::create([
+            'nombre' => 'DoncenteAdmin',
+            'documentoIdentidad' => '987654321',
+            'email' => 'doc@gmail.com',
+            'docTipoContrato' => '1',
+            'docAreaCurricular' => '2',
+            'insCodigoNit' => '111',
+            'idGrupo' => '111',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
         ]);
 
         $userEstudiante = Estudiante::create([
@@ -88,7 +88,6 @@ class TodosSeeder extends Seeder
             'matNombreMateria' => 'Inglés',
             'matDescripcion' => 'what is your name?',
         ]);
-
 
         //Seeders para recursos
         $admRed = Red::create([

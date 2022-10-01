@@ -18,7 +18,7 @@
 
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/estudiantes">Administrar estudiantes</a>
+                                <a class="btn btn-primary" class="ml-4 " href="/estudiantes">Administrar estudiantes de su grupo</a>
                             </div>
                         </div>
                         <div class="container">

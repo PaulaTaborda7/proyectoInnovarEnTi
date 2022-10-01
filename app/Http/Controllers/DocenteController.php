@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Institucion;
 use App\Models\Red;
+use App\Models\Grupo;
 
 /**
  * Class DocenteController
@@ -36,6 +37,7 @@ class DocenteController extends Controller
             ->orWhere('docTipoContrato', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('docAreaCurricular', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insCodigoNit', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('idGrupo', 'LIKE', '%' . $busqueda . '%')
             ->latest('id')
             ->paginate(10);
 
@@ -90,6 +92,7 @@ class DocenteController extends Controller
             'docTipoContrato' => 'required',
             'docAreaCurricular' => 'required',
             'insCodigoNit' => 'required',
+            'idGrupo' => 'required',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'password_confirmation' => ['required', 'same:password'],
         ], [
@@ -101,6 +104,7 @@ class DocenteController extends Controller
             'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
             'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
             'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+            'idGrupo.required' => 'El campo grupo es obligatorio',
             'password.required' => 'El campo contraseña es obligatorio',
             'password.min' => 'La contraseña debe tener al menos 8 caracteres',
             'password.confirmed' => 'Las contraseñas no coinciden',
@@ -119,6 +123,7 @@ class DocenteController extends Controller
             'docTipoContrato' => $request['docTipoContrato'],
             'docAreaCurricular' => $request['docAreaCurricular'],
             'insCodigoNit' => $request['insCodigoNit'],
+            'idGrupo' => $request['idGrupo'],
             'password' => Hash::make($request['password']),
             'password_confirmation' => Hash::make($request['password_confirmation']),
         ]);
@@ -170,6 +175,7 @@ class DocenteController extends Controller
                 'docTipoContrato' => 'required',
                 'docAreaCurricular' => 'required',
                 'insCodigoNit' => 'required',
+                'idGrupo' => 'required',
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'password_confirmation' => ['required', 'same:password'],
             ], [
@@ -177,6 +183,7 @@ class DocenteController extends Controller
                 'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
                 'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
                 'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                'idGrupo.required' => 'El campo grupo es obligatorio',
                 'password.required' => 'El campo contraseña es obligatorio',
                 'password.min' => 'La contraseña debe tener al menos 8 caracteres',
                 'password.confirmed' => 'Las contraseñas no coinciden',
@@ -191,6 +198,7 @@ class DocenteController extends Controller
                     'docTipoContrato' => 'required',
                     'docAreaCurricular' => 'required',
                     'insCodigoNit' => 'required',
+                    'idGrupo' => 'required',
                     'password' => ['required', 'string', 'min:8', 'confirmed'],
                     'password_confirmation' => ['required', 'same:password'],
                 ], [
@@ -200,6 +208,7 @@ class DocenteController extends Controller
                     'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
                     'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
                     'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                    'idGrupo.required' => 'El campo grupo es obligatorio',
                     'password.required' => 'El campo contraseña es obligatorio',
                     'password.min' => 'La contraseña debe tener al menos 8 caracteres',
                     'password.confirmed' => 'Las contraseñas no coinciden',
@@ -214,6 +223,7 @@ class DocenteController extends Controller
                         'docTipoContrato' => 'required',
                         'docAreaCurricular' => 'required',
                         'insCodigoNit' => 'required',
+                        'idGrupo' => 'required',
                         'password' => ['required', 'string', 'min:8', 'confirmed'],
                         'password_confirmation' => ['required', 'same:password'],
                     ], [
@@ -223,6 +233,7 @@ class DocenteController extends Controller
                         'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
                         'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
                         'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                        'idGrupo.required' => 'El campo grupo es obligatorio',
                         'password.required' => 'El campo contraseña es obligatorio',
                         'password.min' => 'La contraseña debe tener al menos 8 caracteres',
                         'password.confirmed' => 'Las contraseñas no coinciden',
@@ -237,6 +248,7 @@ class DocenteController extends Controller
                         'docTipoContrato' => 'required',
                         'docAreaCurricular' => 'required',
                         'insCodigoNit' => 'required',
+                        'idGrupo' => 'required',
                         'password' => ['required', 'string', 'min:8', 'confirmed'],
                         'password_confirmation' => ['required', 'same:password'],
                     ], [
@@ -248,6 +260,7 @@ class DocenteController extends Controller
                         'docTipoContrato.required' => 'El campo tipo de contrato es obligatorio',
                         'docAreaCurricular.required' => 'El campo área curricular es obligatorio',
                         'insCodigoNit.required' => 'El campo código NIT es obligatorio',
+                        'idGrupo.required' => 'El campo grupo es obligatorio',
                         'password.required' => 'El campo contraseña es obligatorio',
                         'password.min' => 'La contraseña debe tener al menos 8 caracteres',
                         'password.confirmed' => 'Las contraseñas no coinciden',
@@ -266,6 +279,7 @@ class DocenteController extends Controller
         $docente->docTipoContrato = $request->docTipoContrato;
         $docente->docAreaCurricular = $request->docAreaCurricular;
         $docente->insCodigoNit = $request->insCodigoNit;
+        $docente->idGrupo = $request->idGrupo;
         $docente->password = Hash::make($request->password);
         $docente->password_confirmation = Hash::make($request->password_confirmation);
         $save = $docente->save();
