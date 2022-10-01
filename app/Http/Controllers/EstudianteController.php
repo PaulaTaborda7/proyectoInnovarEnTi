@@ -49,7 +49,10 @@ class EstudianteController extends Controller
      * Funcion para identificar los recusos 
      */
     public function habilitacion_red(){
+        $reds_habilitados = DB::select('select red.* from red_grupos, estudiante, red where red_grupos.gruIdGrupo = estudiante.gruIdCurso
+        and red_grupos.habilitado = 1');
         
+        return view('catalogoRecursosHabilitados', compact('reds_habilitados'));
     }
 
 
