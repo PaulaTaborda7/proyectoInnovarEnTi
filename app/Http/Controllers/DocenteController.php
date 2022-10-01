@@ -68,14 +68,16 @@ class DocenteController extends Controller
 
     public function verCatalogoRecursos($id){
         $docente = Docente::where('documentoIdentidad', $id)->first();
+        $grupo = $docente -> idGrupo;
         $codigoNit = $docente->insCodigoNit;
         $institucion = Institucion::where('codigoNit', '=', $codigoNit)->first();
         $tipoPaquete = $institucion->tipoPaquete;
         $recursos = Red::where('redTipoRecurso', '=', $tipoPaquete)->get();
+
         if($tipoPaquete == '1'){
-            return view('docente.catalogoRecursosCompleto', compact('recursos'));
+            return view('docente.catalogoRecursosCompleto', compact('recursos','grupo'));
         }else{
-            return view('docente.catalogoRecursosDEA', compact('recursos'));
+            return view('docente.catalogoRecursosDEA', compact('recursos','grupo'));
         }
     }
 

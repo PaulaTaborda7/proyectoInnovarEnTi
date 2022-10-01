@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Red;
+use App\Models\Red_grupo;
 use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +29,16 @@ class RedController extends Controller
         return view('red.index',compact('reds'));
     }
 
+
+    public function habilitarRecurso($idRed, $idGrupo)
+    {
+        $red = new Red_grupo();
+        $red->habilitado = 1;
+        $red->redIdRed = $idRed;
+        $red->gruIdGrupo = $idGrupo;
+        $red->save();
+        echo 'Hola';
+    }
     /**
      * Show the form for creating a new resource.
      *
