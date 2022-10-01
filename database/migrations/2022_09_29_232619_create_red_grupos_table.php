@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('red_grupos', function (Blueprint $table) {
             $table->id();
             $table->boolean('habilitado');
-            $table->string('gruIdGrupo')->unique();
-            $table->foreign('gruIdGrupo')->references('gruIdGrupo')->on('grupos');
             $table->string('redIdRed')->unique();
             $table->foreign('redIdRed')->references('redIdRed')->on('reds');
+            $table->string('gruIdGrupo');
+            $table->foreign('gruIdGrupo')->references('gruIdGrupo')->on('grupos');
             $table->timestamps();
         });
     }

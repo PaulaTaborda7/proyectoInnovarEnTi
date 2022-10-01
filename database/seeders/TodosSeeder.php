@@ -48,7 +48,7 @@ class TodosSeeder extends Seeder
 
         $userGrupo = Grupo::create([
             'gruNombre' => 'GrupoAdmin',
-            'gruIdGrupo' => '111',
+            'gruIdGrupo' => '112',
             'gruJornada' => 'Mañana',
             'gruCantEstudiante' => '15',
             'gruCantMateria' => '10',
@@ -56,13 +56,13 @@ class TodosSeeder extends Seeder
         ]);
 
         $userDocente = Docente::create([
-            'nombre' => 'DoncenteAdmin',
+            'nombre' => 'DocenteAdmin',
             'documentoIdentidad' => '987654321',
             'email' => 'doc@gmail.com',
             'docTipoContrato' => '1',
             'docAreaCurricular' => '2',
             'insCodigoNit' => '111',
-            'idGrupo' => '111',
+            'idGrupo' => '112',
             'password' => Hash::make('12345678'),
             'password_confirmation' => Hash::make('12345678'),
             'tipo' => '2',
@@ -76,7 +76,7 @@ class TodosSeeder extends Seeder
             'estPromedio' => '4',
             'insCodigoNit' => '111',
             'numIdentidadPadre' => '11',
-            'gruIdCurso' => '111',
+            'gruIdCurso' => '112',
             'observacion' => 'Hola',
             'password' => Hash::make('12345678'),
             'password_confirmation' => Hash::make('12345678'),

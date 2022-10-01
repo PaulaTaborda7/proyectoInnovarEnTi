@@ -37,7 +37,7 @@ class RedController extends Controller
         $red->redIdRed = $idRed;
         $red->gruIdGrupo = $idGrupo;
         $red->save();
-        echo 'Hola';
+        return back();
     }
     /**
      * Show the form for creating a new resource.

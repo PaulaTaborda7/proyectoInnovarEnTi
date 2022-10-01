@@ -28,7 +28,7 @@
                             </div>
                             <br>
                             <div>
-                                <a class="btn btn-sm btn-success" href=" {{ route('habilitar.recurso.educativo.digital',$recurso->id, $grupo) }}"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                <a class="btn btn-sm btn-success" href=" {{ route('habilitar.recurso.educativo.digital',['idRed' => $recurso->redIdRed,  'idGrupo' => $idGrupo]) }}"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
                                 <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
                             </div>
                         </div>
