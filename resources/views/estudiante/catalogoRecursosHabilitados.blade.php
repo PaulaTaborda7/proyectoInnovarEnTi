@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-footer" class="justify-content-center">
                             <div>
-                                <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital.Estudiante',$recurso->id) }}"><i class="fa fa-eye"></i> Probar RED</a>
+                                <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital.Estudiante',$recurso->id) }}"><i class="fa fa-eye"></i> Resolver/Explorar RED</a>
                             </div>
                         </div>
                     </div>

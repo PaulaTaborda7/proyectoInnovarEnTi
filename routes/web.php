@@ -72,6 +72,7 @@ Route::group(['middleware' => ['soloestudiante']], function () {
     Route::post('/estudiante/logout', [AutenticacionEstudianteController::class, 'logout'])->name('estudiante.logout');
     Route::get('/descargar_pdf/{id}',[EstudianteController::class,'generar_pdf'])->name('descargarpdf');
     Route::get('/reds_habilitados',[EstudianteController::class,'habilitacion_red']);
+    Route::get('/recurso-educativo-digital-Estudiante/{id}',[RedController::class,'filesEstudiante'])->name('recurso.educativo.digital.Estudiante');
 });
 
 Route::group(['middleware' => ['solopadre']], function () {

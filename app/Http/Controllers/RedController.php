@@ -130,6 +130,17 @@ class RedController extends Controller
         return view('docente.pruebaredDocente',compact('redIdRed'));
     }
 
+    public function filesEstudiante($id){
+        //$file = File::find($id);
+        //echo $id;
+        //$file = DB::table('files')->select('*')->where('red_id','=',$id)->first();
+        //$idFile = $file->id;
+        $red = Red::find($id);
+        $redIdRed = $red->redIdRed;
+        // if(!$file) abort(404);
+        return view('estudiante.pruebaredEstudiante',compact('redIdRed'));
+    }
+
     /**
      * Display the specified resource.
      *
