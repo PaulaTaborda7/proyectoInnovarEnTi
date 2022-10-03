@@ -50,7 +50,7 @@ class EstudianteController extends Controller
      */
     public function habilitacion_red(){
         $reds_habilitados = DB::select('select reds.* from red_grupos, estudiantes, reds where red_grupos.gruIdGrupo = estudiantes.gruIdCurso
-        and red_grupos.habilitado = 1');
+        and red_grupos.redIdRed = reds.redIdRed and red_grupos.habilitado = 1');
         
         return view('estudiante.catalogoRecursosHabilitados', compact('reds_habilitados'));
     }
