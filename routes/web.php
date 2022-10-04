@@ -53,14 +53,14 @@ Route::group(['middleware' => ['soloadmin']], function () {
     Route::resource('/reds', RedController::class);
     Route::get('/recurso-educativo-digital/{id}',[RedController::class,'files'])->name('recurso.educativo.digital');
     Route::get('/listaDocentes/{id}',[InstitucionController::class,'verDocentes'])->name('lista.docentes');
+    Route::resource('/grupos', GrupoController::class);
+    Route::get('/listaAlumnos/{id}',[GrupoController::class,'verAlumnos'])->name('lista.alumnos');
 });
 
 Route::group(['middleware' => ['solodocente']], function () {
     Route::get('/vistadocentes', [DocenteController::class, 'index2']); //Va a la vista de docentes
     Route::post('/auth/logout', [AutenticacionDocenteController::class, 'logout'])->name('auth.logout'); //Hace el logout de docente     
     Route::resource('/estudiantes', EstudianteController::class);
-    Route::resource('/grupos', GrupoController::class);
-    Route::get('/listaAlumnos/{id}',[GrupoController::class,'verAlumnos'])->name('lista.alumnos');
     Route::get('/catalogoRecursos/{id}',[DocenteController::class,'verCatalogoRecursos'])->name('catalogo.recursos');
     Route::get('/recurso-educativo-digital-Docente/{id}',[RedController::class,'filesDocente'])->name('recurso.educativo.digital.Docente');
     Route::get('/habilitar-recurso-educativo-digital/{idRed}/{idGrupo}',[RedController::class,'habilitarRecurso'])->name('habilitar.recurso.educativo.digital');

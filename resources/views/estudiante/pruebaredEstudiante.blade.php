@@ -21,7 +21,7 @@
         <div class="col-lg-12">
             <hr>
             <div  class="col-auto p-5 text-center">
-                <a class="ml-4 text-sm btn btn-primary" href="/vistaestudiantes">Regresar</a>
+                <a class="ml-4 text-sm btn btn-primary" href="/reds_habilitados">Regresar</a>
             </div>
         </div>
     </div>

@@ -15,5 +15,12 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="justify-content-cente">
+            <a class="ml-4 text-sm btn btn-primary" href="/reds">Regresar</a>
+        </div>
+    </div>
 </div>
+
+
 @endsection

@@ -14,7 +14,7 @@
                             <span class="card-title">Ver información de Institución Educativa</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('institucions.index') }}">Regresar</a>
+                            <a class="btn btn-primary" href="{{ route('institucions.index') }}">Volver</a>
                         </div>
                     </div>
 

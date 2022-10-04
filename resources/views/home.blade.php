@@ -46,6 +46,11 @@
                                 <a class="btn btn-primary" class="ml-4 " href="/reds">Administrar Recursos Educativos Digitales</a>
                             </div>
                         </div>
+                        <div class="container">
+                            <div class="justify-content-center">
+                                <a class="btn btn-primary" class="ml-4 " href="/grupos" class="ml-4 text-sm text-color: primary">Administrar grupos</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
