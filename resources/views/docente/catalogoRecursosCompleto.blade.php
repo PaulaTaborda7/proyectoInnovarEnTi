@@ -28,8 +28,16 @@
                             </div>
                             <br>
                             <div>
-                                <a class="btn btn-sm btn-success" href=" {{ route('habilitar.recurso.educativo.digital',['idRed' => $recurso->redIdRed,  'idGrupo' => $idGrupo]) }}"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
-                                <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                                
+                                @if($bandera == true){
+                                    <a class="btn btn-sm btn-success" @disabled(true) href=" {{ route('habilitar.recurso.educativo.digital',['idRed' => $recurso->redIdRed,  'idGrupo' => $idGrupo]) }}"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                    <a class="btn btn-danger btn-sm" href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                                }
+                                @else{
+                                    <a class="btn btn-sm btn-success" href=" {{ route('habilitar.recurso.educativo.digital',['idRed' => $recurso->redIdRed,  'idGrupo' => $idGrupo]) }}"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                    <a class="btn btn-danger btn-sm" @disabled(true) href="#"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                                }
+                                @endif
                             </div>
                         </div>
                     </div>

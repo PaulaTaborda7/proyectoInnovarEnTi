@@ -27,14 +27,23 @@ class RedController extends Controller
     }
 
 
-    public function habilitarRecurso($idRed, $idGrupo)
+    public function habilitarRecurso($idRed, $idGrupo, $bandera)
     {
-        $red = new Red_grupo();
-        $red->habilitado = 1;
-        $red->redIdRed = $idRed;
-        $red->gruIdGrupo = $idGrupo;
-        $red->save();
-        return back();
+        $bandera = 1;
+        $verifica = DB::select('select * from red_grupo where red_id = ? and grupo_id = ? and habilitado = 1', [$idRed, $idGrupo]);
+
+        if($verifica != null){
+            return back()->with('bandera',$bandera);
+        }
+        else{
+            $bandera = 0;
+            $red = new Red_grupo();
+            $red->habilitado = 1;
+            $red->redIdRed = $idRed;
+            $red->gruIdGrupo = $idGrupo;
+            $red->save();
+            return back()->with('bandera',$bandera);
+        }
     }
     /**
      * Show the form for creating a new resource.
