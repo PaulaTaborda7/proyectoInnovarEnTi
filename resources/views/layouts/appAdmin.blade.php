@@ -31,8 +31,8 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=2000)">
+    <div id="app" style="background-color: #EDEEF0">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
             <div class="container">
                 <!--las imágenes van en la carpeta public-->
                 <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px">
@@ -69,8 +69,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <br>
-        <footer class="bg-light text-center text-lg-start">
+        <footer class="bg-light text-center text-lg-start mt-5">
             <!-- Grid container -->
             <div class="container p-4">
                 <!--Grid row-->
@@ -79,20 +78,19 @@
                     <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase text-center fw-bold fs-4">Acerca de INNOVAR EN TI</h5>
                         <p>
-                            INNOVAR EN TI es un emprendimiento de una empresa que se desea creó con el objetivo de
-                            brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los estudiantes en los
-                            colegios sean mucho más dinámicas y de calidad.
+                        INNOVAR EN TI es un emprendimiento de una empresa que se creó con el objetivo de
+                        brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los estudiantes en los 
+                        colegios sean mucho más dinámicas y de calidad.
                         </p>
                     </div>
                     <!--Grid column-->
                     <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase text-center fw-bold fs-4">Sobre los Recursos Educativos Digitales</h5>
                         <p>
-                            INNOVAR EN TI ofrece los recursos educativos para los grados primero, segundo y tercero de los colegios públicos
-                            y privados, en primera instancia, del país, después a nivel internacional.
+                        INNOVAR EN TI ofrece los recursos educativos para los grados primero, segundo y tercero de los colegios públicos 
+                        y privados, en primera instancia, del país, después a nivel internacional.
                         </p>
                     </div>
-                    <!--Grid column-->
                 </div>
                 <!--Grid row-->
             </div>
@@ -112,7 +110,7 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light" style="background-image:url(https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=2000)">
+            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
                 © 2022 Copyright
             </div>
         </footer>
