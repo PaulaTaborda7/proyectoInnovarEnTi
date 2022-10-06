@@ -85,7 +85,7 @@ Grupo
                         </tfoot>
                         <div class="container">
                             <div class="justify-content-cente">
-                                <a class="ml-4 text-sm btn btn-primary" href="/vistadocentes">Regresar</a>
+                                <a class="ml-4 text-sm btn btn-primary" href="/home">Regresar</a>
                             </div>
                         </div>
                     </div>
