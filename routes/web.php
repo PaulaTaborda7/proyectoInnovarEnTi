@@ -73,6 +73,7 @@ Route::group(['middleware' => ['soloestudiante']], function () {
     Route::get('/descargar_pdf/{id}',[EstudianteController::class,'generar_pdf'])->name('descargarpdf');
     Route::get('/reds_habilitados',[EstudianteController::class,'habilitacion_red']);
     Route::get('/recurso-educativo-digital-Estudiante/{id}',[RedController::class,'filesEstudiante'])->name('recurso.educativo.digital.Estudiante');
+    Route::get('/reporte_notas/{id}',[EstudianteController::class,'reporte_notas'])->name('reportepdf');
 });
 
 Route::group(['middleware' => ['solopadre']], function () {
