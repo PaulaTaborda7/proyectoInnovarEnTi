@@ -171,7 +171,6 @@ class RedController extends Controller
                 'idMateria.required' => 'El campo código de temática es obligatorio',
             ]);
         }
-<<<<<<< HEAD
 
         if($request->has('files')){
             $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
@@ -191,10 +190,6 @@ class RedController extends Controller
         request()->validate(Red::$rules);
         $red->update($request->all());
         
-=======
-        request()->validate(Red::$rules);
-        $red->update($request->all());
->>>>>>> b7d54b51edbbf1e285d076e666c4d025b7d4659e
         return redirect()->route('reds.index')
             ->with('success', 'Información de RED actualizada con éxito');
     }
