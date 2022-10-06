@@ -28,9 +28,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         
     </head>
-    <body class="antialiased">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url(https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=2000)">
+    <body class="antialiased" style="background-color: #EDEEF0">
+        <header class="mb-3">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
                     <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
@@ -52,19 +52,18 @@
                 {{ Session::get('fail') }}
             </div>
             @endif
-            <div class="container" style="background-color: #F1FEFE">
+            <div class="container">
                 <div class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('Selecciona el perfil') }}</div>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <a href="/admin/loginAdmin" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
-                    <a href="/auth/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
-                    <a href="/estudiante/login" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
-                    <a href="#" class="ml-4 text-sm text-color: primary"><button class="btn btn-outline-info"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a> 
-                </div>
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="/admin/loginAdmin" class="ml-4"><button class="btn btn-success text-white"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
+                    <a href="/auth/login" class="ml-4"><button class="btn text-white" style="background-color: #FAA701"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
+                    <a href="/estudiante/login" class="ml-4"><button class="btn btn-danger text-white"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
+                    <a href="#" class="ml-4"><button class="btn btn-info text-white"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a> 
+                </div> 
             </div>        
         </main>
         <br>
-        <footer class="bg-light text-center text-lg-start" class="position-relative">
+        <footer class="bg-light text-center text-lg-start mt-5">
             <!-- Grid container -->
             <div class="container p-4">
                 <!--Grid row-->
@@ -73,7 +72,7 @@
                     <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase text-center fw-bold fs-4">Acerca de INNOVAR EN TI</h5>
                         <p>
-                        INNOVAR EN TI es un emprendimiento de una empresa que se desea creó con el objetivo de
+                        INNOVAR EN TI es un emprendimiento de una empresa que se creó con el objetivo de
                         brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los estudiantes en los 
                         colegios sean mucho más dinámicas y de calidad.
                         </p>
@@ -86,7 +85,6 @@
                         y privados, en primera instancia, del país, después a nivel internacional.
                         </p>
                     </div>
-                    <!--Grid column-->
                 </div>
                 <!--Grid row-->
             </div>
@@ -106,7 +104,7 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light" style="background-image:url(https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=2000)">
+            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
                 © 2022 Copyright
             </div>
         </footer>
