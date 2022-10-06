@@ -23,9 +23,6 @@ class RedController extends Controller
     public function index()
     {
         $reds = Red::all();
-        // return view('red.index', compact('reds'))
-        //     ->with('i', (request()->input('page', 1) - 1) * $reds->perPage());
-        // $reds = Red::all();
         return view('red.index',compact('reds'));
     }
 
@@ -58,22 +55,6 @@ class RedController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->validate([
-        //     'redNombre' => 'required',
-        //     'redIdRed' => ['required', 'unique:reds'],
-        //     'redDescripcion' => 'required',
-        //     'redTipoRecurso' => 'required',
-        //     'idMateria' => 'required',
-        //     'redUrl' => 'required',
-        // ], [
-        //     'redNombre.required' => 'El campo nombre de recurso es obligatorio',
-        //     'redIdRed.required' => 'El campo código de recurso es obligatorio',
-        //     'redIdRed.unique' => 'El código de recurso ya existe',
-        //     'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
-        //     'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
-        //     'idMateria.required' => 'El campo código de temática es obligatorio',
-        //     'redUrl.required' => 'El campo URL de recurso es obligatorio',
-        // ]);
         $red = Red::create([
             'redNombre' => $request['redNombre'],
             'redIdRed' => $request['redIdRed'],
@@ -100,44 +81,23 @@ class RedController extends Controller
         }else {
             return redirect()->route('reds.index')->with('fail', 'No se ha podido crear el RED');
         }
-        // $save = $red->save();
-        // if($save){
-        //     return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
-        // }else{
-        //     return redirect()->route('reds.index')->with('fail', 'No se ha podido crear el RED');
-        // }
     }
 
     public function files($id){
-        //$file = File::find($id);
-        //echo $id;
-        //$file = DB::table('files')->select('*')->where('red_id','=',$id)->first();
-        //$idFile = $file->id;
         $red = Red::find($id);
         $redIdRed = $red->redIdRed;
-        // if(!$file) abort(404);
         return view('pruebared',compact('redIdRed'));
     }
 
     public function filesDocente($id){
-        //$file = File::find($id);
-        //echo $id;
-        //$file = DB::table('files')->select('*')->where('red_id','=',$id)->first();
-        //$idFile = $file->id;
         $red = Red::find($id);
         $redIdRed = $red->redIdRed;
-        // if(!$file) abort(404);
         return view('docente.pruebaredDocente',compact('redIdRed'));
     }
 
     public function filesEstudiante($id){
-        //$file = File::find($id);
-        //echo $id;
-        //$file = DB::table('files')->select('*')->where('red_id','=',$id)->first();
-        //$idFile = $file->id;
         $red = Red::find($id);
         $redIdRed = $red->redIdRed;
-        // if(!$file) abort(404);
         return view('estudiante.pruebaredEstudiante',compact('redIdRed'));
     }
 
@@ -150,7 +110,6 @@ class RedController extends Controller
     public function show($id)
     {
         $red = Red::find($id);
-
         return view('red.show', compact('red'));
     }
 
@@ -163,7 +122,6 @@ class RedController extends Controller
     public function edit($id)
     {
         $red = Red::find($id);
-
         return view('red.edit', compact('red'));
     }
 
@@ -182,13 +140,11 @@ class RedController extends Controller
                 'redDescripcion' => 'required',
                 'redTipoRecurso' => 'required',
                 'idMateria' => 'required',
-                //'redUrl' => 'required',
             ], [
                 'redNombre.required' => 'El campo nombre de recurso es obligatorio',
                 'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
                 'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
                 'idMateria.required' => 'El campo código de temática es obligatorio',
-                //'redUrl.required' => 'El campo URL de recurso es obligatorio',
             ]);
         }else{
             $request->validate([
@@ -197,7 +153,6 @@ class RedController extends Controller
                 'redDescripcion' => 'required',
                 'redTipoRecurso' => 'required',
                 'idMateria' => 'required',
-                //'redUrl' => 'required',
             ], [
                 'redNombre.required' => 'El campo nombre de recurso es obligatorio',
                 'redIdRed.required' => 'El campo código de recurso es obligatorio',
@@ -205,9 +160,9 @@ class RedController extends Controller
                 'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
                 'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
                 'idMateria.required' => 'El campo código de temática es obligatorio',
-                //'redUrl.required' => 'El campo URL de recurso es obligatorio',
             ]);
         }
+<<<<<<< HEAD
 
         if($request->has('files')){
             $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
@@ -227,6 +182,10 @@ class RedController extends Controller
         request()->validate(Red::$rules);
         $red->update($request->all());
         
+=======
+        request()->validate(Red::$rules);
+        $red->update($request->all());
+>>>>>>> b7d54b51edbbf1e285d076e666c4d025b7d4659e
         return redirect()->route('reds.index')
             ->with('success', 'Información de RED actualizada con éxito');
     }
@@ -239,7 +198,6 @@ class RedController extends Controller
     public function destroy($id)
     {
         $red = Red::find($id)->delete();
-
         return redirect()->route('reds.index')
             ->with('success', 'RED eliminado con éxito');
     }
