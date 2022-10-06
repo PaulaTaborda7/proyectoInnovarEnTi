@@ -171,7 +171,6 @@ class RedController extends Controller
                 'idMateria.required' => 'El campo código de temática es obligatorio',
             ]);
         }
-
         if($request->has('files')){
             $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
             $files = $request->file('files');
