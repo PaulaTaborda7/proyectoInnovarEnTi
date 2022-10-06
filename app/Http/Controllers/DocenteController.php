@@ -79,12 +79,13 @@ class DocenteController extends Controller
         $institucion = Institucion::where('codigoNit', '=', $codigoNit)->first();
         $tipoPaquete = $institucion->tipoPaquete;
         $recursos = Red::where('redTipoRecurso', '=', $tipoPaquete)->get();
+        $todosRecursos = Red::all();
         $idGrupo = $docente->idGrupo;
         
-        if($tipoPaquete == '1'){
-            return view('docente.catalogoRecursosCompleto', compact('recursos','idGrupo'));
-        }else{
+        if($tipoPaquete == '0'){
             return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo'));
+        }else{
+            return view('docente.catalogoRecursosCompleto', compact('todosRecursos','idGrupo'));
         }
     }
 
