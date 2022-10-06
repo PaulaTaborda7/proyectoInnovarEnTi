@@ -209,11 +209,24 @@ class RedController extends Controller
             ]);
         }
 
-
+        if($request->has('files')){
+            $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
+            $files = $request->file('files');
+            foreach($files as $file){
+                $fileName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check=in_array($extension,$allowedfileExtension);
+                if($check){
+                    $file->move(public_path('archivos/'.$red->redIdRed,),$fileName);
+                    File::find($red->redIdRed)->update([
+                        'file'=>$fileName
+                    ]);
+                }
+            }
+        }
         request()->validate(Red::$rules);
-
         $red->update($request->all());
-
+        
         return redirect()->route('reds.index')
             ->with('success', 'Información de RED actualizada con éxito');
     }

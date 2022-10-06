@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-        <span>Es Tipo RED DEA?</span>
+        <span>¿Es Tipo RED DEA?</span>
         <select name="redTipoRecurso" id="redTipoRecurso" class="form-control @error('redTipoRecurso') is-invalid @enderror">
             <option disabled="" selected="" value="">Selecciona una opción</option>
             <option value="0">Si</option>

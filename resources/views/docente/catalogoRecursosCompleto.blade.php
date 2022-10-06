@@ -11,7 +11,7 @@
         <div class="col-lg-12">
             <hr>
             <div class="row">
-                @foreach($recursos as $recurso)
+                @foreach($todosRecursos as $recurso)
                 <div class="col-lg-3">
                     <div class="card text-center"  style="margin-bottom: 20px; height: auto;">
                         <br>
