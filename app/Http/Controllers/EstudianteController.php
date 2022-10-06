@@ -38,20 +38,37 @@ class EstudianteController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $estudiantes->perPage());
     }
 
-
+    /**
+     * Funcion para generar PDF de las observaciones del estudiante 
+     */
     public function generar_pdf($id)
     {
         $estudiante =  Estudiante::where('numIdentidad', $id)->first();
         $pdf = PDF::loadView('estudiante.padrefamilia', ['estudiante' => $estudiante]);
         return $pdf->download('ReporteEstudiante.pdf');
     }
+
+    /**
+     * Funcion para generar reporte de las notas en PDF 
+     
+    *public function reporte_notas($id)
+    *{
+     *   $estudiante =  Estudiante::where('numIdentidad', $id)->first();
+    *  $pro= $estudiante->promedio;
+
+    *    $pdf = PDF::loadView('estudiante.notasReporte', ['estudiante' => $estudiante], mensaje);
+     *   return $pdf->download('ReporteNotas.pdf');
+    *}
+*/
+
     /**
      * Funcion para identificar los recusos 
      */
-    public function habilitacion_red(){
+    public function habilitacion_red()
+    {
         $reds_habilitados = DB::select('select reds.* from red_grupos, estudiantes, reds where red_grupos.gruIdGrupo = estudiantes.gruIdCurso
         and red_grupos.redIdRed = reds.redIdRed and red_grupos.habilitado = 1');
-        
+
         return view('estudiante.catalogoRecursosHabilitados', compact('reds_habilitados'));
     }
 
