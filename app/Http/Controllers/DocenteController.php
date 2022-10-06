@@ -60,8 +60,10 @@ class DocenteController extends Controller
         $docente = new Docente();
 
         $instituciones = DB::select('select codigoNit,insNombre from institucions');
+
+        $grupos = DB::select('select id,gruNombre from grupos');
         
-        return view('docente.create', compact('docente', 'instituciones'));
+        return view('docente.create', compact('docente', 'instituciones', 'grupos'));
     }
 
     /**
@@ -160,7 +162,9 @@ class DocenteController extends Controller
         
         $instituciones = DB::select('select codigoNit,insNombre from institucions');
 
-        return view('docente.edit', compact('docente', 'instituciones'));
+        $grupos = DB::select('select id,gruNombre from grupos');
+
+        return view('docente.edit', compact('docente', 'instituciones', 'grupos'));
     }
 
     /**
