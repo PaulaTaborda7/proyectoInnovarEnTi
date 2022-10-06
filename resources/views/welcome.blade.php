@@ -26,6 +26,8 @@
 
         <!-- Icons-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+        
         
     </head>
     <body class="antialiased" style="background-color: #EDEEF0">
@@ -110,3 +112,11 @@
         </footer>
     </body>
 </html>
+
+<script>
+    Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
+</script>

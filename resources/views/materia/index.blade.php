@@ -1,9 +1,5 @@
 @extends('layouts.appAdmin')
 
-@section('template_title')
-Materia
-@endsection
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -43,8 +39,8 @@ Materia
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead">
+                        <table class="table text-center ">
+                            <thead class="table-primary">
                                 <tr>
                                     <th>Código de la temática</th>
                                     <th>Nombre de la temática</th>
@@ -77,14 +73,13 @@ Materia
                             </tr>
                         </tfoot>
                         <div class="container">
-                            <div class="justify-content-cente">
+                            <div class="justify-content-center">
                                 <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- {!! $materias->links() !!} --}}
         </div>
     </div>
 </div>
