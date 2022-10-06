@@ -30,10 +30,11 @@ class RedController extends Controller
     public function habilitarRecurso($idRed, $idGrupo, $bandera)
     {
         $bandera = 1;
-        $verifica = DB::select('select * from red_grupo where red_id = ? and grupo_id = ? and habilitado = 1', [$idRed, $idGrupo]);
-
+        $verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 1', [$idRed, $idGrupo]);
+        //echo $verifica;
         if($verifica != null){
-            return back()->with('bandera',$bandera);
+            return redirect()->back()->with(compact('bandera'));
+            $bandera = 0;
         }
         else{
             $bandera = 0;
@@ -42,7 +43,8 @@ class RedController extends Controller
             $red->redIdRed = $idRed;
             $red->gruIdGrupo = $idGrupo;
             $red->save();
-            return back()->with('bandera',$bandera);
+            return redirect()->back()->with(compact('bandera'));
+            $bandera = 1;
         }
     }
     /**
