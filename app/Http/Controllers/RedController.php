@@ -29,22 +29,35 @@ class RedController extends Controller
 
     public function habilitarRecurso($idRed, $idGrupo, $bandera)
     {
-        $bandera = 1;
+        $bandera = '0';
         $verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 1', [$idRed, $idGrupo]);
-        //echo $verifica;
         if($verifica != null){
             return redirect()->back()->with(compact('bandera'));
-            $bandera = 0;
         }
         else{
-            $bandera = 0;
+            $bandera = '1';
             $red = new Red_grupo();
             $red->habilitado = 1;
             $red->redIdRed = $idRed;
             $red->gruIdGrupo = $idGrupo;
             $red->save();
             return redirect()->back()->with(compact('bandera'));
-            $bandera = 1;
+        }
+    }
+
+    public function deshabilitarRecurso($idRed, $idGrupo, $bandera)
+    {
+        $bandera = '0';
+        //$verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 0', [$idRed, $idGrupo]);
+        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo','=',$idGrupo)->where('habilitado','=','0')->get();
+        if($verifica != null){
+            return redirect()->back()->with(compact('bandera'));
+        }
+        else{
+            $bandera = '1';
+            $verifica->habilitado = 0;
+            return redirect()->back()->with(compact('bandera'));
+            $bandera = '0';
         }
     }
     /**
