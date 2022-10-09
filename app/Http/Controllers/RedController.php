@@ -41,9 +41,6 @@ class RedController extends Controller
             $red->redIdRed = $idRed;
             $red->gruIdGrupo = $idGrupo;
             $red->save();
-<<<<<<< HEAD
-            return back()->with('0',$bandera);
-=======
             return redirect()->back()->with(compact('bandera'));
         }
     }
@@ -61,7 +58,6 @@ class RedController extends Controller
             $verifica->habilitado = 0;
             return redirect()->back()->with(compact('bandera'));
             $bandera = '0';
->>>>>>> ccfee605ba260e5032a75abe17358d2245e6ab6e
         }
     }
     /**
