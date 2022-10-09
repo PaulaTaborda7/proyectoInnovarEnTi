@@ -29,20 +29,39 @@ class RedController extends Controller
 
     public function habilitarRecurso($idRed, $idGrupo, $bandera)
     {
-        $bandera = '1';
-        $verifica = DB::select('select * from red_grupo where red_id = ? and grupo_id = ? and habilitado = 1', [$idRed, $idGrupo]);
-
+        $bandera = '0';
+        $verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 1', [$idRed, $idGrupo]);
         if($verifica != null){
-            return back()->with('1',$bandera);
+            return redirect()->back()->with(compact('bandera'));
         }
         else{
-            $bandera = '0';
+            $bandera = '1';
             $red = new Red_grupo();
             $red->habilitado = 1;
             $red->redIdRed = $idRed;
             $red->gruIdGrupo = $idGrupo;
             $red->save();
+<<<<<<< HEAD
             return back()->with('0',$bandera);
+=======
+            return redirect()->back()->with(compact('bandera'));
+        }
+    }
+
+    public function deshabilitarRecurso($idRed, $idGrupo, $bandera)
+    {
+        $bandera = '0';
+        //$verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 0', [$idRed, $idGrupo]);
+        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo','=',$idGrupo)->where('habilitado','=','0')->get();
+        if($verifica != null){
+            return redirect()->back()->with(compact('bandera'));
+        }
+        else{
+            $bandera = '1';
+            $verifica->habilitado = 0;
+            return redirect()->back()->with(compact('bandera'));
+            $bandera = '0';
+>>>>>>> ccfee605ba260e5032a75abe17358d2245e6ab6e
         }
     }
     /**
