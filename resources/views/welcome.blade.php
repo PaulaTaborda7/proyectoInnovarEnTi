@@ -32,14 +32,14 @@
     </head>
     <body class="antialiased" style="background-color: #EDEEF0">
         <header class="mb-3">
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
                     <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href=" / "><h3 class="display-4">INNOVAR EN TI</h3></a>
+                                <a class="nav-link active" aria-current="page" href=" / "><h3 class="display-4 text-white" style="background: -webkit-linear-gradient(left, #03D9EF, #0081B9, #0154A1)">INNOVAR EN TI</h3></a>
                             </li>
                         </ul>
                     </div>
@@ -58,9 +58,9 @@
                 <div class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('Selecciona el perfil') }}</div>
                 <div class="d-flex justify-content-center mt-5">
                     <a href="/admin/loginAdmin" class="ml-4"><button class="btn btn-success text-white"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
-                    <a href="/auth/login" class="ml-4"><button class="btn text-white" style="background-color: #FAA701"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
+                    <a href="/auth/login" class="ml-4"><button class="btn btn-warning text-white"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
                     <a href="/estudiante/login" class="ml-4"><button class="btn btn-danger text-white"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
-                    <a href="#" class="ml-4"><button class="btn btn-info text-white"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a> 
+                    {{-- <a href="#" class="ml-4"><button class="btn btn-info text-white"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a>  --}}
                 </div> 
             </div>        
         </main>
@@ -106,8 +106,12 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
-                © 2022 Copyright
+            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
+                Paula Andrea Taborda Montes
+                <br>
+                Laura Quintero Cuartas
+                <br>
+                Nicolás Giraldo Gil 
             </div>
         </footer>
     </body>
