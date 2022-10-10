@@ -18,37 +18,67 @@
                         @if (Route::has('register'))
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="{{ route('register') }}">Registrar administrador</a>
+                                <a class="btn btn-success" class="ml-4 " style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="{{ route('register') }}">Registrar administrador</a>
                             </div>
                         </div>
                         @endif
                         <br>
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/materias">Administrar temáticas</a>
+                                <a class="btn btn-success" class="ml-4 " style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="/materias">Administrar temáticas</a>
                             </div>
                         </div>
                         <br>
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/docentes">Administrar docentes</a>
+                                <a class="btn btn-success" class="ml-4 " style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="/docentes">Administrar docentes</a>
                             </div>
                         </div>
                         <br>
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/institucions">Administrar instituciones educativas</a>
+                                <a class="btn btn-success" class="ml-4 " style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="/institucions">Administrar instituciones educativas</a>
                             </div>
                         </div>
                         <br>
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/reds">Administrar Recursos Educativos Digitales</a>
+                                <a class="btn btn-success" class="ml-4 " style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="/reds">Administrar Recursos Educativos Digitales</a>
                             </div>
                         </div>
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/grupos" class="ml-4 text-sm text-color: primary">Administrar grupos</a>
+                                <a class="btn btn-success" style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" class="ml-4 " href="/grupos" class="ml-4 text-sm text-color: primary">Administrar grupos</a>
                             </div>
                         </div>
                     </div>
