@@ -42,7 +42,11 @@
 
     <div class="form-group">
         <span>País</span>
-        {{ Form::text('insPais', $institucion->insPais, ['class' => 'form-control' . ($errors->has('insPais') ? ' is-invalid' : ''), 'placeholder' => 'País']) }}
+        <select name="insPais" id="insPais" class="form-control @error('insPais') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+        </select>
         @error('insPais')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
