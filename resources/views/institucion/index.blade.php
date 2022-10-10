@@ -48,8 +48,9 @@
                                     <th>Nombre</th>
                                     <th>NIT</th>
                                     <th>Dirección</th>
-                                    <th>Departamento</th>
                                     <th>País</th>
+                                    <th>Departamento</th>
+                                    <th>Ciudad</th>
                                     <th>Teléfono</th>
                                     <th>Tipo de calendario</th>
                                     <th>Cantidad de docentes</th>
@@ -64,8 +65,9 @@
                                     <td>{{ $institucion->insNombre }}</td>
                                     <td>{{ $institucion->codigoNit }}</td>
                                     <td>{{ $institucion->insDireccion }}</td>
-                                    <td>{{ $institucion->insDepartamento }}</td>
                                     <td>{{ $institucion->insPais }}</td>
+                                    <td>{{ $institucion->insDepartamento }}</td>
+                                    <td>{{ $institucion->insCiudad }}</td>
                                     <td>{{ $institucion->insTelefono }}</td>
                                     <td>{{ $institucion->insCalendario }}</td>
                                     <td>{{ $institucion->insCantidadDocentes }}</td>

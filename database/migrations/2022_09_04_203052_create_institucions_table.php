@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('insDireccion');
             $table->string('insDepartamento');
             $table->string('insPais');
+            $table->string('insCiudad');
             $table->string('insTelefono');
             $table->string('insCalendario');
             $table->integer('insCantidadDocentes');

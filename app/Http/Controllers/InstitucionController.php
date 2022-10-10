@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Institucion;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,6 +26,7 @@ class InstitucionController extends Controller
             ->orWhere('insDireccion', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insDepartamento', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insPais', 'LIKE', '%' . $busqueda . '%')
+            ->orWhere('insCiudad', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insTelefono', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insCalendario', 'LIKE', '%' . $busqueda . '%')
             ->orWhere('insCantidadDocentes', 'LIKE', '%' . $busqueda . '%')
@@ -49,8 +51,9 @@ class InstitucionController extends Controller
      */
     public function create()
     {
+        $countries = Country::all();
         $institucion = new Institucion();
-        return view('institucion.create', compact('institucion'));
+        return view('institucion.create', compact('institucion', 'countries'));
     }
 
     /**
@@ -67,6 +70,7 @@ class InstitucionController extends Controller
             'insDireccion' => 'required',
             'insDepartamento' => 'required',
             'insPais' => 'required',
+            'insCiudad' => 'required',
             'insTelefono' => 'required',
             'insCalendario' => 'required',
             'insCantidadDocentes' => 'required',
@@ -79,6 +83,7 @@ class InstitucionController extends Controller
             'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
             'insDepartamento.required' => 'El campo departamento es obligatorio',
             'insPais.required' => 'El campo país es obligatorio',
+            'insCiudad.required' => 'El campo ciudad es obligatorio',
             'insTelefono.required' => 'El campo teléfono es obligatorio',
             'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
             'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
@@ -136,6 +141,7 @@ class InstitucionController extends Controller
                 'insDireccion' => 'required',
                 'insDepartamento' => 'required',
                 'insPais' => 'required',
+                'insCiudad' => 'required',
                 'insTelefono' => 'required',
                 'insCalendario' => 'required',
                 'insCantidadDocentes' => 'required',
@@ -148,6 +154,7 @@ class InstitucionController extends Controller
                 'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
                 'insDepartamento.required' => 'El campo departamento es obligatorio',
                 'insPais.required' => 'El campo país es obligatorio',
+                'insCiudad.required' => 'El campo ciudad es obligatorio',
                 'insTelefono.required' => 'El campo teléfono es obligatorio',
                 'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
                 'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
@@ -160,6 +167,7 @@ class InstitucionController extends Controller
                 'insDireccion' => 'required',
                 'insDepartamento' => 'required',
                 'insPais' => 'required',
+                'insCiudad' => 'required',
                 'insTelefono' => 'required',
                 'insCalendario' => 'required',
                 'insCantidadDocentes' => 'required',
@@ -170,6 +178,7 @@ class InstitucionController extends Controller
                 'insDireccion.required' => 'El campo de dirección de institución educativa es obligatorio',
                 'insDepartamento.required' => 'El campo departamento es obligatorio',
                 'insPais.required' => 'El campo país es obligatorio',
+                'insCiudad.required' => 'El campo ciudad es obligatorio',
                 'insTelefono.required' => 'El campo teléfono es obligatorio',
                 'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
                 'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
