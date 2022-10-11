@@ -42,7 +42,10 @@ class GrupoController extends Controller
     public function create()
     {
         $grupo = new Grupo();
-        return view('grupo.create', compact('grupo'));
+
+        $institucioness = DB::select('select codigoNit,insNombre from institucions');
+
+        return view('grupo.create', compact('grupo', 'institucioness'));
     }
 
     public function verAlumnos($id){
@@ -106,7 +109,9 @@ class GrupoController extends Controller
     {
         $grupo = Grupo::find($id);
 
-        return view('grupo.edit', compact('grupo'));
+        $institucioness = DB::select('select codigoNit,insNombre from institucions');
+
+        return view('grupo.edit', compact('grupo', 'institucioness'));
     }
 
     /**
