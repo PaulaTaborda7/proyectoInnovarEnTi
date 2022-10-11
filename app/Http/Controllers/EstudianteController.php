@@ -81,7 +81,10 @@ class EstudianteController extends Controller
     public function create()
     {
         $estudiante = new Estudiante();
-        return view('estudiante.create', compact('estudiante'));
+
+        $gruposE = DB::select('select gruIdGrupo,gruNombre from grupos');
+
+        return view('estudiante.create', compact('estudiante', 'gruposE'));
     }
 
     /**
@@ -168,7 +171,9 @@ class EstudianteController extends Controller
     {
         $estudiante = Estudiante::find($id);
 
-        return view('estudiante.edit', compact('estudiante'));
+        $gruposE = DB::select('select gruIdGrupo,gruNombre from grupos');
+
+        return view('estudiante.edit', compact('estudiante', 'gruposE' ));
     }
 
     /**
