@@ -1,3 +1,4 @@
+<body>
 <div class="container">
 
     <div class="form-group">
@@ -31,9 +32,30 @@
     </div>
 
     <div class="form-group">
+        <span>País</span>
+        <select name="country" id="country" class="form-control @error('country') is-invalid @enderror" onchange='obtenerDepartamentos()'>
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+          
+            @foreach($countries as $country)
+            <option value="{{ $country->id }}">{{ $country->name }}</option>
+            @endforeach
+
+        </select>
+        @error('country')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
+
+    <div class="form-group">
         <span>Departamento</span>
-        {{ Form::text('insDepartamento', $institucion->insDepartamento, ['class' => 'form-control' . ($errors->has('insDepartamento') ? ' is-invalid' : ''), 'placeholder' => 'Departamento']) }}
-        @error('insDepartamento')
+        <select name="state" id="state" class="form-control @error('state') is-invalid @enderror" onchange="obtenerCiudades()">
+            <option disabled="" selected="" value="">Select State</option>
+        
+        </select>
+        @error('state')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -41,9 +63,12 @@
     </div>
 
     <div class="form-group">
-        <span>País</span>
-        {{ Form::text('insPais', $institucion->insPais, ['class' => 'form-control' . ($errors->has('insPais') ? ' is-invalid' : ''), 'placeholder' => 'País']) }}
-        @error('insPais')
+        <span>Ciudad</span>
+        <select name="city" id="city" class="form-control @error('city') is-invalid @enderror">
+            <option disabled="" selected="" value="">Select City</option>
+           
+        </select>
+        @error('city')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -123,3 +148,57 @@
         </div>
     </div>
 </div>
+</body>
+
+<script>
+    // Obtiene de manera dinámica los departamentos por cada país
+    let selectPais = document.getElementById('country');
+
+    function obtenerDepartamentos(){
+        let selectPais = document.getElementById('country');
+        let idSelectPais = selectPais.value;
+
+        $.ajax({
+            url: `/listaDepartamentos/${idSelectPais}`,
+            success: data => {
+                alert("states");
+                console.log(data);
+                let cadena = "";
+                for (let i = 0; i < data.states.length; i++) {
+                cadena += `<option value = "${data.states[i].id}">${data.states[i].name}</option>\n`;
+                }
+                let selectDepartamentos = document.getElementById('state');
+                selectDepartamentos.innerHTML = cadena;
+            }
+        });
+        obtenerCiudades();
+
+    }
+    // document.onload = obtenerDepartamentos();
+    selectPais.addEventListener('change', obtenerDepartamentos, false);
+
+    let selectDepartamento = document.getElementById('state');
+
+    function obtenerCiudades(){
+        let selectDepartamento = document.getElementById('state');
+        let idSelectDepartamento = selectDepartamento.value;
+
+        $.ajax({
+            url: `/listaCiudades/${idSelectDepartamento}`,
+            success: data => {
+                alert("ciudades");  
+                console.log(data);
+                let cadena = "";
+                for (let i = 0; i < data.cities.length; i++) {
+                cadena += `<option value = "${data.cities[i].id}">${data.cities[i].name}</option>\n`;
+                }
+                let selectCiudades = document.getElementById('city');
+                selectCiudades.innerHTML = cadena;
+            }
+        });
+
+    }
+
+    selectDepartamento.addEventListener('change', obtenerCiudades, false);
+
+</script>

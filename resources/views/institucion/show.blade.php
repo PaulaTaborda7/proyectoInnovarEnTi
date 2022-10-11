@@ -34,13 +34,18 @@
                             {{ $institucion->insDireccion }}
                         </div>
                         <div class="form-group">
+                            <strong>País:</strong>
+                            {{ $institucion->insPais }}
+                        </div>
+                        <div class="form-group">
                             <strong>Departamento:</strong>
                             {{ $institucion->insDepartamento }}
                         </div>
                         <div class="form-group">
                             <strong>País:</strong>
-                            {{ $institucion->insPais }}
+                            {{ $institucion->insCiudad }}
                         </div>
+
                         <div class="form-group">
                             <strong>Teléfono:</strong>
                             {{ $institucion->insTelefono }}

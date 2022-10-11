@@ -11,8 +11,11 @@ use App\Http\Controllers\AutenticacionAdminController;
 use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\RedController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\CityController;
 
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +42,10 @@ Route::get('/estudiante/login', [AutenticacionEstudianteController::class, 'logi
 
 Route::get('/auth/login', [AutenticacionDocenteController::class, 'login']); //Hace el login de docente 
 Route::get('/auth/index', [AutenticacionDocenteController::class, 'index'])->name('auth.index'); //Va al login de docente
+Route::get('/listaDepartamentos/{id}',[StateController::class,'getStates'])->name('getStates'); //Obtiene estados
+Route::get('/listaCiudades/{id}',[CityController::class,'getCities'])->name('getCities'); //Obtiene estados
+
+
 
 Route::group(['middleware' => ['soloadmin']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -63,7 +70,9 @@ Route::group(['middleware' => ['solodocente']], function () {
     Route::resource('/estudiantes', EstudianteController::class);
     Route::get('/catalogoRecursos/{id}',[DocenteController::class,'verCatalogoRecursos'])->name('catalogo.recursos');
     Route::get('/recurso-educativo-digital-Docente/{id}',[RedController::class,'filesDocente'])->name('recurso.educativo.digital.Docente');
-    Route::get('/habilitar-recurso-educativo-digital/{idRed}/{idGrupo}',[RedController::class,'habilitarRecurso'])->name('habilitar.recurso.educativo.digital');
+    Route::get('/habilitar-recurso-educativo-digital/{idRed}/{idGrupo}/{bandera}',[RedController::class,'habilitarRecurso'])->name('habilitar.recurso.educativo.digital');
+    Route::get('/deshabilitar-recurso-educativo-digital/{idRed}/{idGrupo}/{bandera}',[RedController::class,'deshabilitarRecurso'])->name('deshabilitar.recurso.educativo.digital');
+
 });
 
 Route::group(['middleware' => ['soloestudiante']], function () {

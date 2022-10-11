@@ -8,11 +8,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+
     <title>{{ config('app.name', 'INNOVAR EN TI') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="css.app.css" rel="stylesheet">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -32,7 +38,7 @@
 
 <body style="background-color: #EDEEF0">
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark" class="mb-3" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
+        <nav class="navbar navbar-expand-lg navbar-dark" class="mb-3" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
             <div class="container">
                 <!--las imágenes van en la carpeta public-->
                 <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px">
@@ -40,7 +46,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href=" # ">
-                                <h3 class="display-4">INNOVAR EN TI</h3>
+                                <h3 class="display-4 text-white" style="background: -webkit-linear-gradient(left, #03D9EF, #0081B9, #0154A1)">INNOVAR EN TI</h3>
                             </a>
                         </li>
                         @if (Session::has('LoggedDocente'))
@@ -149,8 +155,12 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://besthqwallpapers.com/Uploads/10-11-2019/110694/thumb2-blue-stone-background-stone-texture-grunge-blue-background-creative-blue-texture.jpg')">
-                © 2022 Copyright
+            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
+                Paula Andrea Taborda Montes
+                <br>
+                Laura Quintero Cuartas
+                <br>
+                Nicolás Giraldo Gil 
             </div>
         </footer>
     </div>

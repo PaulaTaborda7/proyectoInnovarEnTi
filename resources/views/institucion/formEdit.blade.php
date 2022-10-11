@@ -31,8 +31,29 @@
     </div>
 
     <div class="form-group">
+        <span>País</span>
+        <select name="insPais" id="insPais" class="form-control @error('insPais') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            @foreach (App\Models\Country::orderBy('name')->get() as $key => $value)
+            <option value="{{ $value->id }}">{{ $value->name }}</option>
+            @endforeach
+        </select>
+        @error('insPais')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
         <span>Departamento</span>
-        {{ Form::text('insDepartamento', $institucion->insDepartamento, ['class' => 'form-control' . ($errors->has('insDepartamento') ? ' is-invalid' : ''), 'placeholder' => 'Departamento']) }}
+            <select name="insDepartamento" id="insDepartamento" class="form-control @error('insDepartamento') is-invalid @enderror">
+                <option disabled="" selected="" value="">Selecciona una opción</option>
+                @foreach (App\Models\State::orderBy('name')->get() as $key => $value)
+                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                @endforeach
+            </select>
+            
         @error('insDepartamento')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -41,15 +62,20 @@
     </div>
 
     <div class="form-group">
-        <span>País</span>
-        {{ Form::text('insPais', $institucion->insPais, ['class' => 'form-control' . ($errors->has('insPais') ? ' is-invalid' : ''), 'placeholder' => 'País']) }}
-        @error('insPais')
+        <span>Ciudad</span>
+        <select name="insCiudad" id="insCiudad" class="form-control @error('insCiudad') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            @foreach (App\Models\City::orderBy('name')->get() as $key => $value)
+            <option value="{{ $value->id }}">{{ $value->name }}</option>
+            @endforeach
+        </select>
+        @error('insCiudad')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
-
+    
     <div class="form-group">
         <span>Teléfono</span>
         {{ Form::text('insTelefono', $institucion->insTelefono, ['class' => 'form-control' . ($errors->has('insTelefono') ? ' is-invalid' : ''), 'placeholder' => 'Teléfono']) }}
