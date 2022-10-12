@@ -50,16 +50,30 @@ class EstudianteController extends Controller
 
     /**
      * Funcion para generar reporte de las notas en PDF 
-     
-    *public function reporte_notas($id)
-    *{
-     *   $estudiante =  Estudiante::where('numIdentidad', $id)->first();
-    *  $pro= $estudiante->promedio;
+     */
+    public function reporte_notas($id)
+    {
+        $estudiante =  Estudiante::where('numIdentidad', $id)->first();
+        $pro = $estudiante->estPromedio;
 
-    *    $pdf = PDF::loadView('estudiante.notasReporte', ['estudiante' => $estudiante], mensaje);
-     *   return $pdf->download('ReporteNotas.pdf');
-    *}
-*/
+        
+        if($pro<2){
+            $mensaje = "el promedio es menor que 2";
+        }
+        else{
+            if($pro==2 || $pro<3){
+                $mensaje = "esta entre 2 y 2.9";
+            }else{
+                if($pro==3 || $pro<=4){
+                    $mensaje = "esta entre 3 y 4";
+                }   
+            }
+        }
+
+        $pdf = PDF::loadView('estudiante.notasReporte', ['estudiante' => $estudiante], compact('mensaje'));
+        return $pdf->download('ReporteNotas.pdf');
+    }
+
 
     /**
      * Funcion para identificar los recusos 
@@ -173,7 +187,7 @@ class EstudianteController extends Controller
 
         $gruposE = DB::select('select gruIdGrupo,gruNombre from grupos');
 
-        return view('estudiante.edit', compact('estudiante', 'gruposE' ));
+        return view('estudiante.edit', compact('estudiante', 'gruposE'));
     }
 
     /**
