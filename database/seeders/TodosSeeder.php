@@ -32,7 +32,7 @@ class TodosSeeder extends Seeder
             'tipo' => '1',
         ]);
 
-
+        //Seeders de Instituciones
         $adminInsttucion = Institucion::create([
             'insNombre' => 'Institucion Admin',
             'codigoNit' => '111',
@@ -46,6 +46,123 @@ class TodosSeeder extends Seeder
             'insCantidadEstudiantes' => '100',
             'tipoPaquete' => '1',
         ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San Nicolás',
+            'codigoNit' => '112',
+            'insDireccion' => 'Cra 78 # 09-80',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '850177',
+            'insCalendario' => 'A',
+            'insCantidadDocentes' => '10',
+            'insCantidadEstudiantes' => '100',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio Juanito',
+            'codigoNit' => '113',
+            'insDireccion' => 'Cra 95 # 46-12',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '798542897',
+            'insCalendario' => 'A',
+            'insCantidadDocentes' => '10',
+            'insCantidadEstudiantes' => '1000',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio León de Judá',
+            'codigoNit' => '114',
+            'insDireccion' => 'Cra 67 # 95-81',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '8796544310',
+            'insCalendario' => 'B',
+            'insCantidadDocentes' => '9',
+            'insCantidadEstudiantes' => '167',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San José',
+            'codigoNit' => '115',
+            'insDireccion' => 'Cra 41 # 08-19',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '879644331',
+            'insCalendario' => 'B',
+            'insCantidadDocentes' => '76',
+            'insCantidadEstudiantes' => '1678',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San Manuel',
+            'codigoNit' => '116',
+            'insDireccion' => 'Cra 19 # 90-45',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '5775331',
+            'insCalendario' => 'A',
+            'insCantidadDocentes' => '10',
+            'insCantidadEstudiantes' => '180',
+            'tipoPaquete' => '0',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San Juan',
+            'codigoNit' => '117',
+            'insDireccion' => 'Cra 90 # 90-544',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '96437031',
+            'insCalendario' => 'B',
+            'insCantidadDocentes' => '67',
+            'insCantidadEstudiantes' => '754',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San Pedro',
+            'codigoNit' => '118',
+            'insDireccion' => 'Cra 345 # 907-804',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '88976541',
+            'insCalendario' => 'B',
+            'insCantidadDocentes' => '348',
+            'insCantidadEstudiantes' => '7524',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San Pablo',
+            'codigoNit' => '119',
+            'insDireccion' => 'Cra 350 # 97-814',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '84132610',
+            'insCalendario' => 'A',
+            'insCantidadDocentes' => '824',
+            'insCantidadEstudiantes' => '8765',
+            'tipoPaquete' => '1',
+        ]);
+        $adminInsttucion = Institucion::create([
+            'insNombre' => 'Colegio San Francisco',
+            'codigoNit' => '120',
+            'insDireccion' => 'Cra 2 # 09-814',
+            'insPais' => '47',
+            'insDepartamento' => '782',
+            'insCiudad' => '532',
+            'insTelefono' => '862610',
+            'insCalendario' => 'A',
+            'insCantidadDocentes' => '87',
+            'insCantidadEstudiantes' => '876',
+            'tipoPaquete' => '1',
+        ]);
 
         $userGrupo = Grupo::create([
             'gruNombre' => 'GrupoAdmin',
@@ -56,6 +173,7 @@ class TodosSeeder extends Seeder
             'insCodigoNit' => '111',
         ]);
 
+        //Seeders de Docentes
         $userDocente = Docente::create([
             'nombre' => 'DocenteAdmin',
             'documentoIdentidad' => '987654321',
@@ -68,7 +186,116 @@ class TodosSeeder extends Seeder
             'password_confirmation' => Hash::make('12345678'),
             'tipo' => '2',
         ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Jairo López',
+            'documentoIdentidad' => '15892192',
+            'email' => 'jairol@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Lenguas',
+            'insCodigoNit' => '112',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Dora Liliana Pérez',
+            'documentoIdentidad' => '30346589',
+            'email' => 'Dliliana@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Español',
+            'insCodigoNit' => '114',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Alberto Gómez',
+            'documentoIdentidad' => '987954321',
+            'email' => 'alberto@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Sociales',
+            'insCodigoNit' => '112',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Carlos Gil',
+            'documentoIdentidad' => '32398452',
+            'email' => 'cargil@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Informática',
+            'insCodigoNit' => '114',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]); 
+        $userDocente = Docente::create([
+            'nombre' => 'Esteban Valbuena ',
+            'documentoIdentidad' => '15766567',
+            'email' => 'valbuena@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Matemáticas',
+            'insCodigoNit' => '111',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Alberta Gómez',
+            'documentoIdentidad' => '9876548441',
+            'email' => 'alberto@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Sociales',
+            'insCodigoNit' => '114',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Mónica Villa',
+            'documentoIdentidad' => '30358835',
+            'email' => 'monicaV@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Lectura',
+            'insCodigoNit' => '112',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Helmer Montes', 
+            'documentoIdentidad' => '16790823',
+            'email' => 'monteshelmes@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Ciencias Naturales',
+            'insCodigoNit' => '114',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
+        $userDocente = Docente::create([
+            'nombre' => 'Olga Marín',
+            'documentoIdentidad' => '13567290',
+            'email' => 'olga@gmail.com',
+            'docTipoContrato' => 'De planta',
+            'docAreaCurricular' => 'Ciencias Naturales',
+            'insCodigoNit' => '112',
+            'idGrupo' => '112',
+            'password' => Hash::make('12345678'),
+            'password_confirmation' => Hash::make('12345678'),
+            'tipo' => '2',
+        ]);
 
+        //Seeders de estudiantes
         $userEstudiante = Estudiante::create([
             'nombre' => 'EstudianteAdmin',
             'numIdentidad' => '12345678',
