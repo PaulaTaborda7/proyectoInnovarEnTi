@@ -33,7 +33,7 @@
 
     <div class="form-group">
         <span>País</span>
-        <select name="country" id="country" class="form-control @error('country') is-invalid @enderror" onchange='obtenerDepartamentos()'>
+        <select name="insPais" id="insPais" class="form-control @error('insPais') is-invalid @enderror" onchange='obtenerDepartamentos()'>
             <option disabled="" selected="" value="">Selecciona una opción</option>
           
             @foreach($countries as $country)
@@ -41,7 +41,7 @@
             @endforeach
 
         </select>
-        @error('country')
+        @error('insPais')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -51,11 +51,11 @@
 
     <div class="form-group">
         <span>Departamento</span>
-        <select name="state" id="state" class="form-control @error('state') is-invalid @enderror" onchange="obtenerCiudades()">
-            <option disabled="" selected="" value="">Select State</option>
+        <select name="insDepartamento" id="insDepartamento" class="form-control @error('insDepartamento') is-invalid @enderror" onchange="obtenerCiudades()">
+            <option disabled="" selected="" value="">Seleccione departamento</option>
         
         </select>
-        @error('state')
+        @error('insDepartamento')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -64,11 +64,11 @@
 
     <div class="form-group">
         <span>Ciudad</span>
-        <select name="city" id="city" class="form-control @error('city') is-invalid @enderror">
-            <option disabled="" selected="" value="">Select City</option>
+        <select name="insCiudad" id="insCiudad" class="form-control @error('insCiudad') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciones ciudad</option>
            
         </select>
-        @error('city')
+        @error('insCiudad')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -152,10 +152,10 @@
 
 <script>
     // Obtiene de manera dinámica los departamentos por cada país
-    let selectPais = document.getElementById('country');
+    let selectPais = document.getElementById('insPais');
 
     function obtenerDepartamentos(){
-        let selectPais = document.getElementById('country');
+        let selectPais = document.getElementById('insPais');
         let idSelectPais = selectPais.value;
 
         $.ajax({
@@ -167,7 +167,7 @@
                 for (let i = 0; i < data.states.length; i++) {
                 cadena += `<option value = "${data.states[i].id}">${data.states[i].name}</option>\n`;
                 }
-                let selectDepartamentos = document.getElementById('state');
+                let selectDepartamentos = document.getElementById('insDepartamento');
                 selectDepartamentos.innerHTML = cadena;
             }
         });
@@ -177,22 +177,22 @@
     // document.onload = obtenerDepartamentos();
     selectPais.addEventListener('change', obtenerDepartamentos, false);
 
-    let selectDepartamento = document.getElementById('state');
+    let selectDepartamento = document.getElementById('insDepartamento');
 
     function obtenerCiudades(){
-        let selectDepartamento = document.getElementById('state');
+        let selectDepartamento = document.getElementById('insDepartamento');
         let idSelectDepartamento = selectDepartamento.value;
 
         $.ajax({
             url: `/listaCiudades/${idSelectDepartamento}`,
             success: data => {
-                alert("ciudades");  
+                alert(idSelectDepartamento);  
                 console.log(data);
                 let cadena = "";
                 for (let i = 0; i < data.cities.length; i++) {
-                cadena += `<option value = "${data.cities[i].id}">${data.cities[i].name}</option>\n`;
+                cadena += `<option value = "${data.cities[i].id_municipio}">${data.cities[i].name}</option>\n`;
                 }
-                let selectCiudades = document.getElementById('city');
+                let selectCiudades = document.getElementById('insCiudad');
                 selectCiudades.innerHTML = cadena;
             }
         });

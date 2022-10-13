@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $insDireccion
  * @property $insDepartamento
  * @property $insPais
+ * @property $insCiudad
  * @property $insTelefono
  * @property $insCalendario
  * @property $insCantidadDocentes
@@ -33,6 +34,7 @@ class Institucion extends Model
 		'insDireccion' => 'required',
 		'insDepartamento' => 'required',
 		'insPais' => 'required',
+		'insCiudad' => 'required',
 		'insTelefono' => 'required',
 		'insCalendario' => 'required',
 		'insCantidadDocentes' => 'required',
@@ -47,7 +49,7 @@ class Institucion extends Model
      *
      * @var array
      */
-    protected $fillable = ['insNombre','codigoNit','insDireccion','insDepartamento','insPais','insTelefono','insCalendario','insCantidadDocentes','insCantidadEstudiantes','tipoPaquete'];
+    protected $fillable = ['insNombre','codigoNit','insDireccion','insDepartamento','insPais','insCiudad','insTelefono','insCalendario','insCantidadDocentes','insCantidadEstudiantes','tipoPaquete'];
 
 
 
