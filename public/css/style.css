@@ -16,14 +16,13 @@
 .texto_boton_perfil {
     border-radius: 5px;
     padding: 5px;
-    font-size: 20px;
-    width: 250px;
+    width: 200px;
     height: 200px;
     font-family: "Lobster", cursive;
     text-shadow: 0 0 8px black; /*borde de fuente en css*/
 }
 
-/*Para la primer publicidad*/
+/*Para la segunda publicidad*/
 #info1 {
     margin-top: 35px;
     height: 100%;

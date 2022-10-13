@@ -8,6 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    
+    <title>INNOVAR EN TI</title>
+    <link rel="icon" href="{{ asset('images/icono.png') }}">
+
     <title>{{ config('app.name', 'INNOVAR EN TI') }}</title>
 
     <!-- Fonts -->

@@ -11,6 +11,12 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
         crossorigin="anonymous"></script>
 
+
+    
+    <title>INNOVAR EN TI</title>
+    <link rel="icon" href="{{ asset('images/icono.png') }}">
+
+
     <title>{{ config('app.name', 'INNOVAR EN TI') }}</title>
 
     <!-- Fonts -->
