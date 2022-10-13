@@ -7,6 +7,8 @@
 
 
         <title>INNOVAR EN TI</title>
+        <link rel="icon" href="{{ asset('images/icono.png') }}">
+
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -60,8 +62,8 @@
             </div>
             @endif
             <div class="container"> 
-                <p id="texto_bienvenida">Bienvenido(a) a la vista principal de nuestro sistema de información y administración de Recursos Educativos Digitales, en esta puedes
-                    encontrar información acerca de nuestra empresa INNOVAR EN TI como del sistema. Puedes ingresar con tus credenciales en tu respectivo Rol,
+                <p id="texto_bienvenida">Bienvenido(a) a la vista principal del sistema de información y administración de Recursos Educativos Digitales, en esta puedes
+                    encontrar información acerca de la empresa INNOVAR EN TI como del sistema. Puedes ingresar con tus credenciales en tu respectivo Rol,
                     a continuación:
                 </p>
             </div>
