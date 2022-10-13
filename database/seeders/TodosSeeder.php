@@ -88,52 +88,43 @@ class TodosSeeder extends Seeder
             'matIdMateria' => '4321',
             'matNombreMateria' => 'Inglés',
             'matDescripcion' => 'La temática Inglés tiene por propósito desarrollar las competencias lingüísticas y 
-            sociolingüísticas de los alumnos con un enfoque que estimula la interacción en la lengua desde el primer momento, 
-            el desarrollo de vocabulario contextualizado y la ejecución de actividades y tareas específicas con la lengua.',
+            sociolingüísticas de los alumnos con un enfoque que estimula la interacción en la lengua desde el primer momento.',
         ]);
         $tematica2 = Materia::create([
             'matIdMateria' => '1234',
             'matNombreMateria' => 'Matemáticas',
             'matDescripcion' => 'Mediante el aprendizaje de las matemáticas los estudiantes desarrollan y enriquecen su capacidad 
-            de pensamiento, de reflexión lógica, desarrollo científico e interpretativo y creativo adquiriendo herramientas para 
-            explorar la realidad, representarla, explicarla, predecirla y modificarla.',
+            de pensamiento, de reflexión lógica, desarrollo científico e interpretativo.',
         ]);
         $tematica3 = Materia::create([
             'matIdMateria' => '5678',
             'matNombreMateria' => 'Ciencias Naturales',
             'matDescripcion' => 'La asignatura de Ciencias Naturales permite despertar en el estudiante el asombro por conocer 
-            el mundo que lo rodea, comprenderlo y utilizar metodologías para estudiarlo. Asimismo, le otorga al estudiante la 
-            posibilidad de aplicar una mirada científica a su aproximación a la naturaleza.',
+            el mundo que lo rodea, comprenderlo y utilizar metodologías para estudiarlo.',
         ]);
         $tematica4 = Materia::create([
             'matIdMateria' => '9876',
             'matNombreMateria' => 'Ciencias Sociales',
             'matDescripcion' => 'Se concibe como una ciencia que nos brinda las herramientas necesarias para aprender a leer e 
-            interpretar la realidad social, basada en “la curiosidad por los seres humanos y por las organizaciones a las cuales 
-            pertenecen, a partir de la observación personal y social, la recolección de la información y la discusión con otros, 
-            hasta llegar a la conceptualización y a la teorización que las Ciencias Sociales aportan a la compresión del ser humano 
-            y su acción social',
+            interpretar la realidad social.',
         ]);
         $tematica5 = Materia::create([
             'matIdMateria' => '1357',
             'matNombreMateria' => 'Educación Física',
             'matDescripcion' => 'La asignatura de Educación Física tiene como propósito desarrollar en los estudiantes habilidades 
-            y destrezas motrices, así como actitudes y valores que les permitan vivir una vida saludable, a través de la práctica
-            de actividades físicas y deportivas.',
+            y destrezas motrices, así como actitudes y valores que les permitan vivir una vida saludable.',
         ]);
         $tematica6 = Materia::create([
             'matIdMateria' => '8642',
             'matNombreMateria' => 'Educación Artística',
             'matDescripcion' => 'La asignatura de Educación Artística tiene como propósito desarrollar en los estudiantes habilidades
-            y destrezas artísticas, así como actitudes y valores que les permitan vivir una vida creativa, a través de la práctica
-            de actividades artísticas.',
+            y destrezas artísticas.',
         ]);
         $tematica7 = Materia::create([
             'matIdMateria' => '8524',
             'matNombreMateria' => 'Tecnología e Informática',
             'matDescripcion' => 'El área de tecnología e informática abarca las competencias de conocimiento tecnológico, 
-            comunicacional, ético y laboral que le permiten al educando ubicarse en un medio en continua transformación, 
-            gracias a los avances de la ciencia y la tecnología utilizando múltiples recursos; entre ellos el computador.',
+            comunicacional, ético y laboral que le permiten al educando ubicarse en un medio en continua transformación.',
         ]);
 
 
