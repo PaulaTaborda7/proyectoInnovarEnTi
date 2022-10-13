@@ -30,10 +30,14 @@
         
         <!--Se importa el archivo de estilos-->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
         
     </head>
     <body style="background-color: #EDEEF0">
-        <header class="mb-3">
+        <header>
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
@@ -48,15 +52,21 @@
                 </div>
             </nav>
         </header>
-        <br>
-        <main class="p-4">
+        <main class="mt-4">
             {{-- Acá se obtiene el mensaje de fracaso enviado desde SoloAdmin, SoloDocente, SoloEstudiante --}}
             @if (Session::get('fail'))
             <div class="alert alert-danger">
                 {{ Session::get('fail') }}
             </div>
             @endif
-            <div class="container">
+            <div class="container"> 
+                <p id="texto_bienvenida">Bienvenido(a) a la vista principal de nuestro sistema de información y administración de Recursos Educativos Digitales, en esta puedes
+                    encontrar información acerca de nuestra empresa INNOVAR EN TI como del sistema. Puedes ingresar con tus credenciales en tu respectivo Rol,
+                    a continuación:
+                </p>
+            </div>
+           
+            <div class="container shadow-lg p-3 mb-5 bg-body rounded">
                 <div id="titulo_card" class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('¿Cuál es tu rol? Selecciona tu perfil') }}</div>
                 <div class="d-flex justify-content-center" style="background-color: #ffffff" >
                     <a href="/admin/loginAdmin" class="ml-4 mt-5 mb-5"><button class="btn btn-success text-white texto_boton_perfil"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
@@ -66,6 +76,29 @@
                 </div> 
             </div>
         </main>
+        <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{!! asset('images/foto1.jpg') !!} " width="100%" height="400">
+              </div>
+              <div class="carousel-item">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+          
+              </div>
+              <div class="carousel-item">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+          
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
         <div id="info1" >
             <img src="{!! asset('images/publicidad1.png') !!} " id="publicidad1">
         </div> 

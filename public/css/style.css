@@ -37,3 +37,13 @@
     height: 30%;
 }
 /*******************************/
+
+#texto_bienvenida {
+    font-family: "Arial";
+    font-size: 15px;
+    text-shadow: 0 0 1px black;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+}
