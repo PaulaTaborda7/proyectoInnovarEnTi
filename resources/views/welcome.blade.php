@@ -62,8 +62,8 @@
             </div>
             @endif
             <div class="container"> 
-                <p id="texto_bienvenida">Bienvenido(a) a la vista principal de nuestro sistema de información y administración de Recursos Educativos Digitales, en esta puedes
-                    encontrar información acerca de nuestra empresa INNOVAR EN TI como del sistema. Puedes ingresar con tus credenciales en tu respectivo Rol,
+                <p id="texto_bienvenida">Bienvenido(a) a la vista principal del sistema de información y administración de Recursos Educativos Digitales, en esta puedes
+                    encontrar información acerca de la empresa INNOVAR EN TI como del sistema. Puedes ingresar con tus credenciales en tu respectivo Rol,
                     a continuación:
                 </p>
             </div>
