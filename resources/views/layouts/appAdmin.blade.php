@@ -30,39 +30,46 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!--Se importa el archivo de estilos-->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div id="app" style="background-color: #EDEEF0">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
+        <nav class="navbar navbar-expand-lg navbar-dark"
+            style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
             <div class="container">
                 <!--las imágenes van en la carpeta public-->
-                <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px">
+                <img src="{!! asset('images/logo.png') !!}" style="width: 220px; height: 120px">
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href=" # ">
-                                <h3 class="display-4 text-white" style="background: -webkit-linear-gradient(left, #03D9EF, #0081B9, #0154A1)">INNOVAR EN TI</h3>
+                            <a class="nav-link active" aria-current="page" href=" / ">
+                                <h3 id="titulo_navbar">INNOVAR EN TI</h3>
                             </a>
                         </li>
                         @if (Session::has('LoggedAdmin'))
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre class="text-white">
-                                {{ Session::get('nombreAdmin')  }}
-                                {{-- {{ Auth::user()->name }} --}}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Cerrar sesión') }}
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre
+                                    class="text-white">
+                                    {{ Session::get('nombreAdmin') }}
+                                    {{-- {{ Auth::user()->name }} --}}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('admin.logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        {{ __('Cerrar sesión') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                         @endif
                     </ul>
                 </div>
@@ -80,17 +87,19 @@
                     <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase text-center fw-bold fs-4">Acerca de INNOVAR EN TI</h5>
                         <p>
-                        INNOVAR EN TI es un emprendimiento de una empresa que se creó con el objetivo de
-                        brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los estudiantes en los 
-                        colegios sean mucho más dinámicas y de calidad.
+                            INNOVAR EN TI es un emprendimiento de una empresa que se creó con el objetivo de
+                            brindar Recursos Educativos Digitales como herramientas para hacer que las clases de los
+                            estudiantes en los
+                            colegios sean mucho más dinámicas y de calidad.
                         </p>
                     </div>
                     <!--Grid column-->
                     <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase text-center fw-bold fs-4">Sobre los Recursos Educativos Digitales</h5>
                         <p>
-                        INNOVAR EN TI ofrece los recursos educativos para los grados primero, segundo y tercero de los colegios públicos 
-                        y privados, en primera instancia, del país, después a nivel internacional.
+                            INNOVAR EN TI ofrece los recursos educativos para los grados primero, segundo y tercero de
+                            los colegios públicos
+                            y privados, en primera instancia, del país, después a nivel internacional.
                         </p>
                     </div>
                 </div>
@@ -112,12 +121,13 @@
                 </section>
             </div>
             <!-- Copyright -->
-            <div class="text-center p-3 text-light bg-primary bg-opacity-75" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
+            <div class="text-center p-3 text-light bg-primary bg-opacity-75"
+                style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
                 Paula Andrea Taborda Montes
                 <br>
                 Laura Quintero Cuartas
                 <br>
-                Nicolás Giraldo Gil 
+                Nicolás Giraldo Gil
             </div>
         </footer>
     </div>

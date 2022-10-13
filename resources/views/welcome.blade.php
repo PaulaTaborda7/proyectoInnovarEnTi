@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width"/>
 
+
         <title>INNOVAR EN TI</title>
 
         <!-- Fonts -->
@@ -26,20 +27,21 @@
 
         <!-- Icons-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
         
+        <!--Se importa el archivo de estilos-->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         
     </head>
-    <body class="antialiased" style="background-color: #EDEEF0">
+    <body style="background-color: #EDEEF0">
         <header class="mb-3">
             <nav class="navbar navbar-expand-lg navbar-dark" style="background-image:url('https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=740&t=st=1665358237~exp=1665358837~hmac=69926ce80c13a787b9e9bdfc19c4f5241500b8e481d945e2844e9751d5ff3c8c')">
                 <div class="container">
                     <!--las imagenes van en la carpeta public-->
-                    <img src="{!! asset('images/logo.png') !!}" style="width: 200px; height: 110px"> 
+                    <img src="{!! asset('images/logo.png') !!}" style="width: 220px; height: 120px"> 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href=" / "><h3 class="display-4 text-white" style="background: -webkit-linear-gradient(left, #03D9EF, #0081B9, #0154A1)">INNOVAR EN TI</h3></a>
+                                <a class="nav-link active" aria-current="page" href=" / "><h3 id="titulo_navbar">INNOVAR EN TI</h3></a>
                             </li>
                         </ul>
                     </div>
@@ -47,7 +49,7 @@
             </nav>
         </header>
         <br>
-        <main>
+        <main class="p-4">
             {{-- Acá se obtiene el mensaje de fracaso enviado desde SoloAdmin, SoloDocente, SoloEstudiante --}}
             @if (Session::get('fail'))
             <div class="alert alert-danger">
@@ -55,16 +57,18 @@
             </div>
             @endif
             <div class="container">
-                <div class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('Selecciona el perfil') }}</div>
-                <div class="d-flex justify-content-center mt-5">
-                    <a href="/admin/loginAdmin" class="ml-4"><button class="btn btn-success text-white"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
-                    <a href="/auth/login" class="ml-4"><button class="btn btn-warning text-white"><img src="images/docente.png" height ="100" width="100"/> <br> DOCENTE</button></a> 
-                    <a href="/estudiante/login" class="ml-4"><button class="btn btn-danger text-white"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
+                <div id="titulo_card" class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('¿Cuál es tu rol? Selecciona tu perfil') }}</div>
+                <div class="d-flex justify-content-center" style="background-color: #ffffff" >
+                    <a href="/admin/loginAdmin" class="ml-4 mt-5 mb-5"><button class="btn btn-success text-white texto_boton_perfil"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
+                    <a href="/auth/login" class="ml-4 mt-5 mb-5"><button class="btn btn-warning text-white texto_boton_perfil"><img src="images/docente.png" height ="100" width="100"/> <br>   DOCENTE        </button></a> 
+                    <a href="/estudiante/login" class="ml-4 mt-5 mb-5"><button class="btn btn-danger text-white texto_boton_perfil"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
                     {{-- <a href="#" class="ml-4"><button class="btn btn-info text-white"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a>  --}}
                 </div> 
-            </div>        
+            </div>
         </main>
-        <br>
+        <div id="info1" >
+            <img src="{!! asset('images/publicidad1.png') !!} " id="publicidad1">
+        </div> 
         <footer class="bg-light text-center text-lg-start mt-5">
             <!-- Grid container -->
             <div class="container p-4">
@@ -115,12 +119,6 @@
             </div>
         </footer>
     </body>
+    
 </html>
 
-<script>
-    Swal.fire(
-  'Good job!',
-  'You clicked the button!',
-  'success'
-)
-</script>
