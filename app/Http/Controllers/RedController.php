@@ -6,8 +6,11 @@ use App\Models\Red;
 use App\Models\Red_grupo;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
+use App\Http\Controllers\Session;
 
 /**
  * Class RedController
@@ -27,37 +30,36 @@ class RedController extends Controller
     }
 
 
-    public function habilitarRecurso($idRed, $idGrupo, $bandera)
+    public function habilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2, $idDocente)
     {
-        $bandera = '0';
+        //Esta función se da después de habilitar un recurso
+        $bandera1 = '0';
+        $bandera2 = '1';
         $verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 1', [$idRed, $idGrupo]);
         if($verifica != null){
-            return redirect()->back()->with(compact('bandera'));
+            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','bandera1','bandera2','idDocente'));
+            //return redirect()->back()->with(compact('bandera1', 'bandera2'));
         }
         else{
-            $bandera = '1';
             $red = new Red_grupo();
             $red->habilitado = 1;
             $red->redIdRed = $idRed;
             $red->gruIdGrupo = $idGrupo;
             $red->save();
-            return redirect()->back()->with(compact('bandera'));
-        }
+            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','bandera1','bandera2','idDocente'));        }
     }
 
-    public function deshabilitarRecurso($idRed, $idGrupo, $bandera)
+    public function deshabilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2)
     {
-        $bandera = '0';
-        //$verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 0', [$idRed, $idGrupo]);
+        $bandera1 = '1';
+        $bandera2 = '0';
         $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo','=',$idGrupo)->where('habilitado','=','0')->get();
         if($verifica != null){
-            return redirect()->back()->with(compact('bandera'));
+            return redirect()->back()->with(compact('bandera1', 'bandera2'));
         }
         else{
-            $bandera = '1';
             $verifica->habilitado = 0;
-            return redirect()->back()->with(compact('bandera'));
-            $bandera = '0';
+            return redirect()->back()->with(compact('bandera1, bandera2'));
         }
     }
     /**

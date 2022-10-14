@@ -82,12 +82,14 @@ class DocenteController extends Controller
         $todosRecursos = Red::all();
         $idGrupo = $docente->idGrupo;
         
-        $bandera = '0';
+        $bandera1 = '1';
+        $bandera2 = '0';
 
+        //El tipo de paquete es DEA
         if($tipoPaquete == '0'){
-            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','bandera'));
+            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','bandera1','bandera2'));
         }else{
-            return view('docente.catalogoRecursosCompleto', compact('todosRecursos','idGrupo','bandera'));
+            return view('docente.catalogoRecursosCompleto', compact('todosRecursos','idGrupo','bandera1','bandera2'));
         }
     }
 

@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@php
+    echo $bandera1;
+    echo $bandera2;
+@endphp
+
 @section('content')
     <div class="container">
         <div class="col-auto p-5 text-center">
@@ -32,17 +37,17 @@
                                     </div>
                                     <br>
                                     <div>
-                                        @if ($bandera == '1')
-                                            <a class="btn btn-sm btn-success disabled" 
-                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera' => $bandera]) }}"><i
+                                        @if ($bandera1 == '1' && $bandera2 == '0')
+                                            <a class="btn btn-sm btn-success"
+                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2, Session::get('documentoIdentidadDocente')]) }}"><i
                                                     class="fa fa-fw fa-edit"></i>Habilitar</a>
-                                            <a class="btn btn-danger btn-sm" href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera' => $bandera]) }}"><i
+                                            <a class="btn btn-danger btn-sm disabled" href="#"><i
                                                     class="fa fa-fw fa-trash"></i>Desahibilitar</a>
-                                        @else
-                                            <a class="btn btn-sm btn-success "
-                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera' => $bandera]) }}"><i
+                                        @elseif ($bandera1 == '0' && $bandera2 == '1')
+                                            <a class="btn btn-sm btn-success disabled" href="#"><i
                                                     class="fa fa-fw fa-edit"></i>Habilitar</a>
-                                            <a class="btn btn-danger btn-sm disabled" href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera' => $bandera]) }}"><i
+                                            <a class="btn btn-danger btn-sm"
+                                                href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2, Session::get('documentoIdentidadDocente')]) }}"><i
                                                     class="fa fa-fw fa-trash"></i>Desahibilitar</a>
                                         @endif
                                     </div>
