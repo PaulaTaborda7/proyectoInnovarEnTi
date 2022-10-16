@@ -161,7 +161,6 @@
             $.ajax({
                 url: `/listaDepartamentos/${idSelectPais}`,
                 success: data => {
-                    alert("states");
                     console.log(data);
                     let cadena = "";
                     for (let i = 0; i < data.states.length; i++) {
@@ -186,7 +185,6 @@
             $.ajax({
                 url: `/listaCiudades/${idSelectDepartamento}`,
                 success: data => {
-                    alert(idSelectDepartamento);  
                     console.log(data);
                     let cadena = "";
                     for (let i = 0; i < data.cities.length; i++) {

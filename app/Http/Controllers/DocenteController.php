@@ -93,6 +93,7 @@ class DocenteController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'nombre' => 'required',
             'documentoIdentidad' => ['required', 'unique:docentes'],
@@ -135,6 +136,8 @@ class DocenteController extends Controller
             'password' => Hash::make($request['password']),
             'password_confirmation' => Hash::make($request['password_confirmation']),
         ]);
+
+
 
         return redirect()->route('docentes.index')
             ->with('success', 'DOCENTE CREADO CON ÉXITO');

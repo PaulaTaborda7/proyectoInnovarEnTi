@@ -68,8 +68,16 @@
         @enderror
     </div>
 
+    <div class="form-group">
+        <span>ID del grupo encargado</span>
+        {{ Form::text('idGrupo', $docente->idGrupo, ['class' => 'form-control' . ($errors->has('idGrupo') ? ' is-invalid' : ''), 'placeholder' => 'Código ID del grupo']) }}
+        @error('idGrupo')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
     
-
     <div class="form-group">
         <span>Contraseña</span>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="********">
