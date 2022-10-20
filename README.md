@@ -9,7 +9,7 @@
 - Xampp, con Apache y MySQL Versión 3.30
 
 
-2. En cuanto a la adapatación:
+2. En cuanto a la adaptación:
 - Copiar el archivo .env.example y renombrarlo a .env
 - Cambiar en el archivo .env todos los datos correspondientes al ambiente en que se va a desplegar el aplicativo; en especial el nombre de la base de datos que en este caso, debe ser: proyectoinnovarenti y el nombre del motor de bases de datos debe ser: mysql
 - En la terminal, ubicados en la locación del proyecto: ```composer install```
@@ -18,8 +18,8 @@
 - Se crea una base de datos vacía en el motor de base de datos de MySQL con el nombre:  proyectoinnovarenti
 - Correr las migraciones con el comando ```php artisan migrate```. 
 - Para correr los seeders: ```php artisan migrate:refresh --seed```.
+- Para que en la base de datos se registren las ciudades que se tienen, se debe importar el archivo anezado en este trabajo llamado: ```ciudades.sql```
 - Para correr el proyecto, se corre el comando ```php artisan serve```.
 - Tener en cuenta: 
-    1. Para registrar instituciones educativas, solo hacer el registro para Colombia, dado que la base de datos encontrada no tiene todos los países, todos lo estados, pero NO todas las ciudades.
-    2. Cualquier duda, estaremos pendientes, correo: ptabordam@unal.edu.co
+    1. Cualquier duda, estaremos pendientes, correo: ptabordam@unal.edu.co
 

@@ -188,7 +188,7 @@
                 console.log(data);
                 let cadena = "";
                 for (let i = 0; i < data.cities.length; i++) {
-                cadena += `<option value = "${data.cities[i].id_municipio}">${data.cities[i].name}</option>\n`;
+                cadena += `<option value = "${data.cities[i].id}">${data.cities[i].name}</option>\n`;
                 }
                 let selectCiudades = document.getElementById('insCiudad');
                 selectCiudades.innerHTML = cadena;
