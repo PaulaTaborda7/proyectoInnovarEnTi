@@ -18,7 +18,7 @@
 - Se crea una base de datos vacía en el motor de base de datos de MySQL con el nombre:  proyectoinnovarenti
 - Correr las migraciones con el comando ```php artisan migrate```. 
 - Para correr los seeders: ```php artisan migrate:refresh --seed```.
-- Para que en la base de datos se registren las ciudades que se tienen, se debe importar el archivo anezado en este trabajo llamado: ```ciudades.sql```
+- Para que en la base de datos se registren las ciudades que se tienen, se debe importar el archivo anexado en este trabajo llamado: ```ciudades.sql```
 - Para correr el proyecto, se corre el comando ```php artisan serve```.
 - Tener en cuenta: 
     1. Cualquier duda, estaremos pendientes, correo: ptabordam@unal.edu.co
