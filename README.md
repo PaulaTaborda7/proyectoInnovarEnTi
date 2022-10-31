@@ -22,4 +22,5 @@
 - Para correr el proyecto, se corre el comando ```php artisan serve```.
 - Tener en cuenta: 
     1. Cualquier duda, estaremos pendientes, correo: ptabordam@unal.edu.co
+-Para el funcionamiento de las imágenes se debe correr el comando: ```php artisan storage:link```.
 

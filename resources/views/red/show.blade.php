@@ -40,10 +40,7 @@
                             <strong>Código de la materia asociada al RED:</strong>
                             {{ $red->idMateria }}
                         </div>
-                        <div class="form-group">
-                            <strong>URL del RED:</strong>
-                            {{ $red->redUrl }}
-                        </div>
+                        <img id="imagen" src="{{ asset('storage').'/'.$red->imagen}}" width= "700"/>
 
                     </div>
                 </div>

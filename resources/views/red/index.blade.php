@@ -39,6 +39,7 @@ Red
                                     <th>Descripción del Recurso Educativo Digital</th>
                                     <th>Tipo de Recurso Educativo Digital</th>
                                     <th>Código de la temática asociada al RED</th>
+                                    <th>Imagen</th>
                                     {{-- <th>URL del RED</th> --}}
 
                                     <th></th>
@@ -52,6 +53,7 @@ Red
                                     <td>{{ $red->redDescripcion }}</td>
                                     <td>{{ $red->redTipoRecurso }}</td>
                                     <td>{{ $red->idMateria }}</td>
+                                    <td><img id="imagen" src="{{ asset('storage').'/'.$red->imagen}}" width= "100"/></td>
                                     {{-- <td>{{ $red->redUrl }}</td> --}}
                                     <td>
                                         <form action="{{ route('reds.destroy',$red->id) }}" method="POST">

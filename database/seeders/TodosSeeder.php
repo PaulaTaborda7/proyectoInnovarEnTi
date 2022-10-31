@@ -362,6 +362,7 @@ class TodosSeeder extends Seeder
             'redDescripcion' => 'Para aprender',
             'redTipoRecurso' => '1',
             'idMateria' => '4321',
+            'imagen' => 'imagen.jpg',
         ]);
         $admRed2 = Red::create([
             'redNombre' => 'Imagen UNAL',
@@ -369,6 +370,7 @@ class TodosSeeder extends Seeder
             'redDescripcion' => 'Una imagen de la UNAL',
             'redTipoRecurso' => '0',
             'idMateria' => '4321',
+            'imagen' => 'imagen.jpg',
         ]);
     }
 }

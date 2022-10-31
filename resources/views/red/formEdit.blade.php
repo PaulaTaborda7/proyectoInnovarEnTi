@@ -68,6 +68,16 @@
         @enderror
     </div>
 
+    <div class="form-group mt-4">
+        <label for="imagen">Imagen asociada al RED</label>
+        <input type="file" name="imagen" id="imagen" class="form-control @error('imagen') is-invalid @enderror" enctype="multipart/form-data" multiple>
+        @error('imagen')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">
             <button type="submit" class="btn btn-primary">

@@ -38,8 +38,9 @@ class Red extends Model
 		'redDescripcion' => 'required',
 		'redTipoRecurso' => 'required',
 		'idMateria' => 'required',
-		//'redUrl' => 'required',
+    'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
     ];
+		//'redUrl' => 'required',
 
     // protected $perPage = 20;
 
