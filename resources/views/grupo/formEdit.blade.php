@@ -55,7 +55,7 @@
     </div>
 
     <div class="form-group">
-        <span>Código NIT de la institución educativa</span>
+        <span>Nombre de la institución educativa</span>
         <select name="insCodigoNit" id="insCodigoNit" class="form-control @error('insCodigoNit') is-invalid @enderror">
             <option disabled="" selected="" value="">Selecciona una opción</option>
             @foreach ($institucioness as $institucion)

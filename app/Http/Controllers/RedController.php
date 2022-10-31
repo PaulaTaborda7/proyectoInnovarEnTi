@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Red;
 use App\Models\Red_grupo;
 use App\Models\File;
+use App\Models\Materia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -70,7 +71,9 @@ class RedController extends Controller
     public function create()
     {
         $red = new Red();
-        return view('red.create', compact('red'));
+
+        $tematicas = DB::select('select * from materias');
+        return view('red.create', compact('red','tematicas'));
     }
 
     /**
