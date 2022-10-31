@@ -45,9 +45,15 @@
         @enderror
     </div>
 
+
     <div class="form-group">
-        <span>Código NIT de la institución educativa</span>
-        {{ Form::text('insCodigoNit', $estudiante->insCodigoNit, ['class' => 'form-control' . ($errors->has('insCodigoNit') ? ' is-invalid' : ''), 'placeholder' => 'NIT institución educativa']) }}
+        <span>Nombre de la institución educativa</span>
+        <select name="insCodigoNit" id="insCodigoNit" class="form-control @error('insCodigoNit') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            @foreach ($institucioness as $institucion)
+                <option value="{{ $institucion->codigoNit }}" {{ $institucion->codigoNit == $estudiante->insCodigoNit ? 'selected' : '' }}>{{ $institucion->insNombre }}</option>       
+            @endforeach
+        </select>
         @error('insCodigoNit')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

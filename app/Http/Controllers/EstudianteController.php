@@ -98,7 +98,9 @@ class EstudianteController extends Controller
 
         $gruposE = DB::select('select gruIdGrupo,gruNombre from grupos');
 
-        return view('estudiante.create', compact('estudiante', 'gruposE'));
+        $institucioness = DB::select('select codigoNit,insNombre from institucions');
+
+        return view('estudiante.create', compact('estudiante', 'gruposE', 'institucioness'));
     }
 
     /**

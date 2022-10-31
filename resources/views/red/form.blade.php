@@ -42,8 +42,13 @@
     </div>
 
     <div class="form-group">
-        <span>Código de la materia asociada al RED</span>
-        {{ Form::text('idMateria', $red->idMateria, ['class' => 'form-control' . ($errors->has('idMateria') ? ' is-invalid' : ''), 'placeholder' => 'Id de materia']) }}
+        <span>Nombre de la temática asociada al RED</span>
+        <select name="idMateria" id="idMateria" class="form-control @error('idMateria') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            @foreach ($tematicas as $tematica)
+                <option value="{{ $tematica->matIdMateria }}" {{ $tematica->matIdMateria == $red->idMateria ? 'selected' : '' }}>{{ $tematica->matNombreMateria }}</option>       
+            @endforeach
+        </select>
         @error('idMateria')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
