@@ -66,7 +66,7 @@ class MateriaController extends Controller
         $materia = Materia::create($request->all());
 
         return redirect()->route('materias.index')
-            ->with('success', 'MATERIA CREADA CON ÉXITO');
+            ->with('success', 'TEMATICA CREADA CON ÉXITO');
     }
 
     /**
@@ -132,7 +132,7 @@ class MateriaController extends Controller
         $materia->update($request->all());
 
         return redirect()->route('materias.index')
-            ->with('success', 'INFORMACIÓN DE LA MATERIA ACTUALIZADA CON ÉXITO');
+            ->with('success', 'INFORMACIÓN DE LA TEMÁTICA ACTUALIZADA CON ÉXITO');
     }
 
     /**
@@ -145,6 +145,6 @@ class MateriaController extends Controller
         $materia = Materia::find($id)->delete();
 
         return redirect()->route('materias.index')
-            ->with('success', 'MATERIA ELIMINADA CON ÉXITO');
+            ->with('success', 'TEMÁTICA ELIMINADA CON ÉXITO');
     }
 }

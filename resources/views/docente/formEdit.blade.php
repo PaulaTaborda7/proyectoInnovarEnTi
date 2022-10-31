@@ -70,7 +70,12 @@
 
     <div class="form-group">
         <span>ID del grupo encargado</span>
-        {{ Form::text('idGrupo', $docente->idGrupo, ['class' => 'form-control' . ($errors->has('idGrupo') ? ' is-invalid' : ''), 'placeholder' => 'Código ID del grupo']) }}
+        <select name="idGrupo" id="idGrupo" class="form-control @error('idGrupo') is-invalid @enderror">
+            <option disabled="" selected="" value="">Selecciona una opción</option>
+            @foreach ($grupos as $grupo)
+            <option value="{{ $grupo->gruIdGrupo }}" {{ $grupo->gruIdGrupo == $docente->idGrupo ? 'selected' : '' }}>{{ $grupo->gruNombre }}</option>
+            @endforeach
+        </select>
         @error('idGrupo')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
