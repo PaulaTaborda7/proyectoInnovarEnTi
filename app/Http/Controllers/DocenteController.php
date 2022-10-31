@@ -21,12 +21,7 @@ class DocenteController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    //     $this->middleware('solodocente',['only'=> ['index']]);
-    // }
+    */
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
@@ -61,7 +56,7 @@ class DocenteController extends Controller
 
         $instituciones = DB::select('select codigoNit,insNombre from institucions');
 
-        $grupos = DB::select('select id,gruNombre from grupos');
+        $grupos = DB::select('select gruIdGrupo,gruNombre from grupos');
         
         return view('docente.create', compact('docente', 'instituciones', 'grupos'));
     }
@@ -170,7 +165,7 @@ class DocenteController extends Controller
         
         $instituciones = DB::select('select codigoNit,insNombre from institucions');
 
-        $grupos = DB::select('select id,gruNombre from grupos');
+        $grupos = DB::select('select gruIdGrupo,gruNombre from grupos');
 
         return view('docente.edit', compact('docente', 'instituciones', 'grupos'));
     }

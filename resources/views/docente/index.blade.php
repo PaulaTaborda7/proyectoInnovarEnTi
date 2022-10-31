@@ -42,8 +42,8 @@ Docente
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead">
+                        <table class="table text-center ">
+                            <thead class="table-primary">
                                 <tr>
                                     <th>Nombre completo</th>
                                     <th>Documento de identidad</th>
