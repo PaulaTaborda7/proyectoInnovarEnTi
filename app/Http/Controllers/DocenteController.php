@@ -118,9 +118,6 @@ class DocenteController extends Controller
             'password_confirmation.same' => 'Las contraseñas no coinciden',
         ]);
 
-        //request()->validate(Docente::$rules);
-
-        // $docente = Docente::create($request->all());
         Docente::create([
             'nombre' => $request['nombre'],
             'documentoIdentidad' => $request['documentoIdentidad'],

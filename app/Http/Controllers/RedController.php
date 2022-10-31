@@ -73,6 +73,7 @@ class RedController extends Controller
         $red = new Red();
 
         $tematicas = DB::select('select * from materias');
+
         return view('red.create', compact('red','tematicas'));
     }
 
@@ -84,6 +85,21 @@ class RedController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'redNombre' => 'required',
+            'redIdRed' => ['required', 'unique:reds'],
+            'redDescripcion' => 'required',
+            'redTipoRecurso' => 'required',
+            'idMateria' => 'required',
+        ], [
+            'redNombre.required' => 'El campo nombre de recurso es obligatorio',
+            'redIdRed.required' => 'El campo código de recurso es obligatorio',
+            'redIdRed.unique' => 'El código de recurso ya existe',
+            'redDescripcion.required' => 'El campo descripción de recurso es obligatorio',
+            'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
+            'idMateria.required' => 'El campo código de temática es obligatorio',
+        ]);
+
         $red = Red::create([
             'redNombre' => $request['redNombre'],
             'redIdRed' => $request['redIdRed'],
@@ -151,7 +167,10 @@ class RedController extends Controller
     public function edit($id)
     {
         $red = Red::find($id);
-        return view('red.edit', compact('red'));
+
+        $tematicas = DB::select('select * from materias');
+
+        return view('red.edit', compact('red','tematicas'));
     }
 
     /**
