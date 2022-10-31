@@ -189,10 +189,6 @@ class RedController extends Controller
     public function update(Request $request, Red $red)
     {
 
-        //echo $red->redIdRed;
-        // $red->update($request->all());
-        // return redirect()->route('reds.index')->with('success', 'RED actualizado con éxito');
-
         if($request->redIdRed == $red->redIdRed){
             $request->validate([
                 'redNombre' => 'required',

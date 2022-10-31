@@ -30,18 +30,17 @@
                         </div>
                     @endif
 
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table text-center ">
+                                <thead class="table-primary">
                                 <tr>
                                     <th>Nombre del Recurso Educativo Digital</th>
                                     <th>ID del Recurso Educativo Digital</th>
                                     <th>Descripción del Recurso Educativo Digital</th>
-                                    <th>Tipo de Recurso Educativo Digital</th>
+                                    <th>¿Es de tipo DEA el RED?</th>
                                     <th>Código de la temática asociada al RED</th>
                                     <th>Imagen</th>
-                                    {{-- <th>URL del RED</th> --}}
 
                                     <th></th>
                                 </tr>
@@ -52,10 +51,13 @@
                                     <td>{{ $red->redNombre }}</td>
                                     <td>{{ $red->redIdRed }}</td>
                                     <td>{{ $red->redDescripcion }}</td>
-                                    <td>{{ $red->redTipoRecurso }}</td>
+                                    @if ($red->redTipoRecurso == 0)
+                                        <td>SI</td>
+                                    @else 
+                                        <td>NO</td>
+                                    @endif
                                     <td>{{ $red->idMateria }}</td>
                                     <td><img id="imagen" src="{{ asset('storage').'/'.$red->imagen}}" width= "100"/></td>
-                                    {{-- <td>{{ $red->redUrl }}</td> --}}
                                     <td>
                                         <form action="{{ route('reds.destroy',$red->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary " href="{{ route('reds.show',$red->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
@@ -79,7 +81,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- {!! $reds->links() !!} --}}
             </div>
         </div>
     </div>

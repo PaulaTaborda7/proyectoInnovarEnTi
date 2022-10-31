@@ -42,15 +42,15 @@ Grupo
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead">
+                        <table class="table text-center ">
+                            <thead class="table-primary">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Código ID del grupo</th>
                                     <th>Jornada</th>
                                     <th>Cantidad de estudiantes</th>
                                     <th>Cantidad de materias</th>
-                                    <th>Código NIT de Institución educativa</th>
+                                    <th>Código NIT de la Institución educativa asociada</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -91,7 +91,6 @@ Grupo
                     </div>
                 </div>
             </div>
-            {!! $grupos->links() !!}
         </div>
     </div>
 </div>

@@ -14,17 +14,27 @@
                     </div>
                     @endif
 
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center text-center">
 
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="/estudiantes">Administrar estudiantes de su grupo</a>
+                                <a class="btn btn-success" style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="/estudiantes">Administrar estudiantes de su grupo</a>
                             </div>
                         </div>
                         
                         <div class="container">
                             <div class="justify-content-center">
-                                <a class="btn btn-primary" class="ml-4 " href="{{ route('catalogo.recursos', Session::get('documentoIdentidadDocente')) }}" class="ml-4 text-sm text-color: primary">Catálogo de recursos</a>
+                                <a class="btn btn-success" style="font-size:90%;                                color:white;
+                                width:100px;
+                                height:100px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;" href="{{ route('catalogo.recursos', Session::get('documentoIdentidadDocente')) }}" class="ml-4 text-sm text-color: primary">Catálogo de recursos</a>
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,7 @@
                     </div>
                     @endif
 
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center text-center">
                         @if (Route::has('register'))
                         <div class="container">
                             <div class="justify-content-center">

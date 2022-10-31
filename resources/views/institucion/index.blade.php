@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Institución Educativa
+    Instituciones Educativas
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Institución Educativa') }}
+                            {{ __('Instituciones Educativas') }}
                         </span>
 
                         <div class="float-right">
@@ -55,7 +55,7 @@
                                     <th>Tipo de calendario</th>
                                     <th>Cantidad de docentes</th>
                                     <th>Cantidad de estudiantes</th>
-                                    <th>Tipo paquete</th>
+                                    <th>Tipo de paquete</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -72,7 +72,11 @@
                                     <td>{{ $institucion->insCalendario }}</td>
                                     <td>{{ $institucion->insCantidadDocentes }}</td>
                                     <td>{{ $institucion->insCantidadEstudiantes }}</td>
-                                    <td>{{ $institucion->tipoPaquete }}</td>
+                                    @if ($institucion->tipoPaquete == 1)
+                                        <td>Completo</td>
+                                    @else
+                                        <td>DEA</td>
+                                    @endif
 
                                     <td>
                                         <form action="{{ route('institucions.destroy',$institucion->id) }}" method="POST">
@@ -101,7 +105,6 @@
                     </div>
                 </div>
             </div>
-            {!! $institucions->links() !!}
         </div>
     </div>
 </div>

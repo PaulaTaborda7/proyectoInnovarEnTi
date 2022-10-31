@@ -35,6 +35,7 @@ class InstitucionController extends Controller
             ->latest('id')
             ->paginate(10);
 
+
         return view('institucion.index', compact('institucions', 'busqueda'))
             ->with('i', (request()->input('page', 1) - 1) * $institucions->perPage());
     }
@@ -52,8 +53,9 @@ class InstitucionController extends Controller
     public function create()
     {
         $countries = Country::all();
+
         $institucion = new Institucion();
-        return view('institucion.create', compact('institucion', 'countries'));
+        return view('institucion.create', compact('institucion', 'countries', 'paises', 'departamentos', 'ciudades'));
     }
 
     /**

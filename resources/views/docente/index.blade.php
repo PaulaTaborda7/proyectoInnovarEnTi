@@ -48,7 +48,6 @@ Docente
                                     <th>Nombre completo</th>
                                     <th>Documento de identidad</th>
                                     <th>Correo electrónico</th>
-                                    <th>Tipo de usuario</th>
                                     <th>Tipo de contrato</th>
                                     <th>Área curricular</th>
                                     <th>Código NIT de la institución</th>
@@ -63,7 +62,6 @@ Docente
                                     <td>{{ $docente->nombre }}</td>
                                     <td>{{ $docente->documentoIdentidad }}</td>
                                     <td>{{ $docente->email }}</td>
-                                    <td>{{ $docente->tipo }}</td>
                                     <td>{{ $docente->docTipoContrato }}</td>
                                     <td>{{ $docente->docAreaCurricular }}</td>
                                     <td>{{ $docente->insCodigoNit }}</td>
@@ -95,7 +93,6 @@ Docente
                     </div>
                 </div>
             </div>
-            {{-- {!! $docentes->links() !!} --}}
         </div>
     </div>
 </div>

@@ -39,15 +39,15 @@ Estudiante
                         </form>
                     </div>
                 </div>
+                
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead">
+                        <table class="table text-center ">
+                            <thead class="table-primary">
                                 <tr>
                                     <th>Nombre completo</th>
                                     <th>Número del documento de identidad</th>
                                     <th>Correo electrónico</th>
-                                    <th>Tipo de usuario</th>
                                     <th>Promedio</th>
                                     <th>Código NIT de la institución educativa</th>
                                     <th>Número del documento del acudiente</th>
@@ -62,7 +62,6 @@ Estudiante
                                     <td>{{ $estudiante->nombre }}</td>
                                     <td>{{ $estudiante->numIdentidad }}</td>
                                     <td>{{ $estudiante->email }}</td>
-                                    <td>{{ $estudiante->tipo }}</td>
                                     <td>{{ $estudiante->estPromedio }}</td>
                                     <td>{{ $estudiante->insCodigoNit }}</td>
                                     <td>{{ $estudiante->numIdentidadPadre }}</td>
@@ -95,7 +94,6 @@ Estudiante
                     </div>
                 </div>
             </div>
-            {!! $estudiantes->links() !!}
         </div>
     </div>
 </div>
