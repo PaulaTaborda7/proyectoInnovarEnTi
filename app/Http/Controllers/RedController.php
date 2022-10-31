@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Http\Controllers\Session;
 
@@ -106,6 +108,7 @@ class RedController extends Controller
             'redDescripcion' => $request['redDescripcion'],
             'redTipoRecurso' => $request['redTipoRecurso'],
             'idMateria' => $request['idMateria'],
+            'imagen' => $request['imagen'],
         ]);
         if($request->has('files')){
             $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
@@ -122,10 +125,13 @@ class RedController extends Controller
                     ]);
                 }
             }
-            return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
-        }else {
-            return redirect()->route('reds.index')->with('fail', 'No se ha podido crear el RED');
         }
+        if($request->hasFile('imagen')){
+            $red->imagen = $request->file('imagen')->store('uploads','public');
+            //$red->imagen->move(public_path('public/storage'.$red->imagen,));
+        }
+        $red->save();
+        return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
     }
 
     public function files($id){
@@ -182,6 +188,11 @@ class RedController extends Controller
      */
     public function update(Request $request, Red $red)
     {
+
+        //echo $red->redIdRed;
+        // $red->update($request->all());
+        // return redirect()->route('reds.index')->with('success', 'RED actualizado con éxito');
+
         if($request->redIdRed == $red->redIdRed){
             $request->validate([
                 'redNombre' => 'required',
@@ -210,24 +221,45 @@ class RedController extends Controller
                 'idMateria.required' => 'El campo código de temática es obligatorio',
             ]);
         }
-        if($request->has('files')){
-            $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
-            $files = $request->file('files');
-            foreach($files as $file){
-                $fileName = $file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $check=in_array($extension,$allowedfileExtension);
-                if($check){
-                    $file->move(public_path('archivos/'.$red->redIdRed,),$fileName);
-                    File::find($red->redIdRed)->update([
-                        'file'=>$fileName
-                    ]);
-                }
-            }
+        // // if($request->has('files')){
+        // //     $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
+        // //     $files = $request->file('files');
+        // //     foreach($files as $file){
+        // //         $fileName = $file->getClientOriginalName();
+        // //         $extension = $file->getClientOriginalExtension();
+        // //         $check=in_array($extension,$allowedfileExtension);
+        // //         if($check){
+        // //             $file->move(public_path('archivos/'.$red->redIdRed,),$fileName);
+        // //             File::find($red->redIdRed)->update([
+        // //                 'file'=>$fileName
+        // //             ]);
+        // //         }
+        // //     }
+        // // }
+        // request()->validate(Red::$rules);
+        // // $red->update($request->all());
+
+        //
+        //$red = Red::where('id', $red->redIdRed);
+
+        $id=$red->redIdRed;
+
+        $red->update([
+            'redNombre' => $request['redNombre'],
+            'redIdRed' => $request['redIdRed'],
+            'redDescripcion' => $request['redDescripcion'],
+            'redTipoRecurso' => $request['redTipoRecurso'],
+            'idMateria' => $request['idMateria'],
+        ]);
+
+        // Si en el formulario se adjuntó una NUEVA foto...
+        if($request->hasFile('imagen')){
+            //Borramos de la carpeta public aquella imagen que tenga la misma ruta que $empleado->foto
+            Storage::delete('public/'.$red->imagen);
+            //Suba la NUEVA foto a la carpeta uploads en public y en el JSON guarde la dirección de la foto
+            $red->imagen = $request->file('imagen')->store('uploads', 'public');
         }
-        request()->validate(Red::$rules);
-        $red->update($request->all());
-        
+        $red->save();
         return redirect()->route('reds.index')
             ->with('success', 'Información de RED actualizada con éxito');
     }

@@ -1,0 +1,5 @@
+Grado: Primero
+Nivel: Simbólico
+Tipo: Selección Múltiple
+Categoría: Símbolos matemáticos
+Enunciado: Selecciona cuáles son los signos en una operación (Conserva el audio)

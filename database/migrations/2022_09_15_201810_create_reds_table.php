@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('idMateria');
             //$table->string('files');
             $table->foreign('idMateria')->references('matIdMateria')->on('materias');
+            $table->string('imagen');
             
             $table->timestamps();
         });
