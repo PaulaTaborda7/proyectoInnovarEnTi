@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="card_opciones_docente">
                 <div class="card-header text-center fw-bold fs-4">{{ __('Opciones del docente') }}</div>
 
                 <div class="card-body">
@@ -17,7 +17,7 @@
                     <div class="d-flex justify-content-center text-center">
 
                         <div class="container">
-                            <div class="justify-content-center">
+                            <div>
                                 <a class="btn btn-success" style="font-size:90%;                                color:white;
                                 width:100px;
                                 height:100px;
@@ -28,7 +28,7 @@
                         </div>
                         
                         <div class="container">
-                            <div class="justify-content-center">
+                            <div>
                                 <a class="btn btn-success" style="font-size:90%;                                color:white;
                                 width:100px;
                                 height:100px;

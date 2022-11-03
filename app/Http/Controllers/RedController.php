@@ -6,6 +6,8 @@ use App\Models\Red;
 use App\Models\Red_grupo;
 use App\Models\File;
 use App\Models\Materia;
+use App\Models\Docente;
+use App\Models\Institucion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -29,38 +31,36 @@ class RedController extends Controller
     public function index()
     {
         $reds = Red::all();
-        return view('red.index',compact('reds'));
+        return view('red.index', compact('reds'));
     }
 
 
-    public function habilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2, $idDocente)
+    public function habilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2)
     {
         //Esta función se da después de habilitar un recurso
         $bandera1 = '0';
         $bandera2 = '1';
         $verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 1', [$idRed, $idGrupo]);
-        if($verifica != null){
-            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','bandera1','bandera2','idDocente'));
-            //return redirect()->back()->with(compact('bandera1', 'bandera2'));
-        }
-        else{
+        if ($verifica != null) {
+            return view('docente.catalogoRecursosDEA', compact('idGrupo', 'bandera1', 'bandera2'));
+        } else {
             $red = new Red_grupo();
             $red->habilitado = 1;
             $red->redIdRed = $idRed;
             $red->gruIdGrupo = $idGrupo;
             $red->save();
-            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','bandera1','bandera2','idDocente'));        }
+            return view('docente.catalogoRecursosDEA', compact('idGrupo', 'bandera1', 'bandera2'));
+        }
     }
 
     public function deshabilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2)
     {
         $bandera1 = '1';
         $bandera2 = '0';
-        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo','=',$idGrupo)->where('habilitado','=','0')->get();
-        if($verifica != null){
+        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo', '=', $idGrupo)->where('habilitado', '=', '0')->get();
+        if ($verifica != null) {
             return redirect()->back()->with(compact('bandera1', 'bandera2'));
-        }
-        else{
+        } else {
             $verifica->habilitado = 0;
             return redirect()->back()->with(compact('bandera1, bandera2'));
         }
@@ -76,7 +76,7 @@ class RedController extends Controller
 
         $tematicas = DB::select('select * from materias');
 
-        return view('red.create', compact('red','tematicas'));
+        return view('red.create', compact('red', 'tematicas'));
     }
 
     /**
@@ -110,46 +110,49 @@ class RedController extends Controller
             'idMateria' => $request['idMateria'],
             'imagen' => $request['imagen'],
         ]);
-        if($request->has('files')){
-            $allowedfileExtension=['pdf','jpg','png','docx','css','js','html','txt','mp3','mp4'];
+        if ($request->has('files')) {
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4'];
             $files = $request->file('files');
-            foreach($files as $file){
+            foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
-                $check=in_array($extension,$allowedfileExtension);
-                if($check){
-                    $file->move(public_path('archivos/'.$red->redIdRed,),$fileName);
+                $check = in_array($extension, $allowedfileExtension);
+                if ($check) {
+                    $file->move(public_path('archivos/' . $red->redIdRed,), $fileName);
                     File::create([
-                    'red_id'=>$red->id,
-                    'file'=>$fileName
+                        'red_id' => $red->id,
+                        'file' => $fileName
                     ]);
                 }
             }
         }
-        if($request->hasFile('imagen')){
-            $red->imagen = $request->file('imagen')->store('uploads','public');
+        if ($request->hasFile('imagen')) {
+            $red->imagen = $request->file('imagen')->store('uploads', 'public');
             //$red->imagen->move(public_path('public/storage'.$red->imagen,));
         }
         $red->save();
         return redirect()->route('reds.index')->with('success', 'RED creado con éxito');
     }
 
-    public function files($id){
+    public function files($id)
+    {
         $red = Red::find($id);
         $redIdRed = $red->redIdRed;
-        return view('pruebared',compact('redIdRed'));
+        return view('pruebared', compact('redIdRed'));
     }
 
-    public function filesDocente($id){
+    public function filesDocente($id)
+    {
         $red = Red::find($id);
         $redIdRed = $red->redIdRed;
-        return view('docente.pruebaredDocente',compact('redIdRed'));
+        return view('docente.pruebaredDocente', compact('redIdRed'));
     }
 
-    public function filesEstudiante($id){
+    public function filesEstudiante($id)
+    {
         $red = Red::find($id);
         $redIdRed = $red->redIdRed;
-        return view('estudiante.pruebaredEstudiante',compact('redIdRed'));
+        return view('estudiante.pruebaredEstudiante', compact('redIdRed'));
     }
 
     /**
@@ -176,7 +179,7 @@ class RedController extends Controller
 
         $tematicas = DB::select('select * from materias');
 
-        return view('red.edit', compact('red','tematicas'));
+        return view('red.edit', compact('red', 'tematicas'));
     }
 
     /**
@@ -189,7 +192,7 @@ class RedController extends Controller
     public function update(Request $request, Red $red)
     {
 
-        if($request->redIdRed == $red->redIdRed){
+        if ($request->redIdRed == $red->redIdRed) {
             $request->validate([
                 'redNombre' => 'required',
                 'redDescripcion' => 'required',
@@ -201,7 +204,7 @@ class RedController extends Controller
                 'redTipoRecurso.required' => 'El campo tipo de recurso es obligatorio',
                 'idMateria.required' => 'El campo código de temática es obligatorio',
             ]);
-        }else{
+        } else {
             $request->validate([
                 'redNombre' => 'required',
                 'redIdRed' => ['required', 'unique:reds'],
@@ -238,7 +241,7 @@ class RedController extends Controller
         //
         //$red = Red::where('id', $red->redIdRed);
 
-        $id=$red->redIdRed;
+        $id = $red->redIdRed;
 
         $red->update([
             'redNombre' => $request['redNombre'],
@@ -249,9 +252,9 @@ class RedController extends Controller
         ]);
 
         // Si en el formulario se adjuntó una NUEVA foto...
-        if($request->hasFile('imagen')){
+        if ($request->hasFile('imagen')) {
             //Borramos de la carpeta public aquella imagen que tenga la misma ruta que $empleado->foto
-            Storage::delete('public/'.$red->imagen);
+            Storage::delete('public/' . $red->imagen);
             //Suba la NUEVA foto a la carpeta uploads en public y en el JSON guarde la dirección de la foto
             $red->imagen = $request->file('imagen')->store('uploads', 'public');
         }

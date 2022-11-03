@@ -37,12 +37,39 @@
 }
 /*******************************/
 
+
+/*Contenedor para el texto de bienvenida*/
+#contenedor_texto_bienvenida{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 #texto_bienvenida {
     font-family: "Arial";
-    font-size: 15px;
+    font-size: 25px;
     text-shadow: 0 0 1px black;
     display: flex;
     justify-content: center;
     left: 50%;
     top: 50%;
+}
+/***************************************/
+
+
+#card_opciones_admin{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#card_opciones_docente{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+#card_opciones_estudiante{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
 }

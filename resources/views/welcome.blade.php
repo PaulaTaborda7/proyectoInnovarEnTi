@@ -61,7 +61,7 @@
                 {{ Session::get('fail') }}
             </div>
             @endif
-            <div class="container"> 
+            <div class="container" id="contenedor_texto_bienvenida"> 
                 <p id="texto_bienvenida">Bienvenido(a) a la vista principal del sistema de información y administración de Recursos Educativos Digitales, en esta puedes
                     encontrar información acerca de la empresa INNOVAR EN TI como del sistema. Puedes ingresar con tus credenciales en tu respectivo Rol,
                     a continuación:

@@ -17,8 +17,9 @@
                                 <br>
                                 <strong class="text-center">{{ $recurso->redNombre }}</strong>
                                 <br>
-                                <img src="{!! asset('') !!}" class="card-img-top mx-auto"
-                                    style="height: 150px; width: 150px;display: block;" alt="Imágen del RED">
+                                <img id="imagen" src="{{ asset('storage') . '/' . $recurso->imagen }}"
+                                    style="height: 100px; width: 150px;display: block;" alt="Imágen del RED"
+                                    class="card-img-top mx-auto" />
                                 <div class="card-body">
                                     <p class="card-text"><strong>Descripción: </strong>{{ $recurso->redDescripcion }}</p>
                                     <p class="card-text"><strong>Temática a la que está asociado:

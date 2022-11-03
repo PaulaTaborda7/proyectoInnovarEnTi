@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card center mt-5">
+            <div class="card center" id="card_opciones_admin">
                 <div class="card-header text-center fw-bold fs-4">{{ __('Opciones del administrador') }}</div>
                 <div class="card-body">
                     @if (session('status'))

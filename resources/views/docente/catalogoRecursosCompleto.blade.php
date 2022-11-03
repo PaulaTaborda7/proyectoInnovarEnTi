@@ -1,10 +1,5 @@
 @extends('layouts.app')
 
-@php
-    echo $bandera1;
-    echo $bandera2;
-@endphp
-
 @section('content')
     <div class="container">
         <div class="col-auto p-5 text-center">
@@ -22,8 +17,9 @@
                                 <br>
                                 <strong class="text-center">{{ $recurso->redNombre }}</strong>
                                 <br>
-                                <img src="{!! asset('') !!}" class="card-img-top mx-auto"
-                                    style="height: 150px; width: 150px;display: block;" alt="Imágen del RED">
+                                <img id="imagen" src="{{ asset('storage') . '/' . $recurso->imagen }}"
+                                    style="height: 100px; width: 150px;display: block;" alt="Imágen del RED"
+                                    class="card-img-top mx-auto" />
                                 <div class="card-body">
                                     <p class="card-text"><strong>Descripción: </strong>{{ $recurso->redDescripcion }}</p>
                                     <p class="card-text"><strong>Temática a la que está asociado:
@@ -39,7 +35,7 @@
                                     <div>
                                         @if ($bandera1 == '1' && $bandera2 == '0')
                                             <a class="btn btn-sm btn-success"
-                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2, Session::get('documentoIdentidadDocente')]) }}"><i
+                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2}}"><i
                                                     class="fa fa-fw fa-edit"></i>Habilitar</a>
                                             <a class="btn btn-danger btn-sm disabled" href="#"><i
                                                     class="fa fa-fw fa-trash"></i>Desahibilitar</a>
@@ -47,7 +43,7 @@
                                             <a class="btn btn-sm btn-success disabled" href="#"><i
                                                     class="fa fa-fw fa-edit"></i>Habilitar</a>
                                             <a class="btn btn-danger btn-sm"
-                                                href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2, Session::get('documentoIdentidadDocente')]) }}"><i
+                                                href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2}}"><i
                                                     class="fa fa-fw fa-trash"></i>Desahibilitar</a>
                                         @endif
                                     </div>

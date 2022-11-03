@@ -233,7 +233,7 @@ class TodosSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'password_confirmation' => Hash::make('12345678'),
             'tipo' => '2',
-        ]); 
+        ]);
         $userDocente = Docente::create([
             'nombre' => 'Esteban Valbuena ',
             'documentoIdentidad' => '15766567',
@@ -271,7 +271,7 @@ class TodosSeeder extends Seeder
             'tipo' => '2',
         ]);
         $userDocente = Docente::create([
-            'nombre' => 'Helmer Montes', 
+            'nombre' => 'Helmer Montes',
             'documentoIdentidad' => '16790823',
             'email' => 'monteshelmes@gmail.com',
             'docTipoContrato' => 'De planta',
@@ -352,6 +352,12 @@ class TodosSeeder extends Seeder
             'matNombreMateria' => 'Tecnología e Informática',
             'matDescripcion' => 'El área de tecnología e informática abarca las competencias de conocimiento tecnológico, 
             comunicacional, ético y laboral que le permiten al educando ubicarse en un medio en continua transformación.',
+        ]);
+        $tematica8 = Materia::create([
+            'matIdMateria' => '7412',
+            'matNombreMateria' => 'Español',
+            'matDescripcion' => 'La asignatura tiene como propósito el desarrollo eficientemente en los estudiantes deel lenguaje,
+             para organizar sus pensamientos y sus discursoss. ',
         ]);
 
 
