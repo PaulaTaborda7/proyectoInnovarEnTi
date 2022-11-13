@@ -35,7 +35,7 @@
                                     <div>
                                         @if ($bandera1 == '1' && $bandera2 == '0')
                                             <a class="btn btn-sm btn-success"
-                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2}}"><i
+                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2]})}"><i
                                                     class="fa fa-fw fa-edit"></i>Habilitar</a>
                                             <a class="btn btn-danger btn-sm disabled" href="#"><i
                                                     class="fa fa-fw fa-trash"></i>Desahibilitar</a>
@@ -43,7 +43,7 @@
                                             <a class="btn btn-sm btn-success disabled" href="#"><i
                                                     class="fa fa-fw fa-edit"></i>Habilitar</a>
                                             <a class="btn btn-danger btn-sm"
-                                                href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2}}"><i
+                                                href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2]})}"><i
                                                     class="fa fa-fw fa-trash"></i>Desahibilitar</a>
                                         @endif
                                     </div>
