@@ -1,36 +1,64 @@
-<table class="table table-striped table-hover">
-    <thead class="thead">
-        <tr>
-            <th>Nombre completo</th>
-            <th>Número del documento de identidad</th>
-            <th>Correo electrónico</th>
-            <th>Tipo de usuario</th>
-            <th>Promedio</th>
-            <th>Código NIT de la institución educativa</th>
-            <th>Número del documento del acudiente</th>
-            <th>Código del grupo</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<body>
 
-        <tr>
-            <td>{{ $estudiante->nombre }}</td>
-            <td>{{ $estudiante->numIdentidad }}</td>
-            <td>{{ $estudiante->email }}</td>
-            <td>{{ $estudiante->tipo }}</td>
-            <td>{{ $estudiante->estPromedio }}</td>
-            <td>{{ $estudiante->insCodigoNit }}</td>
-            <td>{{ $estudiante->numIdentidadPadre }}</td>
-            <td>{{ $estudiante->gruIdCurso }}</td>
-        </tr>
+    <style>
+        body {
+            font-family: Arial;
+        }
 
-    </tbody>
-</table>
-<div class="container text-center">
-    <h2>OBSERVACIÓN</h2>
-    {{ $estudiante->observacion }}
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 20px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(228, 245, 245);
+        }
+
+        
+    </style>
+
+
+
+    <table class="table table-striped table-hover">
+        <tbody>
+            <tr>
+                <td><strong>Nombre del estudiante </strong></td>
+                <td>{{ $estudiante->nombre }}</td>
+            </tr>
+            <tr>
+                <td><strong>Número del documento de identidad </strong></td>
+                <td>{{ $estudiante->numIdentidad }}</td>
+            </tr>
+            <tr>
+                <td><strong>Correo electrónico </strong></td>
+                <td>{{ $estudiante->email }}</td>
+            </tr>
+            <tr>
+                <td><strong>NIT de la institución educativa </strong></td>
+                <td>{{ $estudiante->insCodigoNit }}</td>
+            </tr>
+            <tr>
+                <td><strong>Código del grupo </strong></td>
+                <td>{{ $estudiante->gruIdCurso }}</td>
+            </tr>
+            <tr>
+                <td><strong>Promedio </strong></td>
+                <td>{{ $estudiante->estPromedio }}</td>
+            </tr>
+
+        </tbody>
+    </table>
     <br>
-    <h2>NOTAA</h2>
-    {{ $mensaje }}
-</div>
+    <div class="container text-center">
+        <h2>Recomendación</h2>
+        <br>
+         {{ $mensaje }}
+    </div>
+
+</body>
