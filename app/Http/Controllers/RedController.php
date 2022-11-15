@@ -252,7 +252,35 @@ class RedController extends Controller
             //Suba la NUEVA foto a la carpeta uploads en public y en el JSON guarde la dirección de la foto
             $red->imagen = $request->file('imagen')->store('uploads', 'public');
         }
+
+        //Si en el formulario se agregaron nuevos archivos...
+        if($request->hasFile('files')){
+            //Borramos de la carpeta public/archivos todos los archivos que tenga la misma ruta que $red->redIdRed
+            Storage::deleteDirectory('public/archivos/'.$id);
+            //Suba los nuevos archivos a la carpeta uploads en public
+            // $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4'];
+            // $files = $request->file('files');
+            // foreach($files as $file){
+            //     $fileName = $file->getClientOriginalName();
+            //     $file->storeAs('public/archivos/'.$id, $fileName);
+            // }
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4'];
+            $files = $request->file('files');
+            foreach ($files as $file) {
+                $fileName = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check = in_array($extension, $allowedfileExtension);
+                if ($check) {
+                    $file->move(public_path('archivos/' . $red->redIdRed,), $fileName);
+                    File::create([
+                        'red_id' => $red->id,
+                        'file' => $fileName
+                    ]);
+                }
+            }
+        }
         $red->save();
+
         return redirect()->route('reds.index')
             ->with('success', 'Información de RED actualizada con éxito');
     }
