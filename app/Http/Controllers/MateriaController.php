@@ -66,7 +66,7 @@ class MateriaController extends Controller
         $materia = Materia::create($request->all());
 
         return redirect()->route('materias.index')
-            ->with('success', 'TEMATICA CREADA CON ÉXITO');
+            ->with('success', 'TEMÁTICA CREADA CON ÉXITO');
     }
 
     /**

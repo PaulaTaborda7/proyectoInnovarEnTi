@@ -9,7 +9,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Temática') }}
+                            <b>TEMÁTICAS</b> 
                         </span>
 
                         <div class="float-right">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 @if ($message = Session::get('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     <p>{{ $message }}</p>
                 </div>
                 @endif

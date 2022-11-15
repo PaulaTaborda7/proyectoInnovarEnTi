@@ -41,7 +41,7 @@ class InstitucionController extends Controller
     }
 
     public function verDocentes($id){
-        $todos = DB::select('select * from docentes where insCodigoNit = ?', [$id]);
+        $todos = DB::select('select * from docentes where insCodigoNit = ?', [$id]);  
         return view('consultaDocentes',compact('todos'));
     }
 
@@ -55,7 +55,7 @@ class InstitucionController extends Controller
         $countries = Country::all();
 
         $institucion = new Institucion();
-        return view('institucion.create', compact('institucion', 'countries', 'paises', 'departamentos', 'ciudades'));
+        return view('institucion.create', compact('institucion', 'countries'));
     }
 
     /**
@@ -90,7 +90,7 @@ class InstitucionController extends Controller
             'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
             'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
             'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
-            'tipoPaquete.required' => 'El campo tipoPaquete es obligatorio',
+            'tipoPaquete.required' => 'El campo tipo de paquete es obligatorio',
         ]);
 
         request()->validate(Institucion::$rules);
@@ -162,7 +162,7 @@ class InstitucionController extends Controller
                 'insCalendario.required' => 'El campo tipo de calendario es obligatorio',
                 'insCantidadDocentes.required' => 'El campo cantidad de docentes es obligatorio',
                 'insCantidadEstudiantes.required' => 'El campo cantidad de estudiantes es obligatorio',
-                'tipoPaquete.required' => 'El campo tipoPaquete es obligatorio',
+                'tipoPaquete.required' => 'El campo tipo de paquete es obligatorio',
             ]);
         }else{
             $request->validate([

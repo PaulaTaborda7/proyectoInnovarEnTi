@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Información del Recurso Educativo Digital</span>
+                            <span class="card-title"><b>Información detallada del Recurso Educativo Digital</b></span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('reds.index') }}">Volver</a>

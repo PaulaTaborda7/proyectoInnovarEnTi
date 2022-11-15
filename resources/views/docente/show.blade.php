@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Información de docente</span>
+                            <span class="card-title"><b>Información detallada del docente</b></span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('docentes.index') }}"> Volver</a>
@@ -33,10 +33,6 @@
                             {{ $docente->email }}
                         </div>
                         <div class="form-group">
-                            <strong>Tipo de usuario:</strong>
-                            {{ $docente->tipo }}
-                        </div>
-                        <div class="form-group">
                             <strong>Tipo de contrato:</strong>
                             {{ $docente->docTipoContrato }}
                         </div>
@@ -48,7 +44,10 @@
                             <strong>Código NIT de la institución:</strong>
                             {{ $docente->insCodigoNit }}
                         </div>
-
+                        <div class="form-group">
+                            <strong>ID del grupo encargado:</strong>
+                            {{ $docente->idGrupo }}
+                        </div>
                     </div>
                 </div>
             </div>

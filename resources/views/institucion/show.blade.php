@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Ver información de Institución Educativa</span>
+                            <span class="card-title"><b>Información detallada de la Institución Educativa</b></span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('institucions.index') }}">Volver</a>
@@ -42,7 +42,7 @@
                             {{ $institucion->insDepartamento }}
                         </div>
                         <div class="form-group">
-                            <strong>País:</strong>
+                            <strong>Ciudad:</strong>
                             {{ $institucion->insCiudad }}
                         </div>
 

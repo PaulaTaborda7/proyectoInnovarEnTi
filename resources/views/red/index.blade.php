@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Red') }}
+                                <b>RECURSOS EDUCATIVOS DIGITALES (REDS)</b>
                             </span>
 
                             <div class="float-right">

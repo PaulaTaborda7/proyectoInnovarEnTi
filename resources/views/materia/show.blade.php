@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-<section class="content container-fluid">
+<section class="content container-fluid mt-5 mb-5">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div class="float-left">
-                        <span class="card-title">Ver información de la temática</span>
+                        <span class="card-title"><b>Información detallada de la temática</b></span>
                     </div>
                     <div class="float-right">
                         <a class="btn btn-primary" href="{{ route('materias.index') }}">Volver</a>

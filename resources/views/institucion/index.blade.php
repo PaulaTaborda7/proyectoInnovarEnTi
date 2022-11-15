@@ -13,7 +13,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Instituciones Educativas') }}
+                            <b>INSTITUCIONES EDUCATIVAS</b>
                         </span>
 
                         <div class="float-right">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 @if ($message = Session::get('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     <p>{{ $message }}</p>
                 </div>
                 @endif
@@ -97,6 +97,7 @@
                                 <td colspan="4">{{$institucions->appends(['busqueda'=>$busqueda])}}</td>
                             </tr>
                         </tfoot>
+                        <hr>
                         <div class="container">
                             <div class="justify-content-cente">
                                 <a class="ml-4 text-sm btn btn-primary" href="{{ route('home') }}">Regresar</a>

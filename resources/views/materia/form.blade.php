@@ -2,17 +2,29 @@
     <div class="form-group">
         <span>Código de la temática</span>
         {{ Form::text('matIdMateria', $materia->matIdMateria, ['class' => 'form-control' . ($errors->has('matIdMateria') ? ' is-invalid' : ''), 'placeholder' => 'Código']) }}
-        {!! $errors->first('matIdMateria', '<div class="invalid-feedback">:message</div>') !!}
+        @error('matIdMateria')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
         <span>Nombre de la temática</span>
         {{ Form::text('matNombreMateria', $materia->matNombreMateria, ['class' => 'form-control' . ($errors->has('matNombreMateria') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-        {!! $errors->first('matNombreMateria', '<div class="invalid-feedback">:message</div>') !!}
+        @error('matNombreMateria')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
         <span>Descripción de la temática</span>
         {{ Form::text('matDescripcion', $materia->matDescripcion, ['class' => 'form-control' . ($errors->has('matDescripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripción']) }}
-        {!! $errors->first('matDescripcion', '<div class="invalid-feedback">:message</div>') !!}
+        @error('matDescripcion')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="row mb-0">
         <div class="col-md-8 offset-md-5">

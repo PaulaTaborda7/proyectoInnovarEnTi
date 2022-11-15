@@ -6,8 +6,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-header text-center fw-bold fs-4">{{ __('Esta es la lista de docentes pertenecientes a la institución') }}</div>
-
+                    <div class="card-header text-center fw-bold fs-4">{{ __('Esta es la lista de docentes pertenecientes a la institución')}}</div>
                     <div class="card-body">
                         @if (session('status'))
                         <div class="alert alert-success" role="alert">
