@@ -47,7 +47,7 @@
 
 #texto_bienvenida {
     font-family: "Arial";
-    font-size: 25px;
+    font-size: 20px;
     text-shadow: 0 0 1px black;
     display: flex;
     justify-content: center;

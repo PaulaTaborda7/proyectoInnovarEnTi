@@ -3,10 +3,15 @@
 @section('content')
     <div class="container">
         <div class="col-auto p-5 text-center">
-            <h1><strong>Catálogo de Recursos Educativos Digitales : COMPLETO</strong> </h1>
+            <h1><strong>Catálogo de Recursos Educativos Digitales: COMPLETO</strong> </h1>
         </div>
     </div>
     <div class="container" style="margin-top: 10px">
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <hr>
@@ -17,13 +22,15 @@
                                 <br>
                                 <strong class="text-center">{{ $recurso->redNombre }}</strong>
                                 <br>
-                                <img id="imagen" src="{{ asset('storage') . '/' . $recurso->imagen }}"
-                                    style="height: 100px; width: 150px;display: block;" alt="Imágen del RED"
-                                    class="card-img-top mx-auto" />
-                                <div class="card-body">
-                                    <p class="card-text"><strong>Descripción: </strong>{{ $recurso->redDescripcion }}</p>
-                                    <p class="card-text"><strong>Temática a la que está asociado:
-                                        </strong>{{ $recurso->idMateria }}</p>
+                                <div style="height: 300px; width: 100%">
+                                    <img id="imagen" src="{{ asset('storage') . '/' . $recurso->imagen }}"
+                                        style="height: auto; width: 100px;display: block;" alt="Imágen del RED"
+                                        class="card-img-top mx-auto" />
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Descripción: </strong>{{ $recurso->redDescripcion }}</p>
+                                        <p class="card-text"><strong>Temática a la que está asociado:
+                                            </strong>{{ $recurso->idMateria }}</p>
+                                    </div>
                                 </div>
                                 <div class="card-footer" class="justify-content-center">
                                     <div>
@@ -33,19 +40,8 @@
                                     </div>
                                     <br>
                                     <div>
-                                        @if ($bandera1 == '1' && $bandera2 == '0')
-                                            <a class="btn btn-sm btn-success"
-                                                href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2]})}"><i
-                                                    class="fa fa-fw fa-edit"></i>Habilitar</a>
-                                            <a class="btn btn-danger btn-sm disabled" href="#"><i
-                                                    class="fa fa-fw fa-trash"></i>Desahibilitar</a>
-                                        @elseif ($bandera1 == '0' && $bandera2 == '1')
-                                            <a class="btn btn-sm btn-success disabled" href="#"><i
-                                                    class="fa fa-fw fa-edit"></i>Habilitar</a>
-                                            <a class="btn btn-danger btn-sm"
-                                                href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, 'bandera1' => $bandera1, 'bandera2' => $bandera2]})}"><i
-                                                    class="fa fa-fw fa-trash"></i>Desahibilitar</a>
-                                        @endif
+                                        <a class="btn btn-sm btn-success" href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, Session::get('documentoIdentidadDocente')]) }}"><i class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                        <a class="btn btn-danger btn-sm" href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, Session::get('documentoIdentidadDocente')]) }}"><i class="fa fa-fw fa-trash"></i>Desahibilitar</a>
                                     </div>
                                 </div>
                             </div>

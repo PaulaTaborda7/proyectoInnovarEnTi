@@ -13,23 +13,25 @@
                 <div class="row">
                     @foreach ($reds_habilitados as $recurso)
                         <div class="col-lg-3">
-                            <div class="card text-center" style="margin-bottom: 20px; height: auto;">
+                            <div class="card text-center" style="margin-bottom: 20px; height: 410px;">
                                 <br>
                                 <strong class="text-center">{{ $recurso->redNombre }}</strong>
                                 <br>
-                                <img id="imagen" src="{{ asset('storage') . '/' . $recurso->imagen }}"
-                                    style="height: 50px; width: 150px;display: block;" alt="Imágen del RED"
-                                    class="card-img-top mx-auto" />
-                                <div class="card-body">
-                                    <p class="card-text"><strong>Descripción: </strong>{{ $recurso->redDescripcion }}</p>
-                                    <p class="card-text"><strong>Temática a la que está asociado:
-                                        </strong>{{ $recurso->idMateria }}</p>
-                                </div>
-                                <div class="card-footer" class="justify-content-center">
-                                    <div>
-                                        <a class="btn btn-sm btn-info"
-                                            href="{{ route('recurso.educativo.digital.Estudiante', $recurso->id) }}"><i
-                                                class="fa fa-eye"></i> Resolver/Explorar RED</a>
+                                <div style="height: 100%; width: 100%">
+                                    <img id="imagen" src="{{ asset('storage') . '/' . $recurso->imagen }}"
+                                        style="height: auto; width: 100px;display: block;" alt="Imágen del RED"
+                                        class="card-img-top mx-auto" />
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Descripción: </strong>{{ $recurso->redDescripcion }}</p>
+                                        <p class="card-text"><strong>Temática a la que está asociado:
+                                            </strong>{{ $recurso->idMateria }}</p>
+                                    </div>
+                                    <div style="height: 40px; width: 100%" class="card-footer" class="justify-content-center">
+                                        <div>
+                                            <a class="btn btn-sm btn-info"
+                                                href="{{ route('recurso.educativo.digital.Estudiante', $recurso->id) }}"><i
+                                                    class="fa fa-eye"></i> Resolver/Explorar RED</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

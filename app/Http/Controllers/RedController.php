@@ -35,35 +35,29 @@ class RedController extends Controller
     }
 
 
-    public function habilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2)
+    public function habilitarRecurso($idRed, $idGrupo)
     {
-        //Esta función se da después de habilitar un recurso
-        $bandera1 = '0';
-        $bandera2 = '1';
-        $verifica = DB::select('select * from red_grupos where redIdRed = ? and gruIdGrupo = ? and habilitado = 1', [$idRed, $idGrupo]);
-        if ($verifica != null) {
-            return view('docente.catalogoRecursosDEA', compact('idGrupo', 'bandera1', 'bandera2'));
-        } else {
-            $red = new Red_grupo();
-            $red->habilitado = 1;
-            $red->redIdRed = $idRed;
-            $red->gruIdGrupo = $idGrupo;
-            $red->save();
-            return view('docente.catalogoRecursosDEA', compact('idGrupo', 'bandera1', 'bandera2'));
+        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo', '=', $idGrupo)->where('habilitado', '=', '1')->get();
+        if($verifica->isEmpty()){
+            $red_grupo = new Red_grupo();
+            $red_grupo->redIdRed = $idRed;
+            $red_grupo->gruIdGrupo = $idGrupo;
+            $red_grupo->habilitado = 1;
+            $red_grupo->save();
+            return redirect()->back()->withMessage('Recurso habilitado');
+            
+        }
+        else{
+            return redirect()->back()->withMessage('Recurso ya habilitado');
         }
     }
 
-    public function deshabilitarRecurso($idRed, $idGrupo, $bandera1, $bandera2)
+    public function deshabilitarRecurso($idRed, $idGrupo)
     {
-        $bandera1 = '1';
-        $bandera2 = '0';
-        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo', '=', $idGrupo)->where('habilitado', '=', '0')->get();
-        if ($verifica != null) {
-            return redirect()->back()->with(compact('bandera1', 'bandera2'));
-        } else {
-            $verifica->habilitado = 0;
-            return redirect()->back()->with(compact('bandera1, bandera2'));
-        }
+        $verifica = Red_grupo::where('redIdRed', '=', $idRed)->where('gruIdGrupo', '=', $idGrupo)->where('habilitado', '=', '1')->get();
+        $verifica[0]-> habilitado = 0;
+        $verifica[0]->save();
+        return redirect()->back();
     }
     /**
      * Show the form for creating a new resource.

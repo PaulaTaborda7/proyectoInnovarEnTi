@@ -1,0 +1,24 @@
+
+
+.contenedor{
+	width: 630px;
+	max-width: 630px;
+	height: 430px;
+	max-height: 430px;
+	font-family: sans-serif;
+	text-align: center;
+	overflow: hidden;
+	border-left: 90px;
+}
+
+
+#imagen_actividad{
+	height: 200px;
+}
+
+.imag{
+	position:absolute;
+	top:90px;
+	left:50px;
+	
+}

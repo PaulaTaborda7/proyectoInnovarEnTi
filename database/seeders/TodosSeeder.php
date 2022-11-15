@@ -363,20 +363,28 @@ class TodosSeeder extends Seeder
 
         //Seeders para recursos
         $admRed = Red::create([
-            'redNombre' => 'DIAMANTE',
-            'redIdRed' => '3',
-            'redDescripcion' => 'Para aprender',
+            'redNombre' => 'Partes de la planta',
+            'redIdRed' => '123',
+            'redDescripcion' => 'Recurso de ciencias naturales para aprender las partes de la planta',
             'redTipoRecurso' => '1',
-            'idMateria' => '4321',
-            'imagen' => 'imagen.jpg',
+            'idMateria' => '5678',
+            'imagen' => 'uploads/criIOO7IMTKREhZlT3noI7Pnm8uhYEFe7wufa8KC.png',
         ]);
         $admRed2 = Red::create([
-            'redNombre' => 'Imagen UNAL',
-            'redIdRed' => '4',
-            'redDescripcion' => 'Una imagen de la UNAL',
+            'redNombre' => 'Aprende a sumar',
+            'redIdRed' => '124',
+            'redDescripcion' => 'Recurso para aprender a sumar con un contexto',
             'redTipoRecurso' => '0',
-            'idMateria' => '4321',
-            'imagen' => 'imagen.jpg',
+            'idMateria' => '1234',
+            'imagen' => 'uploads/wiYExkuVSSuifK0MHpBb1U4lznPwq5N542aUIPmB.png',
+        ]);
+        $admRed3 = Red::create([
+            'redNombre' => 'Sílabas',
+            'redIdRed' => '125',
+            'redDescripcion' => 'Resuelve un recurso, contando sílabas de una palabra',
+            'redTipoRecurso' => '0',
+            'idMateria' => '7412',
+            'imagen' => 'uploads/hOZ7DURPK4ANP02liT7SKO31Ie268y7fxbVCUBmc.jpg',
         ]);
     }
 }

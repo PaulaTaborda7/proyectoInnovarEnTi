@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Actividad Ciencias Naturales - Partes de la Planta</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body>
+	<div class="contenedor">
+		<div class="titulo">
+			<h3>Escribe el nombre de la parte de la planta que se señala <br> con el signo ?</h3>
+		<div class="imagen">
+			<img id = "imagen_actividad" src="actividad_ciencias.png" alt="imagen">
+		</div>
+		<input id="respuesta" type="text" autofocus onchange="calificarRespuesta()" />
+		<div id="continuar">
+			<button id="btn-continuar">Finalizar</button>
+		</div>
+		<div id="sonido">
+			<a href="#" onclick="sonido()"><img id = "imagenSonido" src="botonAudio.png" alt="sonido"></a>
+			<audio id = "audio" controls hidden = "true">
+				<source src="sonido.m4a" type="audio/mpeg" >
+			</audio>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>
