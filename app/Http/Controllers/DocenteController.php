@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Institucion;
 use App\Models\Red;
 use App\Models\Grupo;
+use App\Models\Materia;
 
 /**
  * Class DocenteController
@@ -75,13 +76,17 @@ class DocenteController extends Controller
         $tipoPaquete = $institucion->tipoPaquete;
         $recursos = Red::where('redTipoRecurso', '=', $tipoPaquete)->get();
         $todosRecursos = Red::all();
+
+        $tematicas = Materia::all();
+
         $idGrupo = $docente->idGrupo;
+
 
         //El tipo de paquete es DEA
         if($tipoPaquete == '0'){
-            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo'));
+            return view('docente.catalogoRecursosDEA', compact('recursos','idGrupo','tematicas'));
         }else{
-            return view('docente.catalogoRecursosCompleto', compact('todosRecursos','idGrupo'));
+            return view('docente.catalogoRecursosCompleto', compact('todosRecursos','idGrupo','tematicas'));
         }
     }
 
