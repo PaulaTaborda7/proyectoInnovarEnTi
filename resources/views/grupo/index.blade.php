@@ -66,12 +66,12 @@ Grupo
 
                                     <td>
                                         <form action="{{ route('grupos.destroy',$grupo->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('grupos.show',$grupo->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('grupos.edit',$grupo->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                            <a class="btn btn-sm btn-info" href="{{ route('lista.alumnos',$grupo->gruIdGrupo) }}"><i class="fa fa-eye"></i> Ver lista estudiantes</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('grupos.show',$grupo->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>&nbsp;
+                                            <a class="btn btn-sm btn-success" href="{{ route('grupos.edit',$grupo->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>&nbsp;
+                                            <a class="btn btn-sm btn-info" href="{{ route('lista.alumnos',$grupo->gruIdGrupo) }}"><i class="fa fa-eye"></i> Ver lista estudiantes</a>&nbsp;
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>&nbsp;
                                         </form>
                                     </td>
                                 </tr>

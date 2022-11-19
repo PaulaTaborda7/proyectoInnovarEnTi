@@ -71,9 +71,9 @@
             <div class="container shadow-lg p-3 mb-5 bg-body rounded">
                 <div id="titulo_card" class="card-header text-center fw-bold fs-4 text-white" style="background-color: #0d6efd">{{ __('¿Cuál es tu rol? Selecciona tu perfil') }}</div>
                 <div class="d-flex justify-content-center" style="background-color: #ffffff" >
-                    <a href="/admin/loginAdmin" class="ml-4 mt-5 mb-5"><button class="btn btn-success text-white texto_boton_perfil"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
-                    <a href="/auth/login" class="ml-4 mt-5 mb-5"><button class="btn btn-warning text-white texto_boton_perfil"><img src="images/docente.png" height ="100" width="100"/> <br>   DOCENTE        </button></a> 
-                    <a href="/estudiante/login" class="ml-4 mt-5 mb-5"><button class="btn btn-danger text-white texto_boton_perfil"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
+                    <a href="/admin/loginAdmin" class="ml-4 mt-5 mb-5"><button class="btn btn-success text-white texto_boton_perfil" title="Ingresarás con el rol de administrador"><img src="images/admin.png" height ="100" width="100"/> <br> ADMINISTRADOR</button></a>
+                    <a href="/auth/login" class="ml-4 mt-5 mb-5"><button class="btn btn-warning text-white texto_boton_perfil" title="Ingresarás con el rol de docente"><img src="images/docente.png" height ="100" width="100"/> <br>   DOCENTE        </button></a> 
+                    <a href="/estudiante/login" class="ml-4 mt-5 mb-5"><button class="btn btn-danger text-white texto_boton_perfil" title="Ingresarás con el rol de estudiante"><img src="images/estudiante.png" height ="100" width="80"/> <br> ESTUDIANTE</button></a> 
                     {{-- <a href="#" class="ml-4"><button class="btn btn-info text-white"><img src="images/padre.png" height ="100" width="100"/> <br> PADRE DE FAMILIA</button></a>  --}}
                 </div> 
             </div>

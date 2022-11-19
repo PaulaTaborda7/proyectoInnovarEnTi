@@ -80,12 +80,12 @@
 
                                     <td>
                                         <form action="{{ route('institucions.destroy',$institucion->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('institucions.show',$institucion->id) }}"><i class="fa fa-fw fa-eye"></i>Ver más</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('institucions.edit',$institucion->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
-                                            <a class="btn btn-sm btn-info" href="{{ route('lista.docentes',$institucion->codigoNit) }}"><i class="fa fa-eye"></i> Ver lista docentes</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('institucions.show',$institucion->id) }}"><i class="fa fa-fw fa-eye"></i>Ver más</a>&nbsp;
+                                            <a class="btn btn-sm btn-success" href="{{ route('institucions.edit',$institucion->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>&nbsp;
+                                            <a class="btn btn-sm btn-info" href="{{ route('lista.docentes',$institucion->codigoNit) }}"><i class="fa fa-eye"></i> Ver lista docentes</a>&nbsp;
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>&nbsp;
                                         </form>
                                     </td>
                                 </tr>

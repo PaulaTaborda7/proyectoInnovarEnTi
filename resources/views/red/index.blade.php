@@ -60,12 +60,12 @@
                                     <td><img id="imagen" src="{{ asset('storage').'/'.$red->imagen}}" width= "100"/></td>
                                     <td>
                                         <form action="{{ route('reds.destroy',$red->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('reds.show',$red->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>
-                                            <a class="btn btn-sm btn-success" href="{{ route('reds.edit',$red->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
-                                            <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital',$red->id) }}"><i class="fa fa-eye"></i> Probar RED</a>
+                                            <a class="btn btn-sm btn-primary " href="{{ route('reds.show',$red->id) }}"><i class="fa fa-fw fa-eye"></i> Ver más</a>&nbsp;
+                                            <a class="btn btn-sm btn-success" href="{{ route('reds.edit',$red->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>&nbsp;
+                                            <a class="btn btn-sm btn-info" href="{{ route('recurso.educativo.digital',$red->id) }}"><i class="fa fa-eye"></i> Probar RED</a>&nbsp;
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>&nbsp;
                                         </form>
                                     </td>
                                 </tr>
