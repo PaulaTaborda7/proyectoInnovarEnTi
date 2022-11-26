@@ -39,15 +39,15 @@
                                                 <div>
                                                     <a class="btn btn-sm btn-info"
                                                         href="{{ route('recurso.educativo.digital.Docente', $recurso->id) }}"><i
-                                                            class="fa fa-eye"></i> Probar RED</a>
+                                                            class="fa fa-eye"></i> Probar RED</a>&nbsp;
                                                 </div>
                                                 <div>
                                                     <a class="btn btn-sm btn-success"
                                                         href=" {{ route('habilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, Session::get('documentoIdentidadDocente')]) }}"><i
-                                                            class="fa fa-fw fa-edit"></i>Habilitar</a>
+                                                            class="fa fa-fw fa-edit"></i>Habilitar</a>&nbsp;
                                                     <a class="btn btn-danger btn-sm"
                                                         href="{{ route('deshabilitar.recurso.educativo.digital', ['idRed' => $recurso->redIdRed, 'idGrupo' => $idGrupo, Session::get('documentoIdentidadDocente')]) }}"><i
-                                                            class="fa fa-fw fa-trash"></i>Desahibilitar</a>
+                                                            class="fa fa-fw fa-trash"></i>Desahibilitar</a>&nbsp;
                                                 </div>
                                             </div>
                                         </div>

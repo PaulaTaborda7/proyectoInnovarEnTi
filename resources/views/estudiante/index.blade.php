@@ -13,7 +13,7 @@ Estudiante
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Estudiante') }}
+                            <b>ESTUDIANTES</b>
                         </span>
 
                         <div class="float-right">

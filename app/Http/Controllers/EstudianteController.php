@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
+use App\Models\Materia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -83,7 +84,9 @@ class EstudianteController extends Controller
         $reds_habilitados = DB::select('select reds.* from red_grupos, estudiantes, reds where red_grupos.gruIdGrupo = estudiantes.gruIdCurso
         and red_grupos.redIdRed = reds.redIdRed and red_grupos.habilitado = 1');
 
-        return view('estudiante.catalogoRecursosHabilitados', compact('reds_habilitados'));
+        $tematicas = Materia::all();
+
+        return view('estudiante.catalogoRecursosHabilitados', compact('reds_habilitados', 'tematicas'));
     }
 
 

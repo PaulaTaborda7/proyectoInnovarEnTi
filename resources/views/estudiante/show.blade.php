@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Ver información de estudiante</span>
+                            <span class="card-title"><b>Información detallada del estudiante</b></span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('estudiantes.index') }}"> Volver</a>
