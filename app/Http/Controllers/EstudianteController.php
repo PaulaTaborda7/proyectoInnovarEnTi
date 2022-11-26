@@ -57,15 +57,15 @@ class EstudianteController extends Controller
         $pro = $estudiante->estPromedio;
 
         
-        if($pro<2){
-            $mensaje = "el promedio es menor que 2";
+        if($pro<3){
+            $mensaje = "el promedio de las notas no es el esperado, se recomienda tener un acompañamiento constante y la implementación de nuevos hábitos de estudio. Con un poco de esfuerzo y perseverancia se puede alcanzar el exito.";
         }
         else{
-            if($pro==2 || $pro<3){
-                $mensaje = "esta entre 2 y 2.9";
+            if($pro==3 || $pro<4){
+                $mensaje = "el promedio de las notas es bueno, se recomienda tener un acompañamiento constante, las notas pueden mejorar. Hoy se debe ser mejor que ayer, mañana se debe ser mejor que hoy.";
             }else{
-                if($pro==3 || $pro<=4){
-                    $mensaje = "esta entre 3 y 4";
+                if($pro==4 || $pro<=5){
+                    $mensaje = "¡¡FELICITACIONES!!, el promedio de las notas es admirable, se debe continuar con el proceso de acompañamiento. Grandes esfuerzos conllevan a grandes logros.";
                 }   
             }
         }
