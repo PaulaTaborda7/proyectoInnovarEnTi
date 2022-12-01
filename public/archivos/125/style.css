@@ -1,0 +1,82 @@
+#body{
+    background-color: #f6f2f2;
+    background-repeat: repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: 10px;
+    width: 100px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#titulo{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: black;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#palabra{
+    font-family: 'Roboto', sans-serif;
+    font-size: 80px;
+    color: black;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}	
+
+#imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    width: 10px;
+    height: 20px;
+}
+
+#input{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputNumero{
+    width: 100px;
+    height: 30px;
+    font-size: 1.5em;
+    text-align: center;
+    margin-left: 10px;
+}
+
+#opcion{
+    font-size: large;
+
+}	
+
+#botonEnviar{
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.contenedor{
+	width: 630px;
+	max-width: 630px;
+	height: 430px;
+	max-height: 430px;
+	font-family: sans-serif;
+	text-align: center;
+	overflow: hidden;
+}

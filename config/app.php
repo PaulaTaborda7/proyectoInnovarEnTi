@@ -194,6 +194,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //Libreria para la generación de PDF
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
     ],
 

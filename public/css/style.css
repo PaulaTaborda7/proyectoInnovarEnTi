@@ -1,0 +1,75 @@
+#titulo_navbar {
+    font-family: "Lobster", cursive;
+    font-size: 60px;
+    color: #fff;
+    margin-top: 10px;
+    margin-left: 40px;
+    text-shadow: 0 0 8px black; /*borde de fuente en css*/
+}
+
+#titulo_card{
+    font-family: 'Trebuchet MS', cursive;
+    font-size: 40px;
+    text-shadow: 0 0 8px black;
+}
+
+.texto_boton_perfil {
+    border-radius: 5px;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+    font-family: "Lobster", cursive;
+    text-shadow: 0 0 8px black; /*borde de fuente en css*/
+}
+
+/*Para la segunda publicidad*/
+#info1{
+    margin-top: 35px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#publicidad1{
+    width: 100%;
+    height: 30%;
+}
+/*******************************/
+
+
+/*Contenedor para el texto de bienvenida*/
+#contenedor_texto_bienvenida{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#texto_bienvenida {
+    font-family: "Arial";
+    font-size: 20px;
+    text-shadow: 0 0 1px black;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+}
+/***************************************/
+
+
+#card_opciones_admin{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#card_opciones_docente{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+#card_opciones_estudiante{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
