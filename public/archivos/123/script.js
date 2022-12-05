@@ -1,5 +1,7 @@
 
 
+var respuestaCorrectaDelInput = 'frutos';
+
 function mostrarContinuar() {
 	document.getElementById('continuar').style.display = "block";
 }
