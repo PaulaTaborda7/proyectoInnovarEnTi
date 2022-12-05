@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+	<title>Actividad Ciencias Naturales - Partes de la Planta</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
+
 <body>
-    <div class="container" id="body">
-        <div class="container">
-            <h1 id="titulo">Cuántas sílabas tiene la palabra:</h1>
-            <h1 id="palabra">Murciélago</h1>
-        </div>
-        <div class="container" id="imagen">
-            <img src="murcielago.png" alt="Foto de un Murciélago" >
-        </div>
-    
-        <div class="container" id="input">
-            <label for="opcion" id="opcion">Ingrese la opción:   </label>
-            <input type="number" id="inputNumero">
-            <br>
-            <button onclick="verificarValor()" id="botonEnviar">Resolver</button>
-        </div>
-    </div>
+	<div class="contenedor">
+		<div class="titulo">
+			<h3>Escribe el nombre de la parte de la planta que se señala <br> con el signo ?</h3>
+		<div class="imagen">
+			<img id = "imagen_actividad" src="actividad_ciencias.png" alt="imagen">
+		</div>
+		<input id="respuesta" type="text" autofocus onchange="calificarRespuesta()" />
+		<div id="continuar">
+			<button id="btn-continuar">Finalizar</button>
+		</div>
+		<div id="sonido">
+			<a href="#" onclick="sonido()"><img id = "imagenSonido" src="botonAudio.png" alt="sonido"></a>
+			<audio id = "audio" controls hidden = "true">
+				<source src="sonido.m4a" type="audio/mpeg" >
+			</audio>
+		</div>
+	</div>
+	<script src="script.js"></script>
 </body>
-<script src="funciones.js"></script>
+
 </html>

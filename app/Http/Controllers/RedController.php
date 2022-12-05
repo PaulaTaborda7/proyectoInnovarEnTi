@@ -105,7 +105,7 @@ class RedController extends Controller
             'imagen' => $request['imagen'],
         ]);
         if ($request->has('files')) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4'];
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4','m4a'];
             $files = $request->file('files');
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
@@ -244,7 +244,7 @@ class RedController extends Controller
             //     $fileName = $file->getClientOriginalName();
             //     $file->storeAs('public/archivos/'.$id, $fileName);
             // }
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4'];
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx', 'css', 'js', 'html', 'txt', 'mp3', 'mp4','m4a'];
             $files = $request->file('files');
             foreach ($files as $file) {
                 $fileName = $file->getClientOriginalName();
