@@ -1,45 +1,48 @@
-#body{
-    background-color: #f6f2f2;
-    background-repeat: repeat;
-    background-position: center top;
-    background-attachment: fixed;
-    background-size: 10px;
-    width: 1200px;
-    height: 800px;
-    margin: 0 auto;
-    padding: 0;
+body{
+	overflow: hidden;
+}
+
+.contenedor{
+	width: 800px;
+	max-width: 800px;
+	height: 500px;
+	max-height: 500px;
+	font-family: sans-serif;
+	text-align: center;
+	overflow: hidden;
 }
 
 #titulo{
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
-    color: black;
+    font-size: 25px;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #palabra{
     font-family: 'Roboto', sans-serif;
-    font-size: 80px;
+    font-size: 25px;
     color: black;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
 }	
 
-#imagen{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.imagen{
+	position: absolute;
+	top:60px;
+	left:160px;
+	
+}
+
+#imagen_actividad{
+	height: 300px;
 }
 
 #input{
-    margin-top: 40px;
+    margin-top: 325px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +54,7 @@
     font-size: 1.5em;
     text-align: center;
     margin-left: 10px;
+    border:3px solid #000000;
 }
 
 #opcion{
